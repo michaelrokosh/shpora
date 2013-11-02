@@ -1,0 +1,12 @@
+= form_for @page do |f|
+  %p
+    = f.label :title
+    = f.text_field :title
+  %p
+    = f.label :content
+    = f.text_area :content
+  %p
+    = f.label :url
+    = f.text_field :url
+  %p
+    = f.submit "New page"
