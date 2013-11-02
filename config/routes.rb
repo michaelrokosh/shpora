@@ -1,9 +1,14 @@
 Shpora::Application.routes.draw do
   devise_for :users, path_names:  { sign_up: 'sign_up', sign_in: 'sign_in', sign_out: 'sign_out' }
   root "home#index"
-  resources :users, path: '' do
-    resources :pages, path: '', :only => [:show, :new]
+  resources :pages, :only => [:new, :index, :create, :update]
+  resources :users, path: '', :only => [:show]
+  resources :users, :only => [:create, :update], path: '' do
+    resources :pages, path: '', :only => [:show]
   end
+
+
+   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

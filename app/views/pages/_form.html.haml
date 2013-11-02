@@ -1,12 +1,17 @@
 = form_for @page do |f|
   %p
+    = f.hidden_field :user_id, :value => current_user.id
     = f.label :title
+    %br
     = f.text_field :title
   %p
     = f.label :content
+    %br
     = f.text_area :content
   %p
     = f.label :url
+    %br
     = f.text_field :url
   %p
+    %br
     = f.submit "New page"

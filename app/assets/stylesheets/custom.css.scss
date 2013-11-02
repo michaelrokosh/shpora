@@ -1,0 +1,38 @@
+$lightGrey: #999;
+
+header {
+  h1 {
+    font-size: 5em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  ul {
+    text-align: center;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+h2 {
+  font-size: 0.7em;
+  letter-spacing: -1px;
+  text-align: center;
+  font-weight: normal;
+  color: $lightGrey;
+}
+
+.center {
+    text-align: center;
+    width: 50%;
+    margin: 70px auto;
+}
+
+.page_content {
+  text-align: center;
+  width: 80%;
+  margin: 70px auto;
+}

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :pages
 
-
+  def to_param
+    username
+  end
   
 end

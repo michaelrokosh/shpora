@@ -1,0 +1,8 @@
+.center
+  %h1 
+    = @user.username+"'s pages:"
+    .user_pages
+      - @user.pages.each do |page|
+        %h2
+          = link_to page.title, page
+          %hr
