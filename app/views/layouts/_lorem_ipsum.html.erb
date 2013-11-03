@@ -1,0 +1,337 @@
+How To: Change the default sign_in and sign_out routes
+
+  When you are using only one role with Devise you may want to change the sign in and sign out routes to /login and /logout (instead of /users/sign_in and /users/sign_out).
+
+  This does not work by default because Devise inspects the URL to find which scope you are accessing. So when it sees "/users/login", it knows the scope is "user", however, when you access "/login", Devise cannot know which scope it should use. Luckily, Devise provides a mechanism to specify a default scope, allowing us to have short URLs.
+
+  Steps for Rails 3.0.0 forward
+
+  All you need to do is to specify in your routes the devise_scope being accessed in that URL:
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Since devise_scope is aliased to as, this is equivalent:
+
+  as :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Similarly for sign_out:
+
+  devise_scope :user do
+    delete "/logout" => "devise/sessions#destroy"
+  end
+  Note that you can skip all sessions routes and define only your own using the skip option as below:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  This way :authenticate_user! and other helpers will be redirecting the user to the proper custom pages you defined.
+
+  Note that if you are making use of the :sign_out_via configuration option, then the 'signout' action above may cause errors. You can duplicate the default behavior (which changes from delete to get based on :sign_out_via) by specifying:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
+  Another simple way to do the same thing
+
+  The devise_for method has a lot of optional parameters to make things easier. If you just want to remove the “users” namespace before all the routes and rename “sign_in”, “sign_out” to “login”, “logout”. Try this way:
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  if you want to use multiple Devise controllers (like passwords) you should still use the first way.
+  Last edited by Patrick Kang, a month agoHow To: Change the default sign_in and sign_out routes
+
+  When you are using only one role with Devise you may want to change the sign in and sign out routes to /login and /logout (instead of /users/sign_in and /users/sign_out).
+
+  This does not work by default because Devise inspects the URL to find which scope you are accessing. So when it sees "/users/login", it knows the scope is "user", however, when you access "/login", Devise cannot know which scope it should use. Luckily, Devise provides a mechanism to specify a default scope, allowing us to have short URLs.
+
+  Steps for Rails 3.0.0 forward
+
+  All you need to do is to specify in your routes the devise_scope being accessed in that URL:
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Since devise_scope is aliased to as, this is equivalent:
+
+  as :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Similarly for sign_out:
+
+  devise_scope :user do
+    delete "/logout" => "devise/sessions#destroy"
+  end
+  Note that you can skip all sessions routes and define only your own using the skip option as below:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  This way :authenticate_user! and other helpers will be redirecting the user to the proper custom pages you defined.
+
+  Note that if you are making use of the :sign_out_via configuration option, then the 'signout' action above may cause errors. You can duplicate the default behavior (which changes from delete to get based on :sign_out_via) by specifying:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
+  Another simple way to do the same thing
+
+  The devise_for method has a lot of optional parameters to make things easier. If you just want to remove the “users” namespace before all the routes and rename “sign_in”, “sign_out” to “login”, “logout”. Try this way:
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  if you want to use multiple Devise controllers (like passwords) you should still use the first way.
+  Last edited by Patrick Kang, a month agoHow To: Change the default sign_in and sign_out routes
+
+  When you are using only one role with Devise you may want to change the sign in and sign out routes to /login and /logout (instead of /users/sign_in and /users/sign_out).
+
+  This does not work by default because Devise inspects the URL to find which scope you are accessing. So when it sees "/users/login", it knows the scope is "user", however, when you access "/login", Devise cannot know which scope it should use. Luckily, Devise provides a mechanism to specify a default scope, allowing us to have short URLs.
+
+  Steps for Rails 3.0.0 forward
+
+  All you need to do is to specify in your routes the devise_scope being accessed in that URL:
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Since devise_scope is aliased to as, this is equivalent:
+
+  as :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Similarly for sign_out:
+
+  devise_scope :user do
+    delete "/logout" => "devise/sessions#destroy"
+  end
+  Note that you can skip all sessions routes and define only your own using the skip option as below:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  This way :authenticate_user! and other helpers will be redirecting the user to the proper custom pages you defined.
+
+  Note that if you are making use of the :sign_out_via configuration option, then the 'signout' action above may cause errors. You can duplicate the default behavior (which changes from delete to get based on :sign_out_via) by specifying:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
+  Another simple way to do the same thing
+
+  The devise_for method has a lot of optional parameters to make things easier. If you just want to remove the “users” namespace before all the routes and rename “sign_in”, “sign_out” to “login”, “logout”. Try this way:
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  if you want to use multiple Devise controllers (like passwords) you should still use the first way.
+  Last edited by Patrick Kang, a month agoHow To: Change the default sign_in and sign_out routes
+
+  When you are using only one role with Devise you may want to change the sign in and sign out routes to /login and /logout (instead of /users/sign_in and /users/sign_out).
+
+  This does not work by default because Devise inspects the URL to find which scope you are accessing. So when it sees "/users/login", it knows the scope is "user", however, when you access "/login", Devise cannot know which scope it should use. Luckily, Devise provides a mechanism to specify a default scope, allowing us to have short URLs.
+
+  Steps for Rails 3.0.0 forward
+
+  All you need to do is to specify in your routes the devise_scope being accessed in that URL:
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Since devise_scope is aliased to as, this is equivalent:
+
+  as :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Similarly for sign_out:
+
+  devise_scope :user do
+    delete "/logout" => "devise/sessions#destroy"
+  end
+  Note that you can skip all sessions routes and define only your own using the skip option as below:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  This way :authenticate_user! and other helpers will be redirecting the user to the proper custom pages you defined.
+
+  Note that if you are making use of the :sign_out_via configuration option, then the 'signout' action above may cause errors. You can duplicate the default behavior (which changes from delete to get based on :sign_out_via) by specifying:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
+  Another simple way to do the same thing
+
+  The devise_for method has a lot of optional parameters to make things easier. If you just want to remove the “users” namespace before all the routes and rename “sign_in”, “sign_out” to “login”, “logout”. Try this way:
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  if you want to use multiple Devise controllers (like passwords) you should still use the first way.
+  Last edited by Patrick Kang, a month agoHow To: Change the default sign_in and sign_out routes
+
+  When you are using only one role with Devise you may want to change the sign in and sign out routes to /login and /logout (instead of /users/sign_in and /users/sign_out).
+
+  This does not work by default because Devise inspects the URL to find which scope you are accessing. So when it sees "/users/login", it knows the scope is "user", however, when you access "/login", Devise cannot know which scope it should use. Luckily, Devise provides a mechanism to specify a default scope, allowing us to have short URLs.
+
+  Steps for Rails 3.0.0 forward
+
+  All you need to do is to specify in your routes the devise_scope being accessed in that URL:
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Since devise_scope is aliased to as, this is equivalent:
+
+  as :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Similarly for sign_out:
+
+  devise_scope :user do
+    delete "/logout" => "devise/sessions#destroy"
+  end
+  Note that you can skip all sessions routes and define only your own using the skip option as below:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  This way :authenticate_user! and other helpers will be redirecting the user to the proper custom pages you defined.
+
+  Note that if you are making use of the :sign_out_via configuration option, then the 'signout' action above may cause errors. You can duplicate the default behavior (which changes from delete to get based on :sign_out_via) by specifying:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
+  Another simple way to do the same thing
+
+  The devise_for method has a lot of optional parameters to make things easier. If you just want to remove the “users” namespace before all the routes and rename “sign_in”, “sign_out” to “login”, “logout”. Try this way:
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  if you want to use multiple Devise controllers (like passwords) you should still use the first way.
+  Last edited by Patrick Kang, a month agoHow To: Change the default sign_in and sign_out routes
+
+  When you are using only one role with Devise you may want to change the sign in and sign out routes to /login and /logout (instead of /users/sign_in and /users/sign_out).
+
+  This does not work by default because Devise inspects the URL to find which scope you are accessing. So when it sees "/users/login", it knows the scope is "user", however, when you access "/login", Devise cannot know which scope it should use. Luckily, Devise provides a mechanism to specify a default scope, allowing us to have short URLs.
+
+  Steps for Rails 3.0.0 forward
+
+  All you need to do is to specify in your routes the devise_scope being accessed in that URL:
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Since devise_scope is aliased to as, this is equivalent:
+
+  as :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Similarly for sign_out:
+
+  devise_scope :user do
+    delete "/logout" => "devise/sessions#destroy"
+  end
+  Note that you can skip all sessions routes and define only your own using the skip option as below:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  This way :authenticate_user! and other helpers will be redirecting the user to the proper custom pages you defined.
+
+  Note that if you are making use of the :sign_out_via configuration option, then the 'signout' action above may cause errors. You can duplicate the default behavior (which changes from delete to get based on :sign_out_via) by specifying:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
+  Another simple way to do the same thing
+
+  The devise_for method has a lot of optional parameters to make things easier. If you just want to remove the “users” namespace before all the routes and rename “sign_in”, “sign_out” to “login”, “logout”. Try this way:
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  if you want to use multiple Devise controllers (like passwords) you should still use the first way.
+  Last edited by Patrick Kang, a month agoHow To: Change the default sign_in and sign_out routes
+
+  When you are using only one role with Devise you may want to change the sign in and sign out routes to /login and /logout (instead of /users/sign_in and /users/sign_out).
+
+  This does not work by default because Devise inspects the URL to find which scope you are accessing. So when it sees "/users/login", it knows the scope is "user", however, when you access "/login", Devise cannot know which scope it should use. Luckily, Devise provides a mechanism to specify a default scope, allowing us to have short URLs.
+
+  Steps for Rails 3.0.0 forward
+
+  All you need to do is to specify in your routes the devise_scope being accessed in that URL:
+
+  devise_scope :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Since devise_scope is aliased to as, this is equivalent:
+
+  as :user do
+    get "/login" => "devise/sessions#new"
+  end
+  Similarly for sign_out:
+
+  devise_scope :user do
+    delete "/logout" => "devise/sessions#destroy"
+  end
+  Note that you can skip all sessions routes and define only your own using the skip option as below:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    delete 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+  This way :authenticate_user! and other helpers will be redirecting the user to the proper custom pages you defined.
+
+  Note that if you are making use of the :sign_out_via configuration option, then the 'signout' action above may cause errors. You can duplicate the default behavior (which changes from delete to get based on :sign_out_via) by specifying:
+
+  devise_for :users, :skip => [:sessions]
+  as :user do
+    get 'signin' => 'devise/sessions#new', :as => :new_user_session
+    post 'signin' => 'devise/sessions#create', :as => :user_session
+    match 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session,
+      :via => Devise.mappings[:user].sign_out_via
+  end
+  Another simple way to do the same thing
+
+  The devise_for method has a lot of optional parameters to make things easier. If you just want to remove the “users” namespace before all the routes and rename “sign_in”, “sign_out” to “login”, “logout”. Try this way:
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  if you want to use multiple Devise controllers (like passwords) you should still use the first way.
+  Last edited by Patrick Kang, a month ago
