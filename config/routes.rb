@@ -1,5 +1,5 @@
 Shpora::Application.routes.draw do
-  devise_for :users, path_names:  { sign_up: 'sign_up', sign_in: 'sign_in', sign_out: 'sign_out' }
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
   root "home#index"
   resources :pages, :only => [:new, :index, :create, :update]
   resources :users, path: '', :only => [:show]
