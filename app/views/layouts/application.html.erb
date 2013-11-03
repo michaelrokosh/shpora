@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Shpora</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no">
 </head>
   <body>
-    <div class="container">  
-      <div class="col-xs-12 col-sm-6 col-md-8">
+      <div class="col-xs-12 col-sm-10 col-md-10">
         <%= render 'layouts/header' %>
         <div class="starter-template">  
           <%= yield %>
@@ -15,6 +15,5 @@
         <%= render 'layouts/lorem_ipsum' %>
         <%= debug(params) if Rails.env.development? %>
       </div> 
-    </div> 
   </body>
 </html>
