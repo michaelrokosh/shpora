@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no">
 </head>
   <body>
+    <div class="background">
       <div class="col-xs-12 col-sm-10 col-md-10">
         <%= render 'layouts/header' %>
         <div class="starter-template">  
@@ -15,5 +16,6 @@
         </div>
         <%= debug(params) if Rails.env.development? %>
       </div> 
+    </div>
   </body>
 </html>
