@@ -8,14 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" user-scalable="no">
 </head>
   <body>
-    <div class="background">
-      <%= render 'layouts/header' %>
-      <div class="col-xs-12 col-sm-10 col-md-10">
-        <div class="starter-template">  
-          <%= yield %>
-        </div>
-        <%= debug(params) if Rails.env.development? %>
-      </div> 
-    </div>
+    <%= render 'layouts/header' %>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="starter-template">  
+        <%= yield %>
+      </div>
+      <%= debug(params) if Rails.env.development? %>
+    </div> 
   </body>
 </html>

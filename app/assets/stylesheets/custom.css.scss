@@ -32,12 +32,15 @@ header {
   width: 85%;
 }
 */
-.background {
-  width: 100%;
+body {
+  font-family: Arial;
+  color: #333333;
+  padding: 10px 0px;
+  margin: 0px;
 }
 
-.col-xs-12 .col-sm-6 .col-md-8 {
-
+.col-xs-12, .col-sm-12, .col-md-12 {
+  padding: 0% 10%;
 }
 
 h2 {
