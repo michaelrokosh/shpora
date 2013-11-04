@@ -1,8 +1,9 @@
-.center
-  %h1 
-    = @user.username+"'s pages:"
-    .user_pages
-      - @user.pages.each do |page|
-        %h2
-          = link_to page.title, page
-          %hr
+%h1 
+  = @user.username+"'s pages:"
+.user_pages
+  - @user.pages.each do |page|
+    %h2
+      = link_to page.title, page
+    = link_to 'edit', edit_page_path(page)
+    = link_to 'delete', page_path(page), method: :delete, data: { confirm: 'Are you sure?' }
+    %hr

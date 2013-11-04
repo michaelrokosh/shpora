@@ -1,7 +1,7 @@
 Shpora::Application.routes.draw do
   root "home#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :pages, :only => [:new, :index, :create, :update]
+  resources :pages, :only => [:new, :index, :create, :update, :edit, :destroy]
   resources :users, :only => [:show], path: '' do
     resources :pages, path: '', :only => [:show]
   end

@@ -1,17 +1,26 @@
 = form_for @page do |f|
+  - if @page.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@page.errors.count, "error")
+        prohibited
+        this page from being saved:
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
   %p
     = f.hidden_field :user_id, :value => current_user.id
     = f.label :title
     %br
-    = f.text_field :title
+    = f.text_field :title, class: 'form-control'
   %p
     = f.label :content
     %br
-    = f.text_area :content
+    = f.text_area :content, class: 'form-control'
   %p
     = f.label :url
     %br
-    = f.text_field :url
+    = f.text_field :url, class: 'form-control'
   %p
     %br
-    = f.submit "New page"
+    = f.submit "Submit", class: 'btn btn-default'
