@@ -15,4 +15,10 @@
 
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales
+$(document).ready(function(){
 
+          $('.editor').each(function(i, elem) {
+            $(elem).wysihtml5();
+          });
+
+        })

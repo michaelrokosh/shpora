@@ -1,13 +1,3 @@
-%textarea#some-textarea.wysihtml5{placeholder: "Enter text ..."}
-:javascript
-  $(document).ready(function(){
-
-    $('.wysihtml5').each(function(i, elem) {
-      $(elem).wysihtml5();
-    });
-
-  })
-
 = form_for @page do |f|
   - if @page.errors.any?
     #error_explanation
@@ -24,9 +14,8 @@
     %br
     = f.text_field :title, class: 'form-control'
   %p
-    = f.label :content
+    = f.text_area :content, class: 'editor'
     %br
-    = f.text_area :content, class: 'form-control'
   %p
     = f.label :url
     %br
