@@ -33,6 +33,8 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-wysihtml5-rails (0.3.1.23)
+      railties (>= 3.0)
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -52,6 +54,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    font-awesome-rails (3.2.1.3)
+      railties (>= 3.2, < 5.0)
     haml (4.0.3)
       tilt
     hike (1.2.3)
@@ -146,8 +150,10 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bootstrap-wysihtml5-rails
   coffee-rails (~> 4.0.0)
   devise
+  font-awesome-rails (= 3.2.1.3)
   haml
   jbuilder (~> 1.2)
   jquery-rails

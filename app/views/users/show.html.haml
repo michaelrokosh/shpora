@@ -3,7 +3,7 @@
 .user_pages
   - @user.pages.each do |page|
     %h2
-      = link_to page.title, page
+      = link_to page.title, user_page_path(@user, page)
     = link_to 'edit', edit_page_path(page)
-    = link_to 'delete', page_path(page), method: :delete, data: { confirm: 'Are you sure?' }
+    = link_to 'delete', user_page_path(@user, page), method: :delete, data: { confirm: 'Are you sure?' }
     %hr
