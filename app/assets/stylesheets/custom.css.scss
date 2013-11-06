@@ -61,12 +61,14 @@ img {
 }
 
 .title {
-  text-align: center;
+  text-align: left;
 }
 
 /* Text Editor */
-textarea {
-  width: 100%;
-  height: 200px;
+.wysihtml5-sandbox {
+  width: 50%;
+  height: 100px;
   margin-bottom: 10px;
+  resize: vertical;
 }
+

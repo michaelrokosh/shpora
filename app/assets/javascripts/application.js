@@ -15,10 +15,21 @@
 
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales
+//= require bootstrap/dropdown
+//= require bootstrap/modal
+//= require bootstrap/alert
 $(document).ready(function(){
 
-          $('.editor').each(function(i, elem) {
-            $(elem).wysihtml5();
-          });
+	$('.editor').each(function(i, elem) {
+	    $(elem).wysihtml5({
+			"font-styles": true, 
+			"emphasis": true,
+			"lists": true, 
+			"html": false, 
+			"link": true, 
+			"image": true, 
+			"color": true 
+		});
+	});
 
-        })
+})

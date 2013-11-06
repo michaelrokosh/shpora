@@ -14,12 +14,15 @@
     %br
     = f.text_field :title, class: 'form-control'
   %p
-    = f.text_area :content, class: 'editor'
-    %br
+    = f.text_area :content, class: 'form-control editor'
+
   %p
     = f.label :url
     %br
-    = f.text_field :url, class: 'form-control'
+    .input-group
+      %span.input-group-addon
+        = "shpora.com/" + current_user.username + "/"
+      = f.text_field :url, class: 'form-control'
   %p
     %br
     = f.submit "Submit", class: 'btn btn-default'
