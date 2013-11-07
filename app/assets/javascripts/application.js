@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require trunk/trunk
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales
 //= require bootstrap/dropdown
