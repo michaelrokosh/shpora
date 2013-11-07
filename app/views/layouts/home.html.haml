@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Shpora
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
+  %body
+    .col-xs-12.col-sm-12.col-md-12
+      .shpora_main
+        %header
+          %nav.navbar-fixed-top
+            - if user_signed_in?
+              %ul
+                %li= link_to current_user.username, user_path(current_user)
+                %li= link_to 'logout', destroy_user_session_path, :method => :delete
+                %li= link_to 'new page', new_page_path(@page)
+            - else
+              %ul
+                %li= link_to 'login', new_user_session_path
+                %li= link_to 'register', new_user_registration_path   
+          %h1
+            = link_to "shpora.me", root_path, id: "logo"
+        %footer
+          %hr
+          = link_to 'Shpora.me', root_path

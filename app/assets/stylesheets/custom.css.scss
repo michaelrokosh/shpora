@@ -17,10 +17,13 @@ header {
       margin: 0 auto;
       width: 80%;
       li {
+        font-size: 1.3em;
         display: inline;
-        margin-right: 15px;
+        margin-right: 10px;
+        color: $lightGrey;
         &:last-of-type {
           margin: 0;
+          font-size: 1.2em;
         }
       }
     }
@@ -39,8 +42,17 @@ body {
   margin: 0px;
 }
 
-.col-xs-12 {
+.col-xs-12, .col-sm-12 {
   padding: 0% 5%;
+  h1 {
+    font-size: 5em;
+  }
+}
+
+.col-md-12 {
+  h1 {
+    font-size: 2em;
+  }
 }
 
 h2 {
@@ -72,3 +84,19 @@ img {
   resize: vertical;
 }
 
+.shpora_main {
+  margin: 10% auto;
+  h1 {
+    font-size: 3.5em;
+  }
+}
+
+.close_nav {
+  i {
+    cursor: pointer;
+    color: #428bca;
+    &:hover {
+      color: #2a6496;
+    }
+  }
+}

@@ -38,7 +38,7 @@ gem 'devise'
 gem "therubyracer"
 gem "less-rails"
 gem 'bootstrap-wysihtml5-rails' # text editor
-gem 'font-awesome-rails', '3.2.1.3'
+gem 'font-awesome-rails'
 
 group :production do
   gem 'rails_12factor'

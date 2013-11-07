@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require trunk/trunk
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales
 //= require bootstrap/dropdown
@@ -33,3 +32,9 @@ $(document).ready(function(){
 	});
 
 })
+
+$(function() {
+  $('.close_nav').click(function() {
+    $('.navbar-fixed-top').css('position', 'static');
+  });
+});
