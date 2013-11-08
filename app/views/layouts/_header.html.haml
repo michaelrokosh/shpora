@@ -1,22 +1,21 @@
 %header
   //%nav.navbar-fixed-top
-  .nav-bar
-    .btn.nav-slider
-      %i.fa.fa-bars
-    %a.nav-brand
-      shpora.me
-  %nav.navigation
-    - if user_signed_in?
-      %ul
-        %li= link_to current_user.username, user_path(current_user)
-        %li= link_to 'logout', destroy_user_session_path, :method => :delete
-        %li= link_to 'new page', new_page_path(@page)
-        %li= "|"
-        %li.close_nav
-          %i.fa.fa-times-circle-o
-    - else
-      %ul
-        %li= link_to 'login', new_user_session_path
-        %li= link_to 'register', new_user_registration_path   
-  %h1
-    = link_to "shpora", root_path, id: "logo"
+  .fixed-nav
+    .nav-bar
+      .btn.nav-slider
+        %i.fa.fa-bars
+      %a.nav-brand
+        shpora.me
+    %nav.navigation
+      - if user_signed_in?
+        %ul
+          %li= link_to current_user.username, user_path(current_user)
+          %li= link_to 'logout', destroy_user_session_path, :method => :delete
+          %li= link_to 'new page', new_page_path(@page)
+          %li= "|"
+          %li.close_nav
+            %i.fa.fa-times-circle-o
+      - else
+        %ul
+          %li= link_to 'login', new_user_session_path
+          %li= link_to 'register', new_user_registration_path   
