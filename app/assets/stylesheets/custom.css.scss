@@ -94,15 +94,6 @@ img {
   }
 }
 
-.close_nav {
-  i {
-    cursor: pointer;
-    color: #428bca;
-    &:hover {
-      color: #2a6496;
-    }
-  }
-}
 .fixed-nav {
   position: fixed;
   width: 100%;
@@ -122,12 +113,16 @@ img {
     a {
       text-decoration: none;
     }
-    .nav-slider {
+    .nav-slider, .close-nav {
       color: #fff;
       position: absolute;
       font-size: 25px;
       padding: 9px 12px;
       line-height: 30px;
+    }
+    .close-nav {
+      top: 0;
+      right: 0;
     }
   }
 }

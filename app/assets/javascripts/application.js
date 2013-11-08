@@ -34,8 +34,14 @@ $(document).ready(function(){
 })
 
 $(function() {
-  $('.close_nav').click(function() {
-    $('.navbar-fixed-top').css('position', 'static');
+  $('.close-nav').click(function() {
+  	if ( $( "#lock-unlock" ).hasClass( "fa-lock" ) ) {
+	    $('.fixed-nav').css('position', 'static');
+	    $("#lock-unlock").toggleClass('fa-lock fa-unlock');
+	} else {
+		$('.fixed-nav').css('position', 'fixed');
+	    $("#lock-unlock").toggleClass('fa-unlock fa-lock');
+	}
   });
 });
 

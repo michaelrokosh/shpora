@@ -6,15 +6,14 @@
         %i.fa.fa-bars
       %a.nav-brand
         shpora.me
+      .btn.close-nav
+        %i#lock-unlock.fa.fa-lock
     %nav.navigation
       - if user_signed_in?
         %ul
           %li= link_to current_user.username, user_path(current_user)
           %li= link_to 'logout', destroy_user_session_path, :method => :delete
           %li= link_to 'new page', new_page_path(@page)
-          %li= "|"
-          %li.close_nav
-            %i.fa.fa-times-circle-o
       - else
         %ul
           %li= link_to 'login', new_user_session_path
