@@ -38,3 +38,13 @@ $(function() {
     $('.navbar-fixed-top').css('position', 'static');
   });
 });
+
+$(function() {
+	$( '.nav-slider' ).click(function () {
+	  if ( $( ".navigation" ).is( ":hidden" ) ) {
+	    $( ".navigation" ).slideDown( "slow" );
+	  } else {
+	    $( ".navigation" ).hide();
+	  }
+	});
+});

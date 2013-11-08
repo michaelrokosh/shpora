@@ -3,8 +3,7 @@
   .nav-bar
     .btn.nav-slider
       %i.fa.fa-bars
-    %a.nav-brand
-      shpora.me
+    = link_to "shpora", root_path, { class: "nav-brand" }
   %nav.navigation
     - if user_signed_in?
       %ul
