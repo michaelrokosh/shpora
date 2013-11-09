@@ -1,0 +1,65 @@
+#alerts
+.btn-toolbar{"data-role" => "editor-toolbar", "data-target" => "#editor"}
+  .btn-group
+    %a.btn.dropdown-toggle{"data-toggle" => "dropdown", title: "Font"}
+      %i.icon-font
+      %b.caret
+    %ul.dropdown-menu
+  .btn-group
+    %a.btn.dropdown-toggle{"data-toggle" => "dropdown", title: "Font Size"}
+      %i.icon-text-height
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        %a{"data-edit" => "fontSize 5"}
+          %font{size: "5"} Huge
+      %li
+        %a{"data-edit" => "fontSize 3"}
+          %font{size: "3"} Normal
+      %li
+        %a{"data-edit" => "fontSize 1"}
+          %font{size: "1"} Small
+  .btn-group
+    %a.btn{"data-edit" => "bold", title: "Bold (Ctrl/Cmd+B)"}
+      %i.icon-bold
+    %a.btn{"data-edit" => "italic", title: "Italic (Ctrl/Cmd+I)"}
+      %i.icon-italic
+    %a.btn{"data-edit" => "strikethrough", title: "Strikethrough"}
+      %i.icon-strikethrough
+    %a.btn{"data-edit" => "underline", title: "Underline (Ctrl/Cmd+U)"}
+      %i.icon-underline
+  .btn-group
+    %a.btn{"data-edit" => "insertunorderedlist", title: "Bullet list"}
+      %i.icon-list-ul
+    %a.btn{"data-edit" => "insertorderedlist", title: "Number list"}
+      %i.icon-list-ol
+    %a.btn{"data-edit" => "outdent", title: "Reduce indent (Shift+Tab)"}
+      %i.icon-indent-left
+    %a.btn{"data-edit" => "indent", title: "Indent (Tab)"}
+      %i.icon-indent-right
+  .btn-group
+    %a.btn{"data-edit" => "justifyleft", title: "Align Left (Ctrl/Cmd+L)"}
+      %i.icon-align-left
+    %a.btn{"data-edit" => "justifycenter", title: "Center (Ctrl/Cmd+E)"}
+      %i.icon-align-center
+    %a.btn{"data-edit" => "justifyright", title: "Align Right (Ctrl/Cmd+R)"}
+      %i.icon-align-right
+    %a.btn{"data-edit" => "justifyfull", title: "Justify (Ctrl/Cmd+J)"}
+      %i.icon-align-justify
+  .btn-group
+    %a.btn.dropdown-toggle{"data-toggle" => "dropdown", title: "Hyperlink"}
+      %i.icon-link
+    .dropdown-menu.input-append
+      %input.span2{"data-edit" => "createLink", placeholder: "URL", type: "text"}/
+      %button.btn{type: "button"} Add
+    %a.btn{"data-edit" => "unlink", title: "Remove Hyperlink"}
+      %i.icon-cut
+  .btn-group
+    %a#pictureBtn.btn{title: "Insert picture (or just drag  drop)"}
+      %i.icon-picture
+    %input{"data-edit" => "insertImage", "data-role" => "magic-overlay", "data-target" => "#pictureBtn", type: "file"}/
+  .btn-group
+    %a.btn{"data-edit" => "undo", title: "Undo (Ctrl/Cmd+Z)"}
+      %i.icon-undo
+    %a.btn{"data-edit" => "redo", title: "Redo (Ctrl/Cmd+Y)"}
+      %i.icon-repeat
