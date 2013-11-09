@@ -2,8 +2,9 @@
   = @user.username+"'s pages:"
 .user_pages
   - @user.pages.each do |page|
-    %h2
-      = link_to page.title, user_page_path(@user, page)
-    = link_to 'edit', edit_page_path(page)
-    = link_to 'delete', user_page_path(@user, page), class: 'red', method: :delete, data: { confirm: 'Are you sure?' }
-    %hr
+    .one-page
+      %h2
+        = link_to page.title, user_page_path(@user, page)
+      = link_to 'изменить', edit_page_path(page)
+      = link_to 'удалить', user_page_path(@user, page), class: 'red', method: :delete, data: { confirm: 'Are you sure?' }
+      %hr

@@ -131,11 +131,12 @@ img {
 
 .presentation {
   width: 100%;
-  padding: 20px;
   background-color: #428bca;
   bottom: 0;
+  text-align: center;
   img {
-    width: 250px;
+    max-height: 350px;
+    padding: 20px 50px;
   }
 }
 
@@ -159,4 +160,12 @@ img {
   color: red;
 }
 
+.user_pages {
+  .one-page {
+    a {
+      margin-right: 20px;
+      display: inline;
+    }
+  }
+}
 /* Editor */
