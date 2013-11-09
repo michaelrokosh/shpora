@@ -37,7 +37,6 @@ end
 gem 'devise'
 gem "therubyracer"
 gem "less-rails"
-gem 'bootstrap-wysihtml5-rails' # text editor
 gem 'font-awesome-rails'
 
 group :production do
