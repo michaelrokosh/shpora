@@ -28,6 +28,7 @@ gem 'haml'
 #gem 'acts-as-taggable-on'
 #gem 'thumbs_up'
 #gem "cancan" # roles
+gem "bootstrap-wysihtml5-rails"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

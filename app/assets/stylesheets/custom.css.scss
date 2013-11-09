@@ -126,6 +126,7 @@ img {
 
 .starter-template {
   margin-top: 80px;
+  min-height: 500px;
 }
 
 .presentation {
@@ -152,6 +153,10 @@ img {
   small {
     line-height: 30px;
   }
+}
+
+.red {
+  color: red;
 }
 
 /* Editor */

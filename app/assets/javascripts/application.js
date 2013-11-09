@@ -16,16 +16,16 @@
 //= require bootstrap/modal
 //= require bootstrap/dropdown
 //= require bootstrap/alert
-//= require summernote/summernote.min.js
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales
 
+$(document).ready(function(){
 
+    $('.editor').each(function(i, elem) {
+      $(elem).wysihtml5();
+    });
 
-$(document).ready(function() {
-  $('.summernote').summernote({
-    height: 300,   //set editable area's height
-    focus: true    //set focus editable area after Initialize summernote
-  });
-});
+  })
 
 
 $(function() {
