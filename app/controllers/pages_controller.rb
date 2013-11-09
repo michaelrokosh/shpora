@@ -19,6 +19,15 @@ class PagesController < ApplicationController
     end
   end
 
+  def update
+    @page = Page.find_by_url(params[:id])
+    if @page.update(page_params)
+      redirect_to user_page_path(current_user, @page)
+    else
+      render 'edit'
+    end
+  end
+
   def edit
     @page = Page.find_by_url(params[:id])
   end
