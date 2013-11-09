@@ -98,6 +98,7 @@ img {
   position: fixed;
   width: 100%;
   top: 0;
+  left: 0;
   z-index: 1;
   .nav-bar {
     .nav-brand {
@@ -130,20 +131,23 @@ img {
 
 
 .navigation {
-  color: #fff;
   text-align: center;
-  background-color: #4C4C52;
+  background-color: #3A709E;
   font-size: 20px;
   line-height: 35px;
   height: 35px;
   display: none;
   ul {
     list-style: none;
+    padding-left: 0px;
     li {
       display: inline;
-      color: #A0A0A3;
+      margin-right: 15px;
+        &:last-of-type {
+          margin: 0;
+        }
       a {
-        color: #A0A0A3;
+        color: #CDE5FA;
       }
     }
   }
@@ -151,4 +155,11 @@ img {
 
 .starter-template {
   margin-top: 80px;
+}
+
+.presentation {
+  width: 100%;
+  height: 100px;
+  background-color: #428bca;
+  bottom: 0;
 }
