@@ -119,9 +119,12 @@ img {
 }
 
 .starter-template {
-  margin-top: 70px;
   min-height: 500px;
   font-size: 1em;
+}
+
+.main {
+  margin-top: 85px;
 }
 
 .presentation {
@@ -132,6 +135,52 @@ img {
   img {
     max-height: 350px;
     padding: 20px 50px;
+  }
+}
+
+.registration {
+  width: 100%;
+  background-color: #428bca;
+  text-align: center;
+  margin-bottom: 35px;
+  h1 {
+    padding-top: 10px;
+    color: #fff;
+  }
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px 0px;
+    color: #1c5169;
+    label {
+      font-weight: normal;
+    }
+  }
+}
+
+.auth {
+  width: 100%;
+  background-color: #428bca;
+  text-align: center;
+  margin-bottom: 35px;
+  h1 {
+    padding-top: 10px;
+    color: #fff;
+  }
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px 0px;
+    color: #1c5169;
+    label {
+      font-weight: normal;
+    }
+    p {
+    color: #1c5169;
+      a {
+        color: #1c5169;
+      }
+    }
   }
 }
 
@@ -149,6 +198,7 @@ img {
   }
   small {
     line-height: 30px;
+    padding-left: 2px;
   }
 }
 
@@ -159,7 +209,7 @@ img {
 .user_pages {
   .one-page {
     a {
-      margin-right: 20px;
+      margin-right: 10px;
       display: inline;
     }
   }

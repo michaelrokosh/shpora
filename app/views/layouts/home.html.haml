@@ -7,9 +7,14 @@
     = csrf_meta_tags
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
   %body
-    .col-xs-12.col-sm-12.col-md-12
-      .shpora_main
-        = render 'mainheader'
-    .presentation
-      = image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
+    = render 'layouts/header'
+    .main
+      .auth
+        %h1 Вход
+        = render 'layouts/auth'
+      .registration
+        %h1 Регистрация
+        = render 'layouts/registration'
+      .presentation
+        = image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
     =render 'layouts/footer'

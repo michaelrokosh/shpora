@@ -32,12 +32,12 @@ $(function() {
   $('.close-nav').click(function() {
     if ( $( "#lock-unlock" ).hasClass( "icon-lock" ) ) {
         $('.fixed-nav').css('position', 'static');
-        $('.starter-template').css('margin-top', '0px');
+        $('.main').css('margin-top', '35px');
         $("#lock-unlock").toggleClass('icon-lock icon-unlock');
     } else {
         $('.fixed-nav').css('position', 'fixed');
         $("#lock-unlock").toggleClass('icon-unlock icon-lock');
-        $('.starter-template').css('margin-top', '70px');
+        $('.main').css('margin-top', '85px');
     }
   });
 });
