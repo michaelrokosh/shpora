@@ -32,10 +32,12 @@ $(function() {
   $('.close-nav').click(function() {
     if ( $( "#lock-unlock" ).hasClass( "fa-lock" ) ) {
         $('.fixed-nav').css('position', 'static');
+        $('.starter-template').css('margin-top', '0px');
         $("#lock-unlock").toggleClass('fa-lock fa-unlock');
     } else {
         $('.fixed-nav').css('position', 'fixed');
         $("#lock-unlock").toggleClass('fa-unlock fa-lock');
+        $('.starter-template').css('margin-top', '70px');
     }
   });
 });
