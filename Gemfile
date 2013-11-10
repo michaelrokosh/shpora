@@ -38,7 +38,7 @@ end
 gem 'devise'
 gem "therubyracer"
 gem "less-rails"
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '3.2.1.3'
 
 group :production do
   gem 'rails_12factor'

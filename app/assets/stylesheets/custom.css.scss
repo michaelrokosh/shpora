@@ -10,7 +10,7 @@ header {
 }
 
 body {
-  font-family: Arial;
+  font-family: Verdana, sans-serif;
   color: #333333;
   padding: 0px;
   margin: 0px;
@@ -18,15 +18,6 @@ body {
 
 .col-xs-12, .col-sm-12 {
   padding: 0% 5%;
-  h1 {
-    font-size: 5em;
-  }
-}
-
-.col-md-12 {
-  h1 {
-    font-size: 2em;
-  }
 }
 
 h2 {
@@ -53,7 +44,7 @@ img {
 /* Text Editor */
 .wysihtml5-sandbox {
   width: 50%;
-  height: 100px;
+  height: 300px;
   margin-bottom: 10px;
   resize: vertical;
 }
@@ -89,8 +80,8 @@ img {
       color: #fff;
       position: absolute;
       font-size: 25px;
-      padding: 9px 12px;
-      line-height: 30px;
+      padding: 10px 12px;
+      line-height: 25px;
     }
     .close-nav {
       top: 0;
@@ -103,7 +94,7 @@ img {
 
 .navigation {
   text-align: center;
-  background-color: #3A709E;
+  background-color: #1c5169;
   font-size: 20px;
   line-height: 35px;
   height: 35px;
@@ -118,7 +109,10 @@ img {
           margin: 0;
         }
       a {
-        color: #CDE5FA;
+        color: #628bca;
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
   }
@@ -127,6 +121,7 @@ img {
 .starter-template {
   margin-top: 80px;
   min-height: 500px;
+  font-size: 1em;
 }
 
 .presentation {
@@ -149,6 +144,7 @@ img {
   line-height: 30px;
     &:hover {
       text-decoration: none;
+      color: #fff;
     }
   }
   small {
@@ -169,3 +165,9 @@ img {
   }
 }
 /* Editor */
+h1 { font-size: 24px;}
+h2 { font-size: 22px;}
+h3 { font-size: 18px;}
+h4 { font-size: 16px;}
+h5 { font-size: 12px;}
+h6 { font-size: 10px;}
