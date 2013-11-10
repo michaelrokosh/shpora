@@ -1,10 +1,27 @@
-%h1 
-  = @user.username+"'s pages:"
-.user_pages
-  - @user.pages.each do |page|
-    .one-page
-      %h2
-        = link_to page.title, user_page_path(@user, page)
-      = link_to ' изменить', edit_page_path(page), class: "btn btn-default icon-edit icon-large"
-      = link_to '', user_page_path(@user, page), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger icon-trash icon-large"
-      %hr
+-if @user == current_user
+  %h1 Мои страницы
+  - if @user.pages.any?
+    .user_pages
+      - @user.pages.each do |page|
+        .one-page
+          %h2
+            = link_to page.title, user_page_path(@user, page)
+          = link_to ' изменить', edit_page_path(page), class: "btn btn-default icon-edit icon-large"
+          = link_to '', user_page_path(@user, page), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger icon-trash icon-large"
+          %hr
+  - else
+    %h1 У вас еще нет страниц. 
+    %h1
+      = link_to 'Создать!', new_page_path
+-else
+  %h1 
+    = @user.username
+  - if @user.pages.any?
+    .user_pages
+      - @user.pages.each do |page|
+        .one-page
+          %h2
+            = link_to page.title, user_page_path(@user, page)
+          %hr
+  - else
+    %h1 У пользователя еще нет страниц. 
