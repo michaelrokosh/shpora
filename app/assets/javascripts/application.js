@@ -30,13 +30,13 @@ $(document).ready(function(){
 
 $(function() {
   $('.close-nav').click(function() {
-    if ( $( "#lock-unlock" ).hasClass( "fa-lock" ) ) {
+    if ( $( "#lock-unlock" ).hasClass( "icon-lock" ) ) {
         $('.fixed-nav').css('position', 'static');
         $('.starter-template').css('margin-top', '0px');
-        $("#lock-unlock").toggleClass('fa-lock fa-unlock');
+        $("#lock-unlock").toggleClass('icon-lock icon-unlock');
     } else {
         $('.fixed-nav').css('position', 'fixed');
-        $("#lock-unlock").toggleClass('fa-unlock fa-lock');
+        $("#lock-unlock").toggleClass('icon-unlock icon-lock');
         $('.starter-template').css('margin-top', '70px');
     }
   });
@@ -45,7 +45,7 @@ $(function() {
 $(function() {
     $( '.nav-slider' ).click(function () {
       if ( $( ".navigation" ).is( ":hidden" ) ) {
-        $( ".navigation" ).slideDown( "medium" );
+        $( ".navigation" ).slideDown( "fast" );
       } else {
         $( ".navigation" ).hide();
       }
