@@ -9,13 +9,33 @@
   %body
     = render 'layouts/header'
     .main
-      .row  
-        .auth.col-md-6
-          %h1 Вход
-          = render 'layouts/auth'
-        .registration.col-md-6
-          %h1 Регистрация
-          = render 'layouts/registration'
+      - if user_signed_in?
+        .row
+          .recent-user-pages.col-md-6
+            %h1 
+              Мои
+              %a{href: user_path(current_user)} страницы
+            -if current_user.pages.any?  
+              - @recent_user_pages.each do |page|
+                .one_page
+                  = link_to page.title, user_page_path(current_user, page)
+            - else 
+              %h1 У вас еще нет страниц. 
+              %h1
+                = link_to 'Создать!', new_page_path
+          .recent-pages.col-md-6
+            %h1 Последние добавленные
+            - @recent_pages.each do |page|
+              .one_page
+                = link_to page.title, user_page_path(page.user, page)
+      - else
+        .row  
+          .auth.col-md-6
+            %h1 Вход
+            = render 'layouts/auth'
+          .registration.col-md-6
+            %h1 Регистрация
+            = render 'layouts/registration'
   .presentation
     = image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
   =render 'layouts/footer'
