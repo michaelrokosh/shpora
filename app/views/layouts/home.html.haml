@@ -18,16 +18,18 @@
             -if current_user.pages.any?  
               - @recent_user_pages.each do |page|
                 .one-page
-                  = link_to page.title, user_page_path(current_user, page)
+                  %h2
+                    = link_to page.title, user_page_path(current_user, page)
             - else 
               %h1 У вас еще нет страниц. 
               %h1
                 = link_to 'Создать!', new_page_path
           .recent-pages.col-md-6.col-xs-12
-            %h1 Последние добавленные
+            %h1 5-ка последних на сайте
             - @recent_pages.each do |page|
               .one-page
-                = link_to page.title, user_page_path(page.user, page)
+                %h2
+                  = link_to page.title, user_page_path(page.user, page)
       - else
         .row  
           .auth.col-md-6
