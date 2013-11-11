@@ -5,8 +5,12 @@
       .btn.nav-slider
         %i.icon-reorder
       = link_to 'shpora.me', root_path, class: "nav-brand"
-      .btn.close-nav
-        %i#lock-unlock.icon-lock
+      - if controller_name == 'home'
+        .share
+          share it!
+      -else
+        .btn.close-nav
+          %i#lock-unlock.icon-lock
     %nav.navigation
       - if user_signed_in?
         %ul

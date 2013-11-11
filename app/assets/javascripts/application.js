@@ -37,7 +37,7 @@ $(function() {
     } else {
         $('.fixed-nav').css('position', 'fixed');
         $("#lock-unlock").toggleClass('icon-unlock icon-lock');
-        $('.main').css('margin-top', '65px');
+        $('.main').css('margin-top', '71px');
     }
   });
 });

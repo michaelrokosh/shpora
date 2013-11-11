@@ -78,26 +78,19 @@ img {
     a {
       text-decoration: none;
     }
-    .nav-slider, .close-nav {
+    .nav-slider, .close-nav, .share {
       color: #fff;
       position: absolute;
       font-size: 25px;
       line-height: 25px;
       padding: 10px 12px;
     }
-    .close-nav {
+    .close-nav, .share {
       top: 0;
       right: 0;
     }
   }
 }
-
-@media(max-width: 480px) {
-  .fixed-nav {
-    position: static;
-  }
-}
-
 
 .navigation {
   text-align: center;
@@ -131,8 +124,28 @@ img {
 }
 
 .main {
-  margin-top: 65px;
+  margin-top: 71px;
 }
+
+@media(max-width: 300px) {
+  .fixed-nav {
+    position: static;
+  }
+  .main {
+    margin-top: 0px;
+  }
+  .close-nav {
+    display: none;
+  }
+  .nav-slider {
+    display: none;
+  }
+  .navigation {
+    display: block;
+  }
+}
+
+
 
 .presentation {
   width: 100%;
