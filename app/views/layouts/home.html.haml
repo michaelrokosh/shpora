@@ -9,14 +9,13 @@
   %body
     = render 'layouts/header'
     .main
-      .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.col-xs-12
-        .auth
+      .row  
+        .auth.col-md-6
           %h1 Вход
           = render 'layouts/auth'
-      .presentation
-        = image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
-      .col-lg-4.col-lg-offset-4.col-sm-6.col-sm-offset-3.col-xs-12
-        .registration
+        .registration.col-md-6
           %h1 Регистрация
           = render 'layouts/registration'
-    =render 'layouts/footer'
+  .presentation
+    = image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
+  =render 'layouts/footer'
