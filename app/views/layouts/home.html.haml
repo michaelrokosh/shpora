@@ -11,7 +11,7 @@
     .main
       - if user_signed_in?
         .row
-          .recent-user-pages.col-md-6
+          .recent-user-pages.col-md-6.col-xs-12
             %h1 
               Мои
               %a{href: user_path(current_user)} страницы
@@ -23,7 +23,7 @@
               %h1 У вас еще нет страниц. 
               %h1
                 = link_to 'Создать!', new_page_path
-          .recent-pages.col-md-6
+          .recent-pages.col-md-6.col-xs-12
             %h1 Последние добавленные
             - @recent_pages.each do |page|
               .one-page
