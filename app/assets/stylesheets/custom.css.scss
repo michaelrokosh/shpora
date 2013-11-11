@@ -92,6 +92,11 @@ img {
   }
 }
 
+@media(max-width: 480px) {
+  .fixed-nav {
+    position: static;
+  }
+}
 
 
 .navigation {

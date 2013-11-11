@@ -18,7 +18,7 @@
             -if current_user.pages.any?  
               - @recent_user_pages.each do |page|
                 .one-page
-                  %h2
+                  %h3
                     = link_to page.title, user_page_path(current_user, page)
             - else 
               %h1 У вас еще нет страниц. 
@@ -28,7 +28,7 @@
             %h1 5-ка последних на сайте
             - @recent_pages.each do |page|
               .one-page
-                %h2
+                %h3
                   = link_to page.title, user_page_path(page.user, page)
       - else
         .row  
