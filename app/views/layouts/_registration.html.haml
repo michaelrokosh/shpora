@@ -1,19 +1,18 @@
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
   %p
-    = f.label :username
-    %br/
-    = f.text_field :username, :autofocus => true, class: 'form-control'
+    .input-group
+      %span.input-group-addon
+        %i.fa.fa-user
+      = f.text_field :username, :placeholder => 'Имя пользователя', class: 'form-control'
   %p
-    = f.label :email
-    %br/
-    = f.email_field :email, class: 'form-control'
+    .input-group
+      %span.input-group-addon
+        %i.fa.fa-envelope-o
+      = f.email_field :email, :placeholder => 'Email', class: 'form-control'
   %p
-    = f.label :password
-    %br/
-    = f.password_field :password, class: 'form-control'
-  %p
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, class: 'form-control'
+    .input-group
+      %span.input-group-addon
+        %i.fa.fa-key
+      = f.password_field :password, :placeholder => 'Пароль', class: 'form-control'
   %p= f.submit "Sign up", class: 'btn btn-default'

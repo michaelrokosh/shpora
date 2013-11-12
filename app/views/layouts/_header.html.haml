@@ -3,17 +3,17 @@
   .fixed-nav
     .nav-bar
       .btn.nav-slider
-        %i.icon-reorder
+        %i.fa.fa-bars
       = link_to 'shpora.me', root_path, class: "nav-brand"
       - unless controller_name == 'home'
         .btn.close-nav
-          %i#lock-unlock.icon-lock
+          %i#lock-unlock.fa.fa-lock
     %nav.navigation
       - if user_signed_in?
         %ul
-          %li= link_to '', new_page_path(@page), class: "icon-plus", :title => "Новая страница"
-          %li= link_to current_user.username, user_path(current_user), :title => "Профиль"
-          %li= link_to '', destroy_user_session_path, :method => :delete, class: "icon-signout", :title => "Выход"
+          %li= link_to '', new_page_path(@page), class: "fa fa-plus", title: "Новая страница"
+          %li= link_to current_user.username, user_path(current_user), title: "Профиль"
+          %li= link_to '', destroy_user_session_path, method: :delete, class: "fa fa-sign-out", title: "Выход"
       - else
         %ul
           %li= link_to 'login', new_user_session_path

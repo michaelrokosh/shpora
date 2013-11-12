@@ -121,7 +121,12 @@ img {
 .starter-template {
   min-height: 500px;
   font-size: 1em;
+  div {
+    width: 100% !important;
+  }
 }
+
+
 
 .main {
   margin-top: 71px;

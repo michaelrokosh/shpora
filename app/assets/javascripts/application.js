@@ -19,6 +19,8 @@
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales
 
+//= require ckeditor-jquery
+
 $(document).ready(function(){
 
     $('.editor').each(function(i, elem) {
@@ -33,10 +35,10 @@ $(function() {
     if ( $( "#lock-unlock" ).hasClass( "icon-lock" ) ) {
         $('.fixed-nav').css('position', 'static');
         $('.main').css('margin-top', '14px');
-        $("#lock-unlock").toggleClass('icon-lock icon-unlock');
+        $("#lock-unlock").toggleClass('fa-lock fa-unlock');
     } else {
         $('.fixed-nav').css('position', 'fixed');
-        $("#lock-unlock").toggleClass('icon-unlock icon-lock');
+        $("#lock-unlock").toggleClass('fa-unlock fa-lock');
         $('.main').css('margin-top', '71px');
     }
   });

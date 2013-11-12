@@ -6,8 +6,8 @@
         .one-page
           %h2
             = link_to page.title, user_page_path(@user, page)
-          = link_to ' изменить', edit_page_path(page), class: "btn btn-default icon-edit icon-large"
-          = link_to '', user_page_path(@user, page), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger icon-trash icon-large"
+          = link_to ' изменить', edit_page_path(page), class: "btn btn-default fa fa-edit icon-large"
+          = link_to '', user_page_path(@user, page), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger fa fa-trash-o icon-large"
           %hr
   - else
     %h1 У вас еще нет страниц. 

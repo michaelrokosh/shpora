@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.new(sign_up_params)
     if @user.save
       sign_up(:user, @user)
-      redirect_to user_path(current_user)
+      redirect_to root_path
     else
       render :new
     end
@@ -18,6 +18,6 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation) }
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password) }
     end
 end

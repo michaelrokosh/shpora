@@ -1,10 +1,14 @@
 = form_tag user_session_path do
   %p
-    = label_tag :username
-    = text_field_tag 'user[username]', nil, class: 'form-control'
+    .input-group
+      %span.input-group-addon
+        %i.fa.fa-user
+      = text_field_tag 'user[username]', nil, :placeholder => 'Имя пользователя', class: 'form-control'
   %p
-    = label_tag :password
-    = password_field_tag 'user[password]', nil, class: 'form-control'
+    .input-group
+      %span.input-group-addon
+        %i.fa.fa-key
+      = password_field_tag 'user[password]', nil, :placeholder => 'Пароль', class: 'form-control'
   %p
     = check_box_tag 'user[remember_me]'
     = label_tag 'user[remember_me]', 'Remember me'
