@@ -16,9 +16,6 @@
 //= require bootstrap/modal
 //= require bootstrap/dropdown
 //= require bootstrap/alert
-//= require bootstrap-wysihtml5
-//= require bootstrap-wysihtml5/locales
-
 //= require ckeditor-jquery
 
 $(document).ready(function(){
