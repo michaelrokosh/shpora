@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title Shpora
+    = stylesheet_link_tag "application", media: "all"
+    - if on_the_edit_page?
+      = javascript_include_tag "editor"
+    - else
+      = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
+  %body
+    = render 'layouts/header'
+    .col-xs-12.col-sm-12.col-md-12
+      .starter-template
+        .main
+          = yield
+      = render 'layouts/footer'

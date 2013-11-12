@@ -13,6 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 
+//= require bootstrap/tooltip
+//= require bootstrap/modal
+//= require bootstrap/alert
+//= require bootstrap/dropdown
+//= require ckeditor-jquery
+
 
 $(function() {
   $('.close-nav').click(function() {
