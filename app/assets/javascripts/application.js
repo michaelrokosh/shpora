@@ -16,7 +16,7 @@
 
 $(function() {
   $('.close-nav').click(function() {
-    if ( $( "#lock-unlock" ).hasClass( "icon-lock" ) ) {
+    if ( $( "#lock-unlock" ).hasClass( "fa-lock" ) ) {
         $('.fixed-nav').css('position', 'static');
         $('.main').css('margin-top', '14px');
         $("#lock-unlock").toggleClass('fa-lock fa-unlock');
