@@ -13,6 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 
+  
+
+     
+$(function() {
+  $(".favorite").click(function() {
+    alert("asdas");
+    $.ajax({
+      type: "POST",
+      url: $(".favorite").data('user_id') + '/favorites/' + $(".favorite").data('page_id'),
+      success: function() {
+        // change image or something
+      }
+    })
+  });
+});
 
 $(function() {
   $('.close-nav').click(function() {

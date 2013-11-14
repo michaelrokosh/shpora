@@ -1,5 +1,7 @@
 class Page < ActiveRecord::Base
+  has_many :favorites
   belongs_to :user
+  has_many :favoriters, through: :favorites
   VALID_URL_REGEX = /\A[a-zA-Z0-9-]+\Z/
   validates :url, presence: true, 
   			uniqueness: { scope: :user, message: "У вас уже есть страница с данной ссылкой" },

@@ -15,7 +15,7 @@ body {
   padding: 0px;
   margin: 0px;
   word-wrap: break-word;
-  -webkit-text-size-adjust: none;
+  -webkit-text-size-adjust: none; /* Resolve problem with font size on landscape orientation */
 }
 
 .col-xs-12, .col-sm-12 {
