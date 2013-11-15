@@ -1,8 +1,11 @@
 Shpora::Application.routes.draw do
   root "home#index"
   get '/recent', to: 'pages#show', as: :recent_pages
-  post ':user_id/favorites/:page_id', to: 'favorites#create', as: :favorite
+
+  post ':user_id/favorites/:page_id', to: 'favorites#create', as: :new_favorite
   delete ':user_id/favorites/:page_id', to: 'favorites#destroy', as: :delete_favorite
+  get ':user_id/favorites', to: 'favorites#index', as: :favorites
+
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :pages, :only => [:new, :index, :create, :edit, :update]
   resources :users, :only => [:show], path: '' do

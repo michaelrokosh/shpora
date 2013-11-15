@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :favorites
   has_many :pages
-  has_many :favorite_pages, through: :favorites
+  has_many :favorite_pages, through: :favorites, source: :page
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\Z/
   validates :username, presence: true, 
                       format: { with: VALID_USERNAME_REGEX },

@@ -4,6 +4,10 @@ class FavoritesController < ApplicationController
 		render :nothing => true
 	end
 
+	def index
+		@user = User.find_by_username(params[:user_id])
+	end
+
 	def destroy
 		@favorite = Favorite.find_by_page_id(params[:page_id])
     	@favorite.destroy

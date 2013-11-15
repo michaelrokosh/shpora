@@ -1,0 +1,11 @@
+%h1 Избранное
+- if @user.favorites.any?
+  .user_pages
+    - @user.favorite_pages.each do |page|
+      .one-page
+        %h2
+          = link_to page.title, user_page_path(page.user, page)
+        = link_to '', delete_favorite_path(current_user.id, page.id), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger fa fa-trash-o icon-large"
+        %hr
+- else
+  %h1 Вы еще не добавили ни одной страницы в Избранное. 
