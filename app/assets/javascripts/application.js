@@ -17,13 +17,13 @@
 
      
 $(function() {
-  $(".favorite").click(function() {
-    alert("asdas");
+  $(".unfavorite").click(function() {
+    $button = $(this)
     $.ajax({
       type: "POST",
-      url: $(".favorite").data('user_id') + '/favorites/' + $(".favorite").data('page_id'),
+      url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
       success: function() {
-        // change image or something
+        $button.removeClass('unfavorite').addClass('favorite'); // change image or something
       }
     })
   });

@@ -1,5 +1,6 @@
 .title
   %h1 
     = @page.title
-  %i.fa.fa-star.favorite{ data: {:page_id => @page.id, :user_id => current_user.id} }
+  - unless current_user == @user
+    %i.fa.fa-star.unfavorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} }
 = raw @page.content
