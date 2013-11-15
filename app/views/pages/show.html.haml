@@ -2,5 +2,12 @@
   %h1 
     = @page.title
   - unless current_user == @user
-    %i.fa.fa-star.unfavorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} }
+    - if current_user.favorites.find_by_page_id(@page.id)
+      %i.fa.fa-star.favorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} } 
+        %span 
+          = " " + "Добавлено в избранное"
+    - else
+      %i.fa.fa-star.unfavorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} }
+        %span 
+          = " " + "В избранное!"
 = raw @page.content

@@ -15,7 +15,7 @@
 
   
 
-     
+/*
 $(function() {
   $(".unfavorite").click(function() {
     $button = $(this)
@@ -23,9 +23,33 @@ $(function() {
       type: "POST",
       url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
       success: function() {
-        $button.removeClass('unfavorite').addClass('favorite'); // change image or something
+        $button.removeClass('unfavorite').addClass('favorite'); 
       }
     })
+  });
+});
+*/
+
+$(function() {
+  $('#make-favorite').click(function() {
+    $button = $(this)
+    if ( $( "#make-favorite" ).hasClass( "unfavorite" ) ) {
+      $.ajax({
+        type: "POST",
+        url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
+        success: function() {
+          $button.removeClass('unfavorite').addClass('favorite').html("<span> Добавлено в избранное</span>"); ; 
+        }
+      })
+    } else {
+      $.ajax({
+        type: "DELETE",
+        url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
+        success: function() {
+          $button.removeClass('favorite').addClass('unfavorite').html("<span> В избранное!</span>"); 
+        }
+      })
+    }
   });
 });
 
