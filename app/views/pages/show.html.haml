@@ -12,7 +12,9 @@
         %span 
           = " " + "В избранное!"
   - if @page.tag_list
-    - @page.tag_list.each do |tag|
-      .tag
-        = link_to "##{ tag }", tag_path(tag)
-= raw @page.content
+    .tags
+      - @page.tag_list.each do |tag|
+        %h2
+          = link_to "##{ tag }", tag_path(tag)
+.content
+  = raw @page.content
