@@ -39,6 +39,7 @@ gem "therubyracer"
 gem "less-rails"
 gem 'font-awesome-rails'
 gem 'ckeditor_rails'
+gem 'will_paginate'
 
 group :production do
   gem 'rails_12factor'

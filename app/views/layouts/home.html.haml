@@ -38,7 +38,9 @@
                 %h1 Вы еще не добавили ни одной страницы в Избранное. 
           .recent-pages.col-md-4.col-xs-12
             .wrapper
-              %h1 5-ка последних
+              %h1 
+                5-ка 
+                %a{href: pages_path} последних
               - @recent_pages.each do |page|
                 .one-page
                   %h3

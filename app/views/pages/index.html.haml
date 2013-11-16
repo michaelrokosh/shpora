@@ -1,0 +1,5 @@
+- @pages.each do |page|
+  %h2
+    = link_to page.title, user_page_path(page.user, page)
+  %hr
+= will_paginate @posts

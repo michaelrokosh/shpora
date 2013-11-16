@@ -4,6 +4,10 @@ class PagesController < ApplicationController
     @user = User.find_by_username(params[:id])
   end
 
+  def index
+    @pages = Page.paginate(:order => "created_at DESC", :page => params[:page], :per_page => 10)
+  end
+
   def show
     @user = User.find_by_username(params[:user_id])
     @page = @user.pages.find_by_url(params[:id])
