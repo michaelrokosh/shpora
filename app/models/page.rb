@@ -8,6 +8,8 @@ class Page < ActiveRecord::Base
   			format: { with: VALID_URL_REGEX }
   validates :title, presence: true
   validates :content, presence: true
+  validates :tag_list, presence: true
+  acts_as_taggable
   def to_param  # overridden
     url
   end

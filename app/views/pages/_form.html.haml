@@ -10,9 +10,8 @@
           %li= msg
   %p
     = f.hidden_field :user_id, :value => current_user.id
-    = f.label :title
     %br
-    = f.text_field :title, class: 'form-control'
+    = f.text_field :title, class: 'form-control', placeholder: "Заголовок"
 
   %p
     = f.text_area :content, class: 'form-control ckeditor', rows: 10
@@ -25,5 +24,8 @@
         = "shpora.com/" + current_user.username + "/"
       = f.text_field :url, class: 'form-control'
   %p
+    = f.label :tags
     %br
-    = f.submit "Submit", class: 'btn btn-default'
+    = f.text_field :tag_list, class: 'form-control'
+    %br
+    = f.submit "Готово", class: 'btn btn-default'
