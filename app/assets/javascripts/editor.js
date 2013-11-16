@@ -12,13 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ckeditor/config
 
 //= require bootstrap/tooltip
 //= require bootstrap/modal
 //= require bootstrap/alert
 //= require bootstrap/dropdown
 //= require ckeditor-jquery
+//= require ckeditor/config
 
 
 $(function() {
