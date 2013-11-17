@@ -66,13 +66,24 @@ img {
     .nav-brand {
       color: #fff;
       text-align: center;
-      background-color: #428bca;
       font-size: 25px;
       display: block;
       line-height: 50px;
       right: 0;
       top: 0;
-      border-bottom: 1px solid #1c5169;
+
+      border-bottom: 10px solid transparent;
+      background-image:
+              linear-gradient(lightblue, skyblue),
+              linear-gradient(to bottom right, transparent 50.5%, lightblue 50.5%),
+              linear-gradient(to bottom left, transparent 50.5%, lightblue 50.5%),
+              linear-gradient(to top right, transparent 50.5%, skyblue 50.5%),
+              linear-gradient(to top left, transparent 50.5%, skyblue 50.5%);
+      background-repeat: repeat, repeat-x, repeat-x, repeat-x, repeat-x;
+      background-position: 0 0, 10px 0, 10px 0, 10px 100%, 10px 100%;
+      background-size: auto auto, 10px 10px, 10px 10px, 10px 10px, 10px 10px;
+      background-clip: padding-box, border-box, border-box, border-box, border-box;
+      background-origin: padding-box, border-box, border-box, border-box, border-box;
     }
     a {
       text-decoration: none;
@@ -93,11 +104,23 @@ img {
 
 .navigation {
   text-align: center;
-  background-color: #1c5169;
+
   font-size: 20px;
   line-height: 35px;
-  height: 35px;
+  height: 45px;
   display: none;
+  border-top: 10px solid transparent;
+  background-image:
+          linear-gradient(#1c5169, #1c5169),
+          linear-gradient(to bottom right, transparent 50.5%, #1c5169 50.5%),
+          linear-gradient(to bottom left, transparent 50.5%, #1c5169 50.5%),
+          linear-gradient(to top right, transparent 50.5%, #1c5169 50.5%),
+          linear-gradient(to top left, transparent 50.5%, #1c5169 50.5%);
+  background-repeat: repeat, repeat-x, repeat-x, repeat-x, repeat-x;
+  background-position: 0 0, 10px 0, 10px 0, 10px 100%, 10px 100%;
+  background-size: auto auto, 10px 10px, 10px 10px, 10px 10px, 10px 10px;
+  background-clip: padding-box, border-box, border-box, border-box, border-box;
+  background-origin: padding-box, border-box, border-box, border-box, border-box;
   ul {
     list-style: none;
     padding-left: 0px;
@@ -158,9 +181,17 @@ img {
 
 .presentation {
   width: 100%;
-  background-color: #428bca;
   bottom: 0;
   text-align: center;
+  border-top: 10px solid transparent; /* подготовим место под зубчики */ 
+  background-image: linear-gradient(#428bca, #428bca), /* общий фон блока, всегда идёт первым перекрывая всё что под ним */ 
+  linear-gradient(to bottom right, transparent 50.5%, #428bca 50.5%), 
+  linear-gradient(to bottom left, transparent 50.5%, #428bca 50.5%); 
+  background-repeat: repeat, repeat-x, repeat-x; 
+  background-position: 0 0, 10px 0, 10px 0; 
+  background-size: auto auto, 10px 10px, 10px 10px; 
+  background-clip: padding-box, border-box, border-box; /* обрезаем края у общей заливки */ 
+  background-origin: padding-box, border-box, border-box, border-box, border-box; /* позиционируем зубцы относительно верхней границы, а фон относительно внутреннего отступа */
   img {
     max-height: 350px;
     padding: 20px 50px;
