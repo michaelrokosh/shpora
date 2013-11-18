@@ -177,6 +177,7 @@ img {
   bottom: 0;
   text-align: center;
   margin-bottom: 20px;
+  color: #000;
   img {
     max-height: 350px;
     padding: 20px 50px;
@@ -340,4 +341,11 @@ h6 { font-size: 10px;}
 .nickname {
   color: #428bca;
   font-size: 2em;
+}
+
+.description {
+  margin-bottom: 10px;
+  h2 {
+    margin: 0;
+  }
 }
