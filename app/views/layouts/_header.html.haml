@@ -1,6 +1,13 @@
 %header
   //%nav.navbar-fixed-top
   .fixed-nav
+    .nav-bar
+      .btn.nav-slider
+        %i.fa.fa-bars
+      = link_to 'shpora.me', root_path, class: "nav-brand"
+      - unless controller_name == 'home'
+        .btn.close-nav
+          %i#lock-unlock.fa.fa-lock
     %nav.navigation
       - if user_signed_in?
         %ul
@@ -11,10 +18,3 @@
         %ul
           %li= link_to 'login', new_user_session_path
           %li= link_to 'register', new_user_registration_path   
-    .nav-bar
-      .btn.nav-slider
-        %i.fa.fa-bars
-      = link_to 'shpora.me', root_path, class: "nav-brand"
-      - unless controller_name == 'home'
-        .btn.close-nav
-          %i#lock-unlock.fa.fa-lock
