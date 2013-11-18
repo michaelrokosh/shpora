@@ -59,9 +59,10 @@ img {
 .fixed-nav {
   position: fixed;
   width: 100%;
+  background-color: #1c5169;
   top: 0;
   left: 0;
-  z-index: 1;
+  height: 35px;
   .nav-bar {
     .nav-brand {
       color: #fff;

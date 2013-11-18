@@ -39,10 +39,11 @@ $(function() {
     $( '.nav-slider' ).click(function () {
       if ( $( ".navigation" ).is( ":hidden" ) ) {
         $( ".navigation" ).slideDown( "fast" );
+        $('.fixed-nav').css('height', '65px');
       } else {
         $( ".navigation" ).hide();
+        $('.fixed-nav').css('height', '35px');
       }
     });
 });
-
 
