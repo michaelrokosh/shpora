@@ -153,9 +153,10 @@ img {
 @media(max-width: 300px) {
   .fixed-nav {
     position: static;
+    height: 65px;
   }
   .main {
-    margin-top: 0px;
+    margin-top: 70px;
   }
   .close-nav {
     display: none;
