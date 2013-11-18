@@ -1,7 +1,10 @@
 .title
   %h1
     = @page.title
-    = link_to '-' + @user.username, user_path(@user.username)
+    - if current_user == @user 
+      = link_to '', edit_page_path(@page), class: "btn fa fa-edit"
+    - else
+      = link_to '-' + @user.username, user_path(@user.username)
   - if current_user != @user && user_signed_in?
     - if current_user.favorites.find_by_page_id(@page.id)
       %i.fa.fa-star.favorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} } 

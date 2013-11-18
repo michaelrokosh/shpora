@@ -27,14 +27,29 @@
       - else
         %h1 Вы еще не добавили ни одной страницы в Избранное. 
 -else
-  %h1 
-    = @user.username
-  - if @user.pages.any?
-    .user_pages
-      - @user.pages.each do |page|
-        .one-page
-          %h2
-            = link_to page.title, user_page_path(@user, page)
-          %hr
-  - else
-    %h1 У пользователя еще нет страниц. 
+  .row.user-page
+    .user_pages.col-md-6.col-xs-12
+      %h1 
+        = @user.username
+      %h1 
+        Добавленные страницы
+      - if @user.pages.any?
+        .user_pages
+          - @user.pages.each do |page|
+            .one-page
+              %h2
+                = link_to page.title, user_page_path(@user, page)
+              %hr
+      - else
+        %h1 У пользователя еще нет страниц. 
+    .user_favorites.col-md-6.col-xs-12
+      %h1 Избранное
+      - if @user.favorites.any?
+        .user_pages
+          - @user.favorite_pages.each do |page|
+            .one-page
+              %h2
+                = link_to page.title, user_page_path(page.user, page)
+              %hr
+      - else
+        %h1 Пользователь еще не добавил ни одной страницы в Избранное. 
