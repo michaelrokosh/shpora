@@ -57,12 +57,12 @@ $(function() {
   $('.close-nav').click(function() {
     if ( $( "#lock-unlock" ).hasClass( "fa-lock" ) ) {
         $('.fixed-nav').css('position', 'static');
-        $('.main').css('margin-top', '14px');
+        $('.main').css('margin-top', '46px');
         $("#lock-unlock").toggleClass('fa-lock fa-unlock');
     } else {
         $('.fixed-nav').css('position', 'fixed');
         $("#lock-unlock").toggleClass('fa-unlock fa-lock');
-        $('.main').css('margin-top', '71px');
+        $('.main').css('margin-top', '81px');
     }
   });
 });
