@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\Z/
   validates :username, presence: true, 
                       format: { with: VALID_USERNAME_REGEX },
-                      uniqueness: { case_sensitive: false }
+                      uniqueness: { case_sensitive: false },
+                      length: { minimum: 3, maximum: 15 }
   def to_param
     username
   end

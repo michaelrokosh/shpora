@@ -1,0 +1,17 @@
+%h1 Вход
+= form_tag user_session_path do
+  %p
+    .input-group
+      %span.input-group-addon
+        %i.fa.fa-user
+      = text_field_tag 'user[username]', nil, :placeholder => 'Имя пользователя', class: 'form-control'
+  %p
+    .input-group
+      %span.input-group-addon
+        %i.fa.fa-key
+      = password_field_tag 'user[password]', nil, :placeholder => 'Пароль', class: 'form-control'
+  %p
+    = check_box_tag 'user[remember_me]'
+    = label_tag 'user[remember_me]', 'Запомнить меня'
+  %p
+    %button.btn.btn-default Войти
