@@ -41,6 +41,7 @@ gem 'font-awesome-rails'
 gem 'ckeditor_rails'
 gem 'will_paginate'
 gem 'acts-as-taggable-on'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'rails_12factor'
