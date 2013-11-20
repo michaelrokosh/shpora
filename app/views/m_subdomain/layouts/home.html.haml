@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %title Shpora.me - лучший сервис для создания электронных шпаргалок
+    = stylesheet_link_tag "mobile", media: "all"
+    = csrf_meta_tags 
+  %body
+    = render 'm_subdomain/layouts/header'   
+    - if user_signed_in?
+      %h1 
+        Мои
+        %a{href: user_path(current_user)} страницы
+      -if current_user.pages.any?  
+        - @recent_user_pages.each do |page|
+          .one-page
+            %h3
+              = link_to page.title, user_page_path(current_user, page)
+      - else 
+        %h1 У вас еще нет страниц. 
+        %h1
+          = link_to 'Создать!', new_page_path
+      %h1
+        %a{href: favorites_path(current_user)} Избранное
+      - if current_user.favorites.any?
+        - current_user.favorite_pages.each do |page|
+          .one-page
+            %h3
+              = link_to page.title, user_page_path(page.user, page)
+      - else
+        %h1 Вы еще не добавили ни одной страницы в Избранное. 
+    - else
+      .enter
+        = render 'm_subdomain/layouts/username_form'
+    %hr
+    .tags
+      = render 'layouts/tag_cloud'
+    %footer
+      =render 'layouts/footer'

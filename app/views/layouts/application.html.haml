@@ -1,7 +1,8 @@
 !!!
 %html
   %head
-    %title Shpora
+    %title
+      = yield(:title)
     = stylesheet_link_tag "application", media: "all"
     - if on_the_edit_page?
       = javascript_include_tag "editor"

@@ -1,21 +1,21 @@
 = content_for(:title, "Страница пользователя #{@user.username} | shpora.me")
 -if current_user?(@user)
-  .row.user-page
-    .user_pages.col-md-6.col-xs-12
+  .user-page
+    .user_pages
       %h1 Мои страницы
       - if @user.pages.any?
         - @user.pages.each do |page|
           .one-page
             %h2
               = link_to page.title, user_page_path(@user, page)
-            = link_to ' изменить', edit_page_path(page), class: "btn btn-default fa fa-edit icon-large"
-            = link_to '', user_page_path(@user, page), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger fa fa-trash-o icon-large"
+            = link_to ' изменить', edit_page_path(page)
+            = link_to 'удалить', user_page_path(@user, page), method: :delete, data: { confirm: 'Are you sure?' }
             %hr
       - else
         %h1 У вас еще нет страниц. 
         %h1
           = link_to 'Создать!', new_page_path
-    .user_favorites.col-md-6.col-xs-12
+    .user_favorites
       %h1 Избранное
       - if @user.favorites.any?
         .user_pages
@@ -28,8 +28,8 @@
       - else
         %h1 Вы еще не добавили ни одной страницы в Избранное. 
 -else
-  .row.user-page
-    .user_pages.col-md-6.col-xs-12
+  .user-page
+    .user_pages
       %h1 
         = @user.username
       %h1 
@@ -43,7 +43,7 @@
               %hr
       - else
         %h1 У пользователя еще нет страниц. 
-    .user_favorites.col-md-6.col-xs-12
+    .user_favorites
       %h1 Избранное
       - if @user.favorites.any?
         .user_pages

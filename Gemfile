@@ -42,6 +42,7 @@ gem 'ckeditor_rails'
 gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'newrelic_rpm'
+gem 'sitemap_generator'
 
 group :production do
   gem 'rails_12factor'

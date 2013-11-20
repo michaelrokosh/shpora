@@ -1,7 +1,6 @@
-= content_for(:title, "Тег #{@tag} | shpora.me")
-%h1
-  \##{@tag}
+%h1 Последние добавленные
 - @pages.each do |page|
   %h2
     = link_to page.title, user_page_path(page.user, page)
   %hr
+= will_paginate @posts

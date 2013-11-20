@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title
+      = yield(:title)
+    = stylesheet_link_tag "mobile", media: "all"
+    = csrf_meta_tags
+    %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
+  %body
+    = render 'm_subdomain/layouts/header'
+    = yield
+    = render 'layouts/footer'
