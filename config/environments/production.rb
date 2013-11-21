@@ -1,6 +1,6 @@
 Shpora::Application.configure do
 
-  config.assets.precompile += %w( editor.js )
+  config.assets.precompile += %w( mobile-app.js editor.js mobile-app.css )
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
