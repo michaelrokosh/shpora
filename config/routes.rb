@@ -10,6 +10,9 @@ Shpora::Application.routes.draw do
   resources :tags, :only => [:index, :show]
   resources :pages, :only => [:new, :index, :create, :edit, :update]
   resources :users, :only => [:show], path: '' do
+    collection do
+      get 'search'
+    end
     resources :pages, path: '', :only => [:show, :destroy]
   end
   

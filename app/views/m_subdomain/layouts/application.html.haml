@@ -4,6 +4,7 @@
     %title
       = yield(:title)
     = stylesheet_link_tag "mobile", media: "all"
+    = javascript_include_tag "mobile-app"
     = csrf_meta_tags
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
   %body

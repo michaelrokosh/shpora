@@ -4,6 +4,7 @@
     %title Shpora.me - лучший сервис для создания электронных шпаргалок
     = stylesheet_link_tag "mobile", media: "all"
     = csrf_meta_tags 
+    = javascript_include_tag "mobile-app"
   %body
     = render 'm_subdomain/layouts/header'   
     - if user_signed_in?
