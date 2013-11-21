@@ -348,6 +348,10 @@ h6 { font-size: 10px;}
 .description {
   margin-bottom: 10px;
   text-align: left;
+  padding-right: 5px;
+  &:last-of-type {
+    padding-right: 0;
+  }
   h2 {
     margin: 0;
     text-align: center;
