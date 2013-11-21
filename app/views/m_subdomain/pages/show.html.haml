@@ -3,7 +3,6 @@
   %h1
     = @page.title
     - if current_user == @user 
-      = link_to '', edit_page_path(@page), class: "btn fa fa-edit"
     - else
       = link_to '-' + @user.username, user_path(@user.username)
   - if current_user != @user && user_signed_in?
@@ -18,7 +17,7 @@
   - if @page.tag_list
     .tags
       - @page.tag_list.each do |tag|
-        %h2
+        %h4
           = link_to "##{ tag }", tag_path(tag)
 .content
   = raw @page.content
