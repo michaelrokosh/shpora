@@ -2,9 +2,9 @@
 %html
   %head
     %title Shpora.me - лучший сервис для создания электронных шпаргалок
-    = stylesheet_link_tag "mobile", media: "all"
-    = csrf_meta_tags 
+    = stylesheet_link_tag "mobile-app", media: "all"
     = javascript_include_tag "mobile-app"
+    = csrf_meta_tags 
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
   %body
     = render 'm_subdomain/layouts/header'   
