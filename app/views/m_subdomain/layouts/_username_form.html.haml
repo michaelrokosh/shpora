@@ -1,8 +1,8 @@
 = form_tag user_session_path do
   %p
-    = text_field_tag 'user[username]', nil, :placeholder => 'Имя пользователя'
+    = text_field_tag 'user[username]', nil, :placeholder => 'Имя пользователя', class: 'field'
   %p
-    = password_field_tag 'user[password]', nil, :placeholder => 'Пароль', class: 'form-control'
+    = password_field_tag 'user[password]', nil, :placeholder => 'Пароль', class: 'field'
   %p
     = check_box_tag 'user[remember_me]'
     = label_tag 'user[remember_me]', 'Запомнить меня'
