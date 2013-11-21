@@ -34,8 +34,10 @@ h2 {
   text-align: center;
 }
 
-img {
-  max-width: 100%;
+.content {
+  img {
+    max-width: 100% !important;
+  }
 }
 
 .title {
