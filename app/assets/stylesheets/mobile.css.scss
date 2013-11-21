@@ -2,6 +2,7 @@ body {
   width: 90%;
   margin: 0 auto;
   word-wrap: break-word;
+  -webkit-text-size-adjust: none; /* Resolve problem with font size on landscape orientation */
 }
 
 header {
