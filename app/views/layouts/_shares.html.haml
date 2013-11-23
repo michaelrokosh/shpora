@@ -1,10 +1,11 @@
 .row
   .shares.col-md-4.col-xs-12
   .shares.col-md-4.col-xs-12
-    #vk_like
-    :javascript
-      VK.Widgets.Like("vk_like", {type: "mini", height: 24});
-    %a.twitter-share-button{"data-lang" => "ru", "data-size" => "large", :href => "https://twitter.com/share"} Твитнуть
-    :javascript
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    .share-buttons
+      #vk_like
+      :javascript
+        VK.Widgets.Like("vk_like", {type: "mini", height: 24});
+      %a.twitter-share-button{"data-lang" => "ru", "data-size" => "large", :href => "https://twitter.com/share"} Твитнуть
+      :javascript
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
   .shares.col-md-4.col-xs-12
