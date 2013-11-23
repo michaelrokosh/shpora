@@ -1,9 +1,8 @@
 .row
   .shares.col-md-4.col-xs-12
   .shares.col-md-4.col-xs-12
-    / Put this script tag to the place, where the Share button will be
+    / Put this div tag to the place, where the Like block will be
+    #vk_like
     :javascript
-      <!--
-      document.write(VK.Share.button(false,{type: "custom", text: "<img src=\"http://vk.com/images/share_32.png\" width=\"32\" height=\"32\" />"}));
-      -->
+      VK.Widgets.Like("vk_like", {type: "full", height: 24});
   .shares.col-md-4.col-xs-12

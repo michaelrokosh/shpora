@@ -4,7 +4,10 @@
     %title Shpora.me - лучший сервис для создания электронных шпаргалок
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
-    %script{charset: "windows-1251", src: "http://vk.com/js/api/share.js?90", type: "text/javascript"}
+    / Put this script tag to the <head> of your page
+    %script{src: "//vk.com/js/api/openapi.js?105", type: "text/javascript"}
+    :javascript
+      VK.init({apiId: 4014548, onlyWidgets: true});
     = csrf_meta_tags
     %meta{content: "shpora.me - это сервис для создания шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств.", name: "description"}/
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
