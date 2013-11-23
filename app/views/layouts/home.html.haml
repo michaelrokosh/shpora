@@ -4,6 +4,7 @@
     %title Shpora.me - лучший сервис для создания электронных шпаргалок
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
+    %script{charset: "windows-1251", src: "http://vk.com/js/api/share.js?90", type: "text/javascript"}
     = csrf_meta_tags
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
   %body
@@ -63,6 +64,7 @@
                 .one-page
                   %h3
                     = link_to page.title, user_page_path(page.user, page)
+        = render 'layouts/shares'
         .row
           .description.col-md-4.col-xs-12
             shpora.me - это сервис для создания шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств. 
