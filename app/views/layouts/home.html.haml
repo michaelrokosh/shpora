@@ -6,6 +6,7 @@
     = javascript_include_tag "application"
     %script{charset: "windows-1251", src: "http://vk.com/js/api/share.js?90", type: "text/javascript"}
     = csrf_meta_tags
+    %meta{content: "shpora.me - это сервис для создания шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств.", name: "description"}/
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
   %body
     = render 'layouts/header'
