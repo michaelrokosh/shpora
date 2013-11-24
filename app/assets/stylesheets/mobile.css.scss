@@ -56,15 +56,18 @@ nav {
     }
   }
 }
+.content {
+  img {
+    max-width: 100%;
+  }
 
-img {
-  max-width: 100%;
+  table {
+    width: 100% !important;
+  }
+  p {
+    margin: 0;
+  }
 }
-
-table {
-  width: 100% !important;
-}
-
 form {
   .field {
     width: 90%;
