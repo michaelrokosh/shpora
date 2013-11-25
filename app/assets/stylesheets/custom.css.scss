@@ -18,6 +18,12 @@ body {
   -webkit-text-size-adjust: none; /* Resolve problem with font size on landscape orientation */
 }
 
+.image {
+  img {
+    max-width: 100%;
+  }
+}
+
 a {
   color: #428bca;
   &:hover {
