@@ -1,5 +1,5 @@
 .title
-  = content_for(:title, 'Шпаргалка ' + '"' + @page.title + '"' + ' | shpora.me')
+  = content_for(:title, 'Шпаргалка ' + @page.title + ' | shpora.me')
   %h1
     = @page.title
     - if current_user == @user 
