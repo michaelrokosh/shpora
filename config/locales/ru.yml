@@ -1,0 +1,45 @@
+ru:
+  errors:
+    messages:
+      not_saved: "Ошибка"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "обязателен к заполнения"
+            username:
+              blank: "обязательное к заполнению"
+              taken: "уже используется другим пользователем"
+            password:
+              blank: "обязателен к заполнению"
+    models:
+      user: "Пользователь"
+      page: "Шпаргалка"
+    attributes:
+      user:
+        email: "Email"
+        username: "Имя пользователя"
+        password: "Пароль"
+        attributes: "Атрибуты"
+        sign_in_count: "Sign in counts"
+        current_sign_in_at: "Current sign in at"
+        last_sign_in_at: "Last sign in at"
+        current_sign_in_ip: "Current sign in IP"
+        last_sign_in_ip: "Last sign in IP"
+        created_at: "Member since"
+        updated_at: "Modified at"
+        remember_me: "Запомнить меня"
+        password_confirmation: "Password confirmation"
+      page:
+        url: "Ссылка на шпаргалку"
+        tags: "Теги"
+  views:
+    pagination:
+      next: "Вперед"
+      last: "Назад"
+
+
+
+  

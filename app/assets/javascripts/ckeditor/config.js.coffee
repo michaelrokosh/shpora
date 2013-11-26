@@ -2,7 +2,7 @@
 CKEDITOR.editorConfig = (config) ->
   config.language = 'ru'
   config.width = '725'
-  config.height = '600'
+  config.height = '400'
   config.toolbar_Pure = [
     { name: 'document',    items: [ 'Source','DocProps','Templates' ] },
     #{ name: 'clipboard',   items: [ 'PasteFromWord' ] },
