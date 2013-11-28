@@ -1,4 +1,7 @@
 ru:
+  will_paginate:
+    previous_lable: "Назад"
+    next_lable: "Вперед"
   errors:
     messages:
       not_saved: "Ошибка"
