@@ -16,6 +16,7 @@
     .col-xs-12.col-sm-12.col-md-12
       .main.center
         - if user_signed_in?
+          %hr
           .row
             .recent-user-pages.col-md-4.col-xs-12
               .wrapper
@@ -52,6 +53,7 @@
                     %h3
                       = link_to page.title, user_page_path(page.user, page)
         - else
+          %h3
           .row  
             .auth.col-md-4.col-xs-12
               %h1 Вход
@@ -68,7 +70,9 @@
                 .one-page
                   %h3
                     = link_to page.title, user_page_path(page.user, page)
+        %hr
         = render 'layouts/shares'
+        %hr
         .row
           .description.col-md-4.col-xs-12
             shpora.me - это сервис для создания и поиска шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств.
@@ -85,7 +89,7 @@
             Делитесь своими шпаргалками и добавляйте в избранные чужие. Сайт оптимизирован под мобильные телефоны с различным разрешением экрана и планшеты. Для удобства и экономии траффика есть ультралегкая версия - 
             %h2 
               = link_to 'm.shpora.me', 'http://m.shpora.me'
-        
+        %hr
         .row
           .image.col-md-4.col-xs-12
             = image_tag('http://imageshack.us/a/img89/8943/963n.jpg')
