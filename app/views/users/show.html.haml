@@ -30,8 +30,8 @@
 -else
   .row.user-page
     .user_pages.col-md-6.col-xs-12
-      %h1 
-        = @user.username
+      %h1.lobster 
+        = '-' + @user.username
       %h1 
         Добавленные страницы
       - if @user.pages.any?

@@ -403,6 +403,15 @@ h6 { font-size: 10px;}
   }
 }
 
+.lobster {
+  font-family: 'Lobster';
+}
+.user_pages {
+  .lobster {
+    font-size: 33px !important;
+  }
+}
+
 .col-md-4.col-xs-12 {
   h1 {
     margin-top: 0;
