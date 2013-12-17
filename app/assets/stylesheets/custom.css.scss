@@ -121,6 +121,8 @@ h2 {
       font-size: 25px;
       line-height: 25px;
       padding: 10px 12px;
+      -webkit-text-shadow: 1px 1px 1px rgba(255,255,255,.5),-1px -1px 1px rgba(0,0,0,.2);
+      text-shadow: 1px 1px 1px rgba(255,255,255,.5),-1px -1px 1px rgba(0,0,0,.2);
     }
     .close-nav, .share {
       top: 0;
