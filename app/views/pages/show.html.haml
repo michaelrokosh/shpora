@@ -1,4 +1,6 @@
 .title
+  - if @user.username == 'mike'
+    = content_for(:title, 'Входящие (3) - mike.rokosh@shpora.me')
   = content_for(:title, 'Шпаргалка ' + @page.title + ' | shpora.me')
   %h1
     = @page.title
