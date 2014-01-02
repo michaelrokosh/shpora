@@ -8,12 +8,12 @@ Shpora::Application.routes.draw do
   #get '/tag/:tag_name', to: 'tags#show', as: :tag
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :tags, :only => [:index, :show]
-  resources :pages, :only => [:new, :index, :create, :edit, :update]
+  resources :pages, :only => [:new, :index, :create, :update]
   resources :users, :only => [:show], path: '' do
     collection do
       get 'search'
     end
-    resources :pages, path: '', :only => [:show, :destroy]
+    resources :pages, path: '', :only => [:show, :destroy, :edit]
   end
   
 
