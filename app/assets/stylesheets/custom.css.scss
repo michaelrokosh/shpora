@@ -12,6 +12,34 @@ header {
   }
 }
 
+@media(max-width: 700px) {
+  .wrapper {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+}
+
+@media(max-width: 300px) {
+  .fixed-nav {
+    position: static;
+    height: 65px;
+  }
+  .main {
+    margin-top: 70px;
+  }
+  .close-nav {
+    display: none;
+  }
+  .nav-slider {
+    display: none;
+  }
+  .navigation {
+    display: block;
+    margin-top: 0px;
+  }
+}
+
 body {
   font-family: Verdana, sans-serif;
   background: #dedede url(/skulls.png);
@@ -201,27 +229,6 @@ h2 {
 .main {
   margin-top: 46px;
 }
-
-@media(max-width: 300px) {
-  .fixed-nav {
-    position: static;
-    height: 65px;
-  }
-  .main {
-    margin-top: 70px;
-  }
-  .close-nav {
-    display: none;
-  }
-  .nav-slider {
-    display: none;
-  }
-  .navigation {
-    display: block;
-    margin-top: 0px;
-  }
-}
-
 
 
 .presentation {
