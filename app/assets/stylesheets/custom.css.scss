@@ -1,6 +1,9 @@
 $lightGrey: #999;
 
 header {
+  position: absolute;
+  width: 100%;  
+  top: 0px;
   h1 {
     font-size: 5em;
     letter-spacing: -2px;
@@ -11,11 +14,23 @@ header {
 
 body {
   font-family: Verdana, sans-serif;
+  background: #dedede url(/skulls.png);
   color: #333333;
   padding: 0px;
   margin: 0px;
   word-wrap: break-word;
   -webkit-text-size-adjust: none; /* Resolve problem with font size on landscape orientation */
+}
+
+.wrapper {
+  padding-top: 40px !important;
+  width: 70%;
+  z-index: -1 !important;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.9);
+  position: absolute;
+  left: 15%;
+  right: 15%;
 }
 
 .image {
@@ -239,7 +254,7 @@ h2 {
 
 .recent-user-pages, .recent-pages, .recent-favorites {
   padding: 0px 5px;
-  .wrapper {
+  .block {
     padding: 0px 10px;
   }
   h1 {
@@ -279,7 +294,6 @@ h2 {
 .footer {
   margin-top: 0px;
   height: 100%;
-  background-color: #fff;
   color: $lightGrey;
   a {
   line-height: 30px;

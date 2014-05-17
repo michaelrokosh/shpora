@@ -16,13 +16,13 @@
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
   %body
     = render 'layouts/header'
-    .col-xs-12.col-sm-12.col-md-12
+    .wrapper.col-xs-12.col-sm-12.col-md-12
       .main.center
         - if user_signed_in?
           %hr
           .row
             .recent-user-pages.col-md-4.col-xs-12
-              .wrapper
+              .block
                 %h1 
                   Мои
                   %a{href: user_path(current_user)} страницы
@@ -36,7 +36,7 @@
                   %h2
                     = link_to 'Создать!', new_page_path
             .recent-favorites.col-md-4.col-xs-12
-              .wrapper
+              .block
                 %h1
                   %a{href: favorites_path(current_user)} Избранное
                 - if current_user.favorites.any?
@@ -47,7 +47,7 @@
                 - else
                   %h2 Вы еще не добавили ни одной страницы в Избранное. 
             .recent-pages.col-md-4.col-xs-12
-              .wrapper
+              .block
                 %h1 
                   5-ка 
                   %a{href: pages_path} последних
@@ -93,10 +93,10 @@
             %h2 
               = link_to 'm.shpora.me', 'http://m.shpora.me'
         //%hr .image
-  %hr
-  .presentation
-    = render 'layouts/tag_cloud'
-    //= image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
-  %hr
-  .col-xs-12.col-sm-12.col-md-12
-    =render 'layouts/footer'
+      %hr
+      .presentation
+        = render 'layouts/tag_cloud'
+        //= image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
+      %hr
+      .col-xs-12.col-sm-12.col-md-12
+        =render 'layouts/footer'
