@@ -7,7 +7,6 @@ SitemapGenerator::Sitemap.create do
   end
   add '/', changefreq: 'weekly'
   add '/pages', changefreq: 'weekly'
-  add '/tags', changefreq: 'weekly'
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.
