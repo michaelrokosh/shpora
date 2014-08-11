@@ -17,10 +17,10 @@
   %body
     = render 'layouts/header'
     .wrapper.col-xs-12.col-sm-12.col-md-12
-      .main.center
+      .home-page.center
         - if user_signed_in?
           %hr
-          .row
+          .row.first-row
             .recent-user-pages.col-md-4.col-xs-12
               .block
                 %h1 
@@ -35,7 +35,7 @@
                   %h2 У вас еще нет страниц. 
                   %h2
                     = link_to 'Создать!', new_page_path
-            .recent-favorites.col-md-4.col-xs-12
+            .recent-favorites.col-md-offset-1.col-md-4.col-xs-12
               .block
                 %h1
                   %a{href: favorites_path(current_user)} Избранное
@@ -56,12 +56,11 @@
                     %h3
                       = link_to page.title, user_page_path(page.user, page)
         - else
-          %hr
-          .row  
+          .row.first-row 
             .auth.col-md-4.col-xs-12
               %h1 Вход
               = render 'layouts/auth'
-            .registration.col-md-4.col-xs-12              
+            .registration.col-md-offset-1.col-md-4.col-xs-12              
               %h1 Регистрация
               = render 'layouts/test_sign_up'          
               = render 'layouts/registration'
@@ -73,30 +72,35 @@
                 .one-page
                   %h3
                     = link_to page.title, user_page_path(page.user, page)
-        %hr
-        = render 'layouts/shares'
-        %hr
-        .row
-          .description.col-md-4.col-xs-12
-            shpora.me - это сервис для создания и поиска шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств.
-            .shpora-count 
-              %h3.number
-                Шпаргалок на сайте:
-              %h1.number  
-                = Page.count
-          .description.col-md-4.col-xs-12
-            Чтобы открыть созданную ранее страницу, не обязательно входить в систему, достаточно ввести в адресной строке браузера адрес, который состоит из имени пользователя и краткого названия, придуманного пользователем. Например:
-            %h2 
-              = link_to 'shpora.me/admin/tf', 'http://shpora.me/admin/tf'
-          .description.col-md-4.col-xs-12
-            Делитесь своими шпаргалками и добавляйте в избранные чужие. Сайт оптимизирован под мобильные телефоны с различным разрешением экрана и планшеты. Для удобства и экономии траффика есть ультралегкая версия - 
-            %h2 
-              = link_to 'm.shpora.me', 'http://m.shpora.me'
-        //%hr .image
-      %hr
-      .presentation
-        = render 'layouts/tag_cloud'
-        //= image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
-      %hr
-      .col-xs-12.col-sm-12.col-md-12
-        =render 'layouts/footer'
+        /
+          %hr
+          = render 'layouts/shares'
+          %hr
+        .bottom
+          .hr-wrapper
+            %hr
+            %hr
+            %hr
+            %hr
+          .row.description-row
+            .description.col-md-4.col-xs-12
+              shpora.me - это сервис для создания и поиска шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств.
+              .shpora-count 
+                %h3.number
+                  Шпаргалок на сайте:
+                %h1.number  
+                  = Page.count
+            .description.col-md-4.col-xs-12
+              Чтобы открыть созданную ранее страницу, не обязательно входить в систему, достаточно ввести в адресной строке браузера адрес, который состоит из имени пользователя и краткого названия, придуманного пользователем. Например:
+              %h2 
+                = link_to 'shpora.me/admin/tf', 'http://shpora.me/admin/tf'
+            .description.col-md-4.col-xs-12
+              Делитесь своими шпаргалками и добавляйте в избранные чужие. Сайт оптимизирован под мобильные телефоны с различным разрешением экрана и планшеты. Для удобства и экономии траффика есть ультралегкая версия - 
+              %h2 
+                = link_to 'm.shpora.me', 'http://m.shpora.me'
+          //%hr .image
+          .presentation
+            = render 'layouts/tag_cloud'
+            //= image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
+          =render 'layouts/footer'
+    = render 'modals/menu'

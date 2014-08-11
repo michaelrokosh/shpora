@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap/transition
+//= require bootstrap/dropdown
 
   
 
@@ -53,6 +55,7 @@ $(function() {
   });
 });
 
+
 $(function() {
   $('.close-nav').click(function() {
     if ( $( "#lock-unlock" ).hasClass( "fa-lock" ) ) {
@@ -67,6 +70,7 @@ $(function() {
   });
 });
 
+/*
 $(function() {
     $( '.nav-slider' ).click(function () {
       if ( $( ".navigation" ).is( ":hidden" ) ) {
@@ -78,5 +82,5 @@ $(function() {
       }
     });
 });
-
+*/
 

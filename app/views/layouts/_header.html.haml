@@ -1,20 +1,20 @@
 %header
   //%nav.navbar-fixed-top
-  .fixed-nav
-    .nav-bar
-      .btn.nav-slider
-        %i.fa.fa-bars
-      = link_to 'shpora.me', root_path, class: "nav-brand"
-      - unless controller_name == 'home'
-        .btn.close-nav
-          %i#lock-unlock.fa.fa-unlock
-    %nav.navigation
-      - if user_signed_in?
-        %ul
-          %li= link_to '', new_page_path(@page), class: "fa fa-plus", title: "Новая страница"
-          %li= link_to current_user.username, user_path(current_user), title: "Профиль"
-          %li= link_to '', destroy_user_session_path, method: :delete, class: "fa fa-sign-out", title: "Выход"
-      - else
-        %ul
-          %li= link_to 'Войти', new_user_session_path
-          %li= link_to 'Зарегистрироваться', new_user_registration_path   
+
+- if user_signed_in?
+  .navbar.nav-brand
+    = link_to 'shpora.me', root_path, class: 'brand'
+    = link_to '', new_page_path, class: "fa fa-plus add-button", title: "Создать"
+    /- unless controller_name == 'home'
+    %ul.nav.navbar-nav.pull-right.dropdown-wrapper
+      %li.dropdown
+        %a#dropdown-profile.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+          = current_user.username
+          %b.caret
+        %ul.dropdown-menu
+          %li= link_to 'Профиль', user_path(current_user), title: "Профиль"
+          %li.divider
+          %li= link_to 'Выход', destroy_user_session_path, method: :delete, title: "Выход"
+- else
+  .navbar.nav-brand
+    = link_to 'shpora.me', root_path, class: 'brand'
