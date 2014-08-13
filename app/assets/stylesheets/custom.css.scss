@@ -212,8 +212,6 @@ a {
   }
 }
 
-
-
 .main {
   padding: 60px 40px 20px 40px;
   background-color: #fff;
@@ -231,7 +229,7 @@ a {
     height: 65px;
   }
   .main {
-    margin-top: 70px;
+    padding: 40px 20px 20px 20px;
   }
   .close-nav {
     display: none;
@@ -242,6 +240,12 @@ a {
   .navigation {
     display: block;
     margin-top: 0px;
+  }
+}
+
+@media(max-width: 500px) {
+  .main {
+    padding: 40px 20px 20px 20px;
   }
 }
 
