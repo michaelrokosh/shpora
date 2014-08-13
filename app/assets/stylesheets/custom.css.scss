@@ -218,6 +218,7 @@ a {
   padding: 60px 40px 20px 40px;
   background-color: #fff;
   margin-top: -60px;
+  font-size: 18px;
 }
 
 .home-page {
@@ -248,13 +249,12 @@ a {
 
 .presentation {
   width: 100%;
-  padding: 5px 20px;
+  padding: 5px 20px !important;
   bottom: 0;
   text-align: center;
   color: #000;
   border-bottom: 2px dotted #C3C3C3;
   border-top: 2px dotted #C3C3C3;
-  padding: 10px 0 15px 0;
   img {
     max-height: 350px;
     padding: 20px 50px;
@@ -349,7 +349,7 @@ a {
   top: -110px;
   padding-top: 130px;
   background-color: #fff;
-  height: 450px;
+  height: 459px;
   width: 32.44%;
   border-bottom: 2px dotted #C3C3C3;
 }
