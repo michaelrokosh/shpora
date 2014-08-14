@@ -342,21 +342,25 @@ a {
   height: 25px;
   width: 100%;
 }
-
-.col-md-offset-1 {
-  margin-left: 1.333333333333332%;
-  margin-right: 1.333333333333332%;
+@media (min-width: 992px) { 
+  .col-md-offset-1 {
+    margin-left: 1.333333333333332%;
+    margin-right: 1.333333333333332%;
+  }
+  .auth.col-md-4, .registration.col-md-4, .recent-user-pages.col-md-4, .recent-favorites.col-md-4, .recent-pages.col-md-4 {
+    top: -110px;
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.5);
+    width: 32.44%;
+  }
 }
 .wrapper {
   padding: 0 !important;
 }
 .auth.col-md-4, .registration.col-md-4, .recent-user-pages.col-md-4, .recent-favorites.col-md-4, .recent-pages.col-md-4 {
-  box-shadow: 0 -5px 10px rgba(0,0,0,0.5);
   top: -110px;
   padding-top: 130px;
   background-color: #fff;
   height: 462px;
-  width: 32.44%;
   border-bottom: 2px dotted #C3C3C3;
 }
 .description-row {
