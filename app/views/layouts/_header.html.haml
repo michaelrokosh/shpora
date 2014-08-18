@@ -7,7 +7,7 @@
     = link_to '', new_page_path, class: "fa fa-plus add-button", title: "Создать"
     /- unless controller_name == 'home'
     .btn-group.dropdown-wrapper
-      %button.btn.btn-drop.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+      %button.dropdown-body.btn.btn-drop.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
         = current_user.username
         %span.caret
       %ul.dropdown-menu.dropdown-body{role: "menu"}

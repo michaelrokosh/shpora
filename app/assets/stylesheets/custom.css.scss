@@ -42,7 +42,7 @@ body {
   right: 15%;
 }
 
-@media(max-width: 500px) {
+@media(max-width: 992px) {
   .wrapper {
     width: 94%;
     left: 3%;
@@ -54,6 +54,14 @@ body {
   .dropdown-wrapper {
     right: 5% !important;
     width: 57px;
+  }
+  .auth, .recent-user-pages {
+    padding: 130px 30px 30px 30px !important;
+    height: auto !important;
+  }
+  .registration, .recent-favorites, .recent-pages {
+    padding: 30px !important;
+    height: auto !important;
   }
 }
 
@@ -78,6 +86,9 @@ body {
 }
 
 @media(max-width: 500px) {
+  .dropdown-body {
+    width: 55px;
+  }
   .main {
     padding: 40px 20px 20px 20px;
   }
