@@ -1,7 +1,11 @@
 .title
-  - if @user.username == 'mike'
-    = content_for(:title, 'Входящие (3) - mike.rokosh@shpora.me')
   = content_for(:title, 'Шпаргалка ' + @page.title + ' | shpora.me')
+  - unless user_signed_in?
+    .introduction
+      shpora.me - незаменимый помощник для студентов и школьников, который позволяет быстро создавать и получать доступ к шкаргалкам или другим заметкам с любых устройств. В любое время. Абсолютно бесплатно.
+      = link_to 'Зарегистрироватся', new_user_registration_path
+      |
+      = link_to 'Войти', new_user_session_path
   %h1
     = @page.title
     - if current_user == @user 
