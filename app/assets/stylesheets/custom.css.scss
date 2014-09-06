@@ -41,11 +41,19 @@ body {
   left: 15%;
   right: 15%;
 }
+
+@media (min-width: 800px) and (max-width: 1200px) {
+  .wrapper {
+    width: 80% !important;
+  }
+}
+
 @media (max-width: 1200px) {
   .description {
     border-bottom: 2px dotted #C3C3C3;
   }
 }
+
 @media (min-width: 1200px) { 
   .col-md-offset-1 {
     margin-left: 1.333333333333332%;
@@ -59,9 +67,9 @@ body {
 }
 @media(max-width: 1200px) {
   .wrapper {
-    width: 94%;
-    left: 3%;
-    right: 3%;
+    width: 96%;
+    left: 2%;
+    right: 2%;
   }
   .col-md-offset-1 {
     margin-left: 0 !important;
@@ -81,7 +89,7 @@ body {
     right: 5% !important;
     width: 57px;
   }
-  .auth, .recent-user-pages {
+  .auth {
     padding: 130px 30px 30px 30px !important;
     height: auto !important;
   }
