@@ -34,6 +34,7 @@
                   %h2 У вас еще нет страниц. 
                   %h2
                     = link_to 'Создать!', new_page_path
+              .torn-page.torn-page-left
             .recent-favorites.col-md-offset-1.col-md-4.col-xs-12
               .block
                 %h1
@@ -45,6 +46,7 @@
                         = link_to page.title, user_page_path(page.user, page)
                 - else
                   %h2 Вы еще не добавили ни одной страницы в Избранное. 
+              .torn-page.torn-page-middle
             .recent-pages.col-md-4.col-xs-12
               .block
                 %h1 
@@ -54,6 +56,7 @@
                   .one-page
                     %h3
                       = link_to page.title, user_page_path(page.user, page)
+              .torn-page.torn-page-right
         - else
           .row.first-row 
             .auth.col-md-4.col-xs-12
@@ -75,8 +78,16 @@
           %hr
           = render 'layouts/shares'
           %hr
+        .presentation
+          = image_tag('/shpora-step-1.png', class: 'presentation-image editor');
+          = image_tag('/iphone.png', class: 'presentation-image iphone');
+          = image_tag('/macbook.png', class: 'presentation-image macbook');
         .bottom
           .hr-wrapper
+            %hr
+            %hr
+            %hr
+            %hr
             %hr
             %hr
             %hr
@@ -98,7 +109,7 @@
               %h2 
                 = link_to 'm.shpora.me', 'http://m.shpora.me'
           //%hr .image
-          .presentation
+          .presentation.dotted-border
             = render 'layouts/tag_cloud'
             //= image_tag('http://img34.imageshack.us/img34/429/c4nf.png')
           =render 'layouts/footer'
