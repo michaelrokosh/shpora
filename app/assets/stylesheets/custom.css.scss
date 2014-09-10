@@ -314,6 +314,14 @@ a {
   
 }
 
+@media (max-width: 400px) {
+  .presentation {
+    img {
+      max-width: 220px !important;
+    }
+  }
+}
+
 .presentation {
   width: 100%;
   padding: 5px 20px !important;
@@ -321,8 +329,8 @@ a {
   text-align: center;
   color: #000;
   img {
-    max-height: 350px;
-    padding: 20px 50px;
+    max-width: 300px;
+    padding: 20px 20px;
   }
 }
 
@@ -703,6 +711,12 @@ h6 { font-size: 10px;}
   margin-bottom: 70px;
 }
 
+@media(max-width: 500px) {
+  .introduction {
+    display: none;
+  }
+}
+
 .presentation.mini-images {
   img {
     max-width: 300px;
@@ -763,5 +777,5 @@ h6 { font-size: 10px;}
 }
 
 .presentation-image {
-  max-width: 350px;
+  max-width: 100%;
 }
