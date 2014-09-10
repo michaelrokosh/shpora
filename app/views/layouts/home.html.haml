@@ -62,10 +62,12 @@
             .auth.col-md-4.col-xs-12
               %h1 Вход
               = render 'layouts/auth'
+              .torn-page.torn-page-left
             .registration.col-md-offset-1.col-md-4.col-xs-12              
               %h1 Регистрация
               = render 'layouts/test_sign_up'          
               = render 'layouts/registration'
+              .torn-page.torn-page-middle
             .recent-pages.col-md-4.col-xs-12
               %h1 
                 5-ка 
@@ -74,6 +76,7 @@
                 .one-page
                   %h3
                     = link_to page.title, user_page_path(page.user, page)
+              .torn-page.torn-page-right
         /
           %hr
           = render 'layouts/shares'
