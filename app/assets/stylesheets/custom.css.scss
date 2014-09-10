@@ -61,7 +61,7 @@ body {
   }
   .auth.col-md-4, .registration.col-md-4, .recent-user-pages.col-md-4, .recent-favorites.col-md-4, .recent-pages.col-md-4 {
     top: -110px;
-    box-shadow: 0 -5px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
     width: 32.44%;
   }
 }
@@ -696,6 +696,11 @@ h6 { font-size: 10px;}
 
 .torn-page-right {
   background-image: url('/torn-paper-2.png');
+}
+
+.presentation.images {
+  margin-top: -100px;
+  margin-bottom: 70px;
 }
 
 .presentation-image.editor {
