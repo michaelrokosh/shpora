@@ -65,6 +65,15 @@ body {
     width: 32.44%;
   }
 }
+
+@media (min-width: 1650px) { 
+  .wrapper {
+    width: 50%;
+    left: 25%;
+    right: 25%;
+  }
+}
+
 @media(max-width: 1200px) {
   .wrapper {
     width: 96%;
@@ -729,6 +738,7 @@ h6 { font-size: 10px;}
 }
 
 .presentation-image.iphone {
+  max-width: 80px;
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
