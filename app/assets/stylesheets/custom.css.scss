@@ -64,10 +64,10 @@ body {
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
     width: 32.44%;
   }
-  .recent-user-pages, .recent-pages {
+  .recent-user-pages {
     min-height: 420px;
   }
-  .auth {
+  .auth, .recent-pages {
     min-height: 450px;
   }
   .recent-favorites {
