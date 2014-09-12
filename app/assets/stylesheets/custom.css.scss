@@ -64,6 +64,15 @@ body {
     box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
     width: 32.44%;
   }
+  .recent-user-pages {
+    min-height: 420px;
+  }
+  .auth {
+    min-height: 450px;
+  }
+  .recent-favorites {
+    min-height: 350px;
+  }
 }
 
 @media (min-width: 1650px) { 
