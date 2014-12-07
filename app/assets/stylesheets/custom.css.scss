@@ -18,6 +18,10 @@ header {
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background: #E0E0D5;
   background-image: url(http://subtlepatterns.com/patterns/seamless_paper_texture.png);
@@ -533,6 +537,10 @@ h6 { font-size: 10px;}
 .css2 { font-size: 1.4em; }
 .css3 { font-size: 1.8em; }
 .css4 { font-size: 2.4em; }
+
+.cke_editable {
+  height: 100%;
+}
 
 #cke_page_content {
   width: 100% !important;
