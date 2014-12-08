@@ -10,6 +10,13 @@
       = link_to 'Зарегистрироватся', new_user_registration_path
       |
       = link_to 'Войти', new_user_session_path
+      %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+      <!— shpora —>
+      %ins.adsbygoogle{"data-ad-client" => "ca-pub-3834340625723750", "data-ad-format" => "auto", "data-ad-slot" => "7858822824", :style => "display:block"}
+      :javascript
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      <br>
+      <span class="text-danger">* данный блок не отображается зарегистрированым пользователям и на мобильных устрайствах</span>
   %h1
     = @page.title
     - if current_user == @user 
