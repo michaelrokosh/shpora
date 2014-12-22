@@ -762,3 +762,17 @@ h6 { font-size: 10px;}
 .presentation-image {
   max-width: 100%;
 }
+
+#kittywrapper {
+  margin: 0 auto 5px auto;
+  width: 25px;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.popover {
+  font-size: 14px;
+}

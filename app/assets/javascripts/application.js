@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap/transition
 //= require bootstrap/dropdown
-
-  
+//= require bootstrap/tooltip
+//= require bootstrap/popover
 
 /*
 $(function() {
@@ -69,6 +69,29 @@ $(function() {
     }
   });
 });
+
+setTimeout(function() {
+  $(function() {
+    if($('.adsbygoogle').height() !== 0) {
+      $('#kittywrapper').html('<img src="/thankfulkitty.png" alt="Спасибо за то, что не блокируете рекламу!">');
+      $('#kittywrapper').popover({
+        content: function() {
+          return 'Спасибо, что не блокируете рекламу!';
+        },
+        placement: 'top'
+      });
+    } else {
+      $('#kittywrapper').html('<img src="/sadkitty.png" alt="Пожалуйста, отключите adblock..." data-toggle="popover" title="Popover title" data-content="Пожалуйста, отключите adblock...">');
+      $('#kittywrapper').popover({
+        content: function() {
+          return 'Пожалуйста, отключите adblock...';
+        },
+        placement: 'top'
+      });
+    }
+  });
+}, 1000);
+
 
 /*
 $(function() {
