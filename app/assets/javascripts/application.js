@@ -73,14 +73,14 @@ $(function() {
 setTimeout(function() {
   $(function() {
     if($('.adsbygoogle').height() !== 0) {
-      $('#kittywrapper').html('<img src="/thankfulkitty.png" alt="Спасибо за то, что не блокируете рекламу!">').fadeIn(500);
+      $('#kittywrapper').html('<img src="/thankfulkitty.png" alt="Спасибо за то, что не блокируете рекламу!">').find('img').fadeIn(500);
       $('#kittywrapper').popover({
         content: 'Спасибо, что не блокируете рекламу!',
         trigger: "hover",
         placement: 'top'
       });
     } else {
-      $('#kittywrapper').html('<img src="/sadkitty.png" alt="Пожалуйста, отключите adblock..." data-toggle="popover" title="Popover title" data-content="Пожалуйста, отключите adblock...">');
+      $('#kittywrapper').html('<img src="/sadkitty.png" alt="Пожалуйста, отключите adblock..."').find('img').fadeIn(500);
       $('#kittywrapper').popover({
         content: 'Пожалуйста, отключите adblock...',
         trigger: "hover",
