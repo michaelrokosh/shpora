@@ -767,7 +767,9 @@ h6 { font-size: 10px;}
 #kittywrapper {
   margin: 0 auto 10px auto;
   width: 25px;
+  height: 25px;
   cursor: pointer;
+  display: none;
   img {
     width: 100%;
     height: auto;
