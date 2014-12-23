@@ -80,7 +80,7 @@ setTimeout(function() {
         placement: 'top'
       });
     } else {
-      $('#kittywrapper').html('<img src="/sadkitty.png" alt="Пожалуйста, отключите adblock..."').find('img').fadeIn(500);
+      $('#kittywrapper').html('<img src="/sadkitty.png" alt="Пожалуйста, отключите adblock...">').find('img').fadeIn(500);
       $('#kittywrapper').popover({
         content: 'Пожалуйста, отключите adblock...',
         trigger: "hover",
