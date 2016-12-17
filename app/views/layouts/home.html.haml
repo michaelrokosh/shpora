@@ -82,6 +82,38 @@
           = render 'layouts/shares'
           %hr
 
+        .file-upload
+          = hidden_field_tag :aws_url, upload_form.url
+          = hidden_field_tag :aws_data, upload_form.fields.to_json
+          = file_field_tag :content
+
+          = form_for Page.new, url: pages_path do |f|
+            = f.hidden_field :content_key
+            = f.hidden_field :content_processed
+            #upload-preview
+              .upload-cover
+                #uploader-zone
+                  .uploader-text
+                    .desktop
+                      %i.fa.fa-cloud-upload.fa-4x.m-b-lg
+                      %p.h3.font-bold Переместите файл сюда
+                      %small.text-muted Есть много рефератов? Получай вплоть до 50 центов за каждый загруженный на сайт .docx файл с публичным доступом. Или сохрани их бесплатно в приватном режиме. Все документы будут доступны для просмотра/скачивания на личной странице
+                      %p.support поддерживаемые типы файлов: doc docx pdf
+                    .mobile
+                      %i.fa.fa-camera.fa-4x.m-b-lg
+                #uploader-start.uploader-status._hidden
+                  %span.fa.fa-cloud-upload.fa-4x._m-b-lg._m-t-xl
+                  %p.text-muted Загрузка ...
+                  %p
+                    %span.text-danger.font-bold 0%
+                    %span.text-muted завершено
+                #uploader-done._hidden.uploader-status
+                  %i.fa.fa-check.fa-5x._m-t-xl
+                  %p.lead.text-success Загрузка завершена
+                #uploader-fail._hidden.uploader-status
+                  %i.fa.fa-times.fa-5x._m-t-xl
+                  %p.lead.text-danger Ошибка
+
         .presentation.images
           = image_tag('/shpora-step-1.png', class: 'presentation-image editor');
           = image_tag('/iphone.png', class: 'presentation-image iphone');
