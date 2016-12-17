@@ -1,16 +1,13 @@
 !!!
 %html
   %head
-    %title
-      = yield(:title)
-    = stylesheet_link_tag "application", media: "all"
-    - if on_the_edit_page?
-      = javascript_include_tag "editor"
-    - else
-      = javascript_include_tag "application"
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %link{href: "http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic", rel: "stylesheet", type: "text/css"}/
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
+    %title
+      = yield(:title)
   %body
     = render 'layouts/header'
     .wrapper.col-xs-12.col-sm-12.col-md-12

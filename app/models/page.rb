@@ -4,12 +4,11 @@ class Page < ActiveRecord::Base
   belongs_to :user
   has_many :favoriters, through: :favorites
   VALID_URL_REGEX = /\A[a-zA-Z0-9-]+\Z/
-  validates :url, presence: true, 
+  validates :url, presence: true,
   			uniqueness: { scope: :user, message: "У вас уже есть страница с данной ссылкой" },
   			format: { with: VALID_URL_REGEX }
   validates :title, presence: true
   validates :content, presence: true
-  validates :tag_list, presence: false
   #validates :tag, length: { minimum: 3, maximum: 15, message: "должнен быть в пределе 3-15 символов" }
   validate :validate_tag
 
@@ -19,7 +18,7 @@ class Page < ActiveRecord::Base
       errors.add(:tag, "должнен быть в пределе 3-15 символов") if tag.length > 15 || tag.length < 3
     end
   end
-  
+
   def to_param  # overridden
     url
   end

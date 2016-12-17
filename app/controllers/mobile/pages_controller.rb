@@ -1,21 +1,21 @@
 class Mobile::PagesController < ApplicationController
   def new
     @page = Page.new
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by(username: params[:id])
   end
 
   def index
-    @pages = Page.paginate(:order => "created_at DESC", :page => params[:page], :per_page => 10)
+    @pages = Page.order('created_at DESC').paginate(page: params[:page], per_page: 10)
   end
 
   def show
-    @user = User.find_by_username(params[:user_id])
-    @page = @user.pages.find_by_url(params[:id])
+    @user = User.find_by(username: params[:user_id])
+    @page = @user.pages.find_by(url: params[:id])
   end
 
   def create
     @page = Page.new(page_params)
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by(username: params[:id])
     if @page.save
       redirect_to user_page_path(current_user, @page)
     else
@@ -24,7 +24,7 @@ class Mobile::PagesController < ApplicationController
   end
 
   def update
-    @page = Page.find_by_url(params[:id])
+    @page = Page.find_by(url: params[:id])
     if @page.update(page_params)
       redirect_to user_page_path(current_user, @page)
     else
@@ -33,11 +33,11 @@ class Mobile::PagesController < ApplicationController
   end
 
   def edit
-    @page = Page.find_by_url(params[:id])
+    @page = Page.find_by(url: params[:id])
   end
 
   def destroy
-    @page = Page.find_by_url(params[:id])
+    @page = Page.find_by(url: params[:id])
     @page.destroy
     redirect_to user_path(current_user)
   end

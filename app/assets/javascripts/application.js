@@ -12,27 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+
 //= require bootstrap/transition
+//= require ckeditor-jquery
+//= require ckeditor/config
 //= require bootstrap/dropdown
 
-  
-
-/*
-$(function() {
-  $(".unfavorite").click(function() {
-    $button = $(this)
-    $.ajax({
-      type: "POST",
-      url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
-      success: function() {
-        $button.removeClass('unfavorite').addClass('favorite'); 
-      }
-    })
-  });
-});
-*/
-
-$(function() {
+document.addEventListener("turbolinks:load", function() {
   $('#make-favorite').click(function() {
     $button = $(this)
     if ( $( "#make-favorite" ).hasClass( "unfavorite" ) ) {
@@ -40,7 +26,7 @@ $(function() {
         type: "POST",
         url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
         success: function() {
-          $button.removeClass('unfavorite').addClass('favorite').html("<span> Добавлено в избранное</span>"); ; 
+          $button.removeClass('unfavorite').addClass('favorite').html("<span> Добавлено в избранное</span>"); ;
         }
       })
     } else {
@@ -48,15 +34,12 @@ $(function() {
         type: "DELETE",
         url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
         success: function() {
-          $button.removeClass('favorite').addClass('unfavorite').html("<span> В избранное!</span>"); 
+          $button.removeClass('favorite').addClass('unfavorite').html("<span> В избранное!</span>");
         }
       })
     }
   });
-});
 
-
-$(function() {
   $('.close-nav').click(function() {
     if ( $( "#lock-unlock" ).hasClass( "fa-lock" ) ) {
         $('.fixed-nav').css('position', 'static');
@@ -68,19 +51,4 @@ $(function() {
         $('.main').css('margin-top', '81px');
     }
   });
-});
-
-/*
-$(function() {
-    $( '.nav-slider' ).click(function () {
-      if ( $( ".navigation" ).is( ":hidden" ) ) {
-        $( ".navigation" ).slideDown( "fast" );
-        $('.fixed-nav').css('height', '65px');
-      } else {
-        $( ".navigation" ).hide();
-        $('.fixed-nav').css('height', '35px');
-      }
-    });
-});
-*/
-
+})

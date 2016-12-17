@@ -6,7 +6,7 @@ Shpora::Application.routes.draw do
   delete ':user_id/favorites/:page_id', to: 'favorites#destroy', as: :delete_favorite
   get ':user_id/favorites', to: 'favorites#index', as: :favorites
   #get '/tag/:tag_name', to: 'tags#show', as: :tag
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users
   resources :tags, :only => [:index, :show]
   resources :pages, :only => [:new, :index, :create, :update]
   resources :users, :only => [:show], path: '' do
@@ -15,10 +15,10 @@ Shpora::Application.routes.draw do
     end
     resources :pages, path: '', :only => [:show, :destroy, :edit]
   end
-  
+
 
   #get ':username', to: 'users#show', as: :user
   #get ':username/:page_id', to: 'pages#show', as: :full_page
-  
-   
+
+
 end
