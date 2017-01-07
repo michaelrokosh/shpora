@@ -12,6 +12,6 @@ class HomeController < ApplicationController
   private
 
   def upload_form
-    STORAGE.presigned_post(key: "uploads/workouts/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+    STORAGE.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
   end
 end

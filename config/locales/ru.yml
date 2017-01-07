@@ -8,6 +8,11 @@ ru:
   activerecord:
     errors:
       models:
+        page:
+          attributes:
+            url:
+              blank: обязательное к заполнению
+              invalid: Ошибка
         user:
           attributes:
             email:
@@ -45,4 +50,4 @@ ru:
 
 
 
-  
+

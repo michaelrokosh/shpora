@@ -19,7 +19,16 @@
 //= require ckeditor/config
 //= require bootstrap/dropdown
 
-document.addEventListener("turbolinks:load", function() {
+//= require fileupload/jquery.fileupload
+//= require fileupload/jquery.fileupload-process
+//= require fileupload/jquery.fileupload-validate
+//= require fileupload/jquery.iframe-transport
+
+//= require uploader
+
+//= require turbolinks
+
+$(document).on("turbolinks:load", function(){
   $('#make-favorite').click(function() {
     $button = $(this)
     if ( $( "#make-favorite" ).hasClass( "unfavorite" ) ) {

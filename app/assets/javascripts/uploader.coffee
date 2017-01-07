@@ -1,15 +1,14 @@
 $(document).on 'turbolinks:load', (e) ->
   if $('.file-upload').length > 0
-    console.log('hi')
-    $('input[type="submit"]').attr('disabled', true)
     initUploadForm()
 
-$(document).on 'click', '#uploader-zone', ->
+$(document).on 'click', '#upload-preview', ->
+  console.log 'hi'
   $('#content').trigger "click"
 
 
 initUploadForm = ->
-  form = $('form#new_workout_video')
+  form = $('form#new_document')
   fileInput = $('#content')
   submitButton = form.find('input[type="submit"]');
   submitUrl = $('input#aws_url').val()
@@ -35,7 +34,6 @@ initUploadForm = ->
 
       console.log file
       console.log fileType
-      console.log uiClass
 
       if types.test(file.type) && file.size < maxFileSize
         data.submit()
@@ -60,14 +58,13 @@ initUploadForm = ->
 
       console.log key
 
-      $('#workout_video_content_key').val(key)
-      $('#workout_video_content_processed').val(true)
+      $('#page_content_key').val(key)
+      $('#page_content_processed').val(true)
 
       submitButton.attr('disabled', false)
 
       $('#uploader-start').addClass('_hidden')
       $('#uploader-done').removeClass('_hidden')
-      $('.btn-upload').show()
 
     fail: (e, data) ->
       $('.uploader-status').addClass('_hidden')
