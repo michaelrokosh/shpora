@@ -55,6 +55,10 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     ckeditor_rails (4.5.10)
       railties (>= 3.0)
     coderay (1.1.1)
@@ -220,6 +224,7 @@ DEPENDENCIES
   aws-sdk (~> 2)
   better_errors
   binding_of_caller
+  carrierwave
   ckeditor_rails
   coffee-rails
   devise

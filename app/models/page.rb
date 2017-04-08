@@ -10,8 +10,9 @@ class Page < ActiveRecord::Base
   			uniqueness: { scope: :user, message: "У вас уже есть страница с данной ссылкой" },
   			format: { with: VALID_URL_REGEX }
   validates :title, presence: true
-  validates :content, presence: true
   validate :validate_tag
+
+  before_create :set_content
 
   def validate_tag
     tag_list.each do |tag|
@@ -21,5 +22,19 @@ class Page < ActiveRecord::Base
 
   def to_param
     url
+  end
+
+  def content_public_url
+    content_url = STORAGE.objects.detect{|object| object.key == self.content_key }.public_url
+  end
+
+  def render_content
+    content || content_public_url
+  end
+
+  private
+
+  def set_content
+    # Rails.logger.debug w
   end
 end

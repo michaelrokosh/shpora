@@ -90,6 +90,9 @@
           = form_for Page.new, url: pages_path, id: 'new_document' do |f|
             = f.hidden_field :content_key
             = f.hidden_field :content_processed
+            = f.hidden_field :title
+            = f.hidden_field :url
+            = f.hidden_field :user_id, value: current_user.id
             #upload-preview
               .upload-cover
                 #uploader-zone

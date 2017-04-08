@@ -9,6 +9,11 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 
+# file uploads
+gem 'aws-sdk', '~> 2'
+gem 'carrierwave'
+gem 'fog-aws'
+
 gem 'haml'
 
 group :doc do
@@ -39,4 +44,3 @@ group :development do
   gem 'binding_of_caller'
   gem 'quiet_assets'
 end
-

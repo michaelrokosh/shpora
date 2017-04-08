@@ -2,8 +2,7 @@ $(document).on 'turbolinks:load', (e) ->
   if $('.file-upload').length > 0
     initUploadForm()
 
-$(document).on 'click', '#upload-preview', ->
-  console.log 'hi'
+$(document).on 'click', '#uploader-zone', ->
   $('#content').trigger "click"
 
 
@@ -55,9 +54,14 @@ initUploadForm = ->
 
     done: (e, data) ->
       key = $(data.jqXHR.responseXML).find("Key").text()
+      file = data.files[0]
+      fileName = file.name.split('.')[0]
+      lastModified = file.lastModified
 
       console.log key
 
+      $('#page_title').val(fileName)
+      $('#page_url').val(lastModified)
       $('#page_content_key').val(key)
       $('#page_content_processed').val(true)
 
