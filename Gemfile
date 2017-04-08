@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'aws-sdk', '~> 2'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'yomu'
 
 gem 'haml'
 

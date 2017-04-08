@@ -215,6 +215,7 @@ GEM
     warden (1.2.6)
       rack (>= 1.0)
     will_paginate (3.1.5)
+    yomu (0.1.5)
 
 PLATFORMS
   ruby
@@ -246,6 +247,7 @@ DEPENDENCIES
   turbolinks (~> 5.0.0)
   uglifier
   will_paginate
+  yomu
 
 RUBY VERSION
    ruby 2.3.2p217

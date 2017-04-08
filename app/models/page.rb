@@ -6,13 +6,12 @@ class Page < ActiveRecord::Base
   belongs_to :user
 
   VALID_URL_REGEX = /\A[a-zA-Z0-9-]+\Z/
-  validates :url, presence: true,
-  			uniqueness: { scope: :user, message: "У вас уже есть страница с данной ссылкой" },
-  			format: { with: VALID_URL_REGEX }
   validates :title, presence: true
   validate :validate_tag
 
-  before_create :set_content
+  mount_uploader :content_key, FileUploader
+
+  # after_create :set_content, unless: :content_key_blank?
 
   def validate_tag
     tag_list.each do |tag|
@@ -21,20 +20,21 @@ class Page < ActiveRecord::Base
   end
 
   def to_param
-    url
+    url || id
   end
 
-  def content_public_url
-    content_url = STORAGE.objects.detect{|object| object.key == self.content_key }.public_url
-  end
-
-  def render_content
-    content || content_public_url
+  def document_text
+    yomu = Yomu.new content_key.url
+    yomu.text
   end
 
   private
 
+  def content_key_blank?
+    content_key.blank?
+  end
+
   def set_content
-    # Rails.logger.debug w
+    update(content: document_text)
   end
 end

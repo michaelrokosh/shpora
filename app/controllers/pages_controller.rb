@@ -46,6 +46,7 @@ class PagesController < ApplicationController
 
   def page_params
     params.require(:page)
-          .permit(:user_id, :title, :content, :url, :tag_list, :content_key, :content_processed)
+          .permit(:content, :title, :url, :tag_list, :content_key, :content_processed)
+          .merge(user_id: current_user.id)
   end
 end

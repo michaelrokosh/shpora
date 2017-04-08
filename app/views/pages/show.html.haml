@@ -31,5 +31,4 @@
         %h2
           = link_to "##{ tag }", tag_path(tag)
 .content
-  = @page.render_content
-  / %embed{src: @page.content_public_url.html_safe}
+  = raw @page.document_text

@@ -3,12 +3,12 @@ $(document).on 'turbolinks:load', (e) ->
     initUploadForm()
 
 $(document).on 'click', '#uploader-zone', ->
-  $('#content').trigger "click"
+  $('#page_content_key').trigger "click"
 
 
 initUploadForm = ->
   form = $('form#new_document')
-  fileInput = $('#content')
+  fileInput = $('#page_content_key')
   submitButton = form.find('input[type="submit"]');
   submitUrl = $('input#aws_url').val()
   uploadData = JSON.parse($('input#aws_data').val())
@@ -27,7 +27,7 @@ initUploadForm = ->
 
     add: (e, data) ->
       maxFileSize = 104857600 # ~ 100 MB
-      types = /(\.|\/)(document|msword|presentation|ms-powerpoint|sheet|ms-excel|pdf|pdf|docx?|pptx?|xlsx?)$/i
+      types = /(\.|\/)(document|msword|pdf|docx?|pptx?|xlsx?)$/i
       file = data.files[0]
       fileType = file.type.split(/(\.|\/)/).slice(-1)[0]
 
@@ -58,11 +58,7 @@ initUploadForm = ->
       fileName = file.name.split('.')[0]
       lastModified = file.lastModified
 
-      console.log key
-
       $('#page_title').val(fileName)
-      $('#page_url').val(lastModified)
-      $('#page_content_key').val(key)
       $('#page_content_processed').val(true)
 
       submitButton.attr('disabled', false)
