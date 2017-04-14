@@ -3,12 +3,40 @@ $(document).on 'turbolinks:load', (e) ->
     initUploadForm()
 
 $(document).on 'click', '#uploader-zone', ->
-  $('#page_content_key').trigger "click"
+  $('#page_files').trigger "click"
+
+
+$(document).bind 'dragover', (e) ->
+  dropZone = $('#uploader-zone')
+  timeout = window.dropZoneTimeout
+  if !timeout
+    dropZone.addClass 'in'
+  else
+    clearTimeout timeout
+  found = false
+  node = e.target
+  loop
+    if node == dropZone[0]
+      found = true
+      break
+    node = node.parentNode
+    unless node != null
+      break
+  if found
+    dropZone.addClass 'hover'
+  else
+    dropZone.removeClass 'hover'
+  window.dropZoneTimeout = setTimeout((->
+    window.dropZoneTimeout = null
+    dropZone.removeClass 'in hover'
+    return
+  ), 100)
+  return
 
 
 initUploadForm = ->
   form = $('form#new_document')
-  fileInput = $('#page_content_key')
+  fileInput = $('#page_files')
   submitButton = form.find('input[type="submit"]');
   submitUrl = $('input#aws_url').val()
   uploadData = JSON.parse($('input#aws_data').val())
@@ -62,6 +90,7 @@ initUploadForm = ->
       $('#page_content_processed').val(true)
 
       submitButton.attr('disabled', false)
+
 
       $('#uploader-start').addClass('_hidden')
       $('#uploader-done').removeClass('_hidden')

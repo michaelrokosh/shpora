@@ -29,6 +29,22 @@
   cursor: pointer;
   min-height: 100%;
   padding: 40px 50px;
+  &.in {
+    border: 1px dashed darken(#e5e5e5, 6%);
+  }
+
+  &.hover {
+    background: darken(#f9f9fb, 2%);
+  }
+
+  &.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+  }
 }
 
 .uploader-text {

@@ -1,17 +1,17 @@
 class Page < ActiveRecord::Base
   acts_as_taggable
+  mount_uploader :content_key, FileUploader
 
   has_many :favorites
   has_many :favoriters, through: :favorites
   belongs_to :user
 
-  VALID_URL_REGEX = /\A[a-zA-Z0-9-]+\Z/
   validates :title, presence: true
   validate :validate_tag
 
-  mount_uploader :content_key, FileUploader
+  before_save :set_url, unless: :url_blannk?
 
-  # after_create :set_content, unless: :content_key_blank?
+  # after_create :set_content, if: :content_key_blank?
 
   def validate_tag
     tag_list.each do |tag|
@@ -20,7 +20,11 @@ class Page < ActiveRecord::Base
   end
 
   def to_param
-    url || id
+    url
+  end
+
+  def render_content
+    content || document_text
   end
 
   def document_text
@@ -30,11 +34,19 @@ class Page < ActiveRecord::Base
 
   private
 
+  def url_blannk?
+    url.blank?
+  end
+
+  def set_url
+    self.url = "#{title}-#{id}"
+  end
+
   def content_key_blank?
     content_key.blank?
   end
 
   def set_content
-    update(content: document_text)
+    self.update(content: document_text) if document_text
   end
 end
