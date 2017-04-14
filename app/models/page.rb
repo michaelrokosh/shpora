@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Page < ActiveRecord::Base
   acts_as_taggable
 
@@ -23,8 +25,8 @@ class Page < ActiveRecord::Base
   end
 
   def document_text
-    yomu = Yomu.new file_url
-    yomu.text
+    file = open(file_url).read
+    yomu = Yomu.read :html, file
   end
 
   private
