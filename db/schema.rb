@@ -30,8 +30,7 @@ ActiveRecord::Schema.define(version: 20161217123321) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "content_key"
-    t.boolean  "content_processed", default: false
+    t.string   "file_url"
   end
 
   create_table "taggings", force: :cascade do |t|

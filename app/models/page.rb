@@ -1,6 +1,5 @@
 class Page < ActiveRecord::Base
   acts_as_taggable
-  mount_uploader :content_key, FileUploader
 
   has_many :favorites
   has_many :favoriters, through: :favorites
@@ -9,9 +8,9 @@ class Page < ActiveRecord::Base
   validates :title, presence: true
   validate :validate_tag
 
-  before_save :set_url, unless: :url_blannk?
+  before_save :set_url, if: :url_blannk?
 
-  # after_create :set_content, if: :content_key_blank?
+  after_create :set_content, unless: :file_url_blank?
 
   def validate_tag
     tag_list.each do |tag|
@@ -23,12 +22,8 @@ class Page < ActiveRecord::Base
     url
   end
 
-  def render_content
-    content || document_text
-  end
-
   def document_text
-    yomu = Yomu.new content_key.url
+    yomu = Yomu.new file_url
     yomu.text
   end
 
@@ -39,11 +34,11 @@ class Page < ActiveRecord::Base
   end
 
   def set_url
-    self.url = "#{title}-#{id}"
+    self.url = "#{title}"
   end
 
-  def content_key_blank?
-    content_key.blank?
+  def file_url_blank?
+    file_url.blank?
   end
 
   def set_content

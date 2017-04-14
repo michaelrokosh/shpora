@@ -3,7 +3,7 @@ $(document).on 'turbolinks:load', (e) ->
     initUploadForm()
 
 $(document).on 'click', '#uploader-zone', ->
-  $('#page_files').trigger "click"
+  $('#upload_files').trigger "click"
 
 
 $(document).bind 'dragover', (e) ->
@@ -33,15 +33,11 @@ $(document).bind 'dragover', (e) ->
   ), 100)
   return
 
-
 initUploadForm = ->
-  form = $('form#new_document')
-  fileInput = $('#page_files')
-  submitButton = form.find('input[type="submit"]');
+  fileInput = $('#upload_files')
+
   submitUrl = $('input#aws_url').val()
   uploadData = JSON.parse($('input#aws_data').val())
-
-  console.log uploadData
 
   fileInput.fileupload
     fileInput: fileInput
@@ -58,9 +54,6 @@ initUploadForm = ->
       types = /(\.|\/)(document|msword|pdf|docx?|pptx?|xlsx?)$/i
       file = data.files[0]
       fileType = file.type.split(/(\.|\/)/).slice(-1)[0]
-
-      console.log file
-      console.log fileType
 
       if types.test(file.type) && file.size < maxFileSize
         data.submit()
@@ -81,19 +74,23 @@ initUploadForm = ->
       $('#uploader-start .text-danger').text(progress + "%")
 
     done: (e, data) ->
-      key = $(data.jqXHR.responseXML).find("Key").text()
+      amazonUrl = $(data.jqXHR.responseText).find("Location").text()
       file = data.files[0]
       fileName = file.name.split('.')[0]
-      lastModified = file.lastModified
 
-      $('#page_title').val(fileName)
-      $('#page_content_processed').val(true)
-
-      submitButton.attr('disabled', false)
-
+      pageParams = {
+        'page[file_url]': amazonUrl
+        'page[title]': fileName
+      }
+      $.ajax
+        url: "/pages"
+        type: 'post'
+        dataType: 'json'
+        data: pageParams
 
       $('#uploader-start').addClass('_hidden')
       $('#uploader-done').removeClass('_hidden')
+      $('#upload-preview').addClass('success-upload')
 
     fail: (e, data) ->
       $('.uploader-status').addClass('_hidden')
