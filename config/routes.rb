@@ -7,6 +7,8 @@ Shpora::Application.routes.draw do
   get ':user_id/favorites', to: 'favorites#index', as: :favorites
 
   devise_for :users
+
+  resources :uploads, only: :create
   resources :tags, only: [:index, :show]
   resources :pages, only: [:new, :index, :create, :update]
   resources :users, only: [:show], path: '' do

@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class Page < ActiveRecord::Base
   acts_as_taggable
 
@@ -10,7 +8,7 @@ class Page < ActiveRecord::Base
   validates :title, presence: true
   validate :validate_tag
 
-  before_save :set_url, if: :url_blannk?
+  after_save :set_url, if: :url_blannk?
 
   after_create :set_content, unless: :file_url_blank?
 
@@ -24,11 +22,6 @@ class Page < ActiveRecord::Base
     url
   end
 
-  def document_text
-    file = open(file_url).read
-    yomu = Yomu.read :html, file
-  end
-
   private
 
   def url_blannk?
@@ -36,7 +29,7 @@ class Page < ActiveRecord::Base
   end
 
   def set_url
-    self.url = "#{title}"
+    self.update(url: "#{title}-#{id}")
   end
 
   def file_url_blank?
@@ -44,6 +37,6 @@ class Page < ActiveRecord::Base
   end
 
   def set_content
-    self.update(content: document_text) if document_text
+    SetPageContent.delay.call(page: self, file_url: file_url)
   end
 end

@@ -9,6 +9,12 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 
+# services
+gem 'airbrake'
+gem 'redis-rails'
+gem 'sidekiq'
+gem 'sendgrid'
+
 # file uploads
 gem 'aws-sdk', '~> 2'
 gem 'carrierwave'
