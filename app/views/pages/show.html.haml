@@ -31,4 +31,4 @@
         %h2
           = link_to "##{ tag }", tag_path(tag)
 .content
-  = sanitize @page.content
+  = show_page_content @page.content
