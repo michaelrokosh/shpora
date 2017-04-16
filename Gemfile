@@ -8,6 +8,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 
 # file uploads
 gem 'aws-sdk', '~> 2'
@@ -21,7 +22,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'dotenv-rails'
 gem 'turbolinks', '~> 5.0.0'
 gem 'devise'
 gem 'font-awesome-sass'
@@ -32,9 +32,6 @@ gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'newrelic_rpm'
 gem 'sitemap_generator'
-
-gem 'fog-aws'
-gem 'aws-sdk', '~> 2'
 
 group :production do
   gem 'rails_12factor'
