@@ -10,6 +10,12 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'dotenv-rails', groups: [:development, :test]
 
+# services
+gem 'airbrake'
+gem 'redis-rails'
+gem 'sidekiq'
+gem 'sendgrid'
+
 # file uploads
 gem 'aws-sdk', '~> 2'
 gem 'carrierwave'

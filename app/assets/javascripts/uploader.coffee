@@ -83,7 +83,7 @@ initUploadForm = ->
         'page[title]': fileName
       }
       $.ajax
-        url: "/pages"
+        url: "/uploads"
         type: 'post'
         dataType: 'json'
         data: pageParams

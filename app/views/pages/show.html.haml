@@ -18,11 +18,11 @@
       = link_to '-' + @user.username, user_path(@user.username)
   - if current_user != @user && user_signed_in?
     - if current_user.favorites.find_by_page_id(@page.id)
-      %i.fa.fa-star.favorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} }
+      %i.fa.fa-star.favorite#make-favorite{ data: {page_id: @page.id, user_username: current_user.username} }
         %span
           = " " + "Добавлено в избранное"
     - else
-      %i.fa.fa-star.unfavorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} }
+      %i.fa.fa-star.unfavorite#make-favorite{ data: {page_id: @page.id, user_username: current_user.username} }
         %span
           = " " + "В избранное!"
   - if @page.tag_list
@@ -31,4 +31,4 @@
         %h2
           = link_to "##{ tag }", tag_path(tag)
 .content
-  = raw @page.content
+  = show_page_content @page.content
