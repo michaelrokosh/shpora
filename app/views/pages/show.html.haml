@@ -10,8 +10,11 @@
       = link_to 'Зарегистрироватся', new_user_registration_path
       |
       = link_to 'Войти', new_user_session_path
+      
   %h1
     = @page.title
+    = link_to  @page.file_url, target: '_blank', class: 'btn' do
+      %i.fa.fa-download
     - if current_user == @user
       = link_to '', edit_user_page_path(@page.user, @page), class: "btn fa fa-edit"
     - else
