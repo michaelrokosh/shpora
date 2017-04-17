@@ -2,6 +2,7 @@ ru:
   will_paginate:
     previous_label: "Назад"
     next_label: "Вперед"
+    page_gap: "..."
   errors:
     messages:
       not_saved: "Ошибка"
@@ -31,7 +32,7 @@ ru:
         username: "Имя пользователя"
         password: "Пароль"
         attributes: "Атрибуты"
-        sign_in_count: "Sign in counts"
+        sign_in_count: "Число входов"
         current_sign_in_at: "Current sign in at"
         last_sign_in_at: "Last sign in at"
         current_sign_in_ip: "Current sign in IP"

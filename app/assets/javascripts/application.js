@@ -64,13 +64,28 @@ $(document).on("turbolinks:load", function(){
     }
   });
 
+  $('.bootstrap-tagsinput input').blur(function () {
+    $('.tagsinput').tagsinput('add', $(this).val());
+    $(this).val('');
+  });
+
   $(function() {
     var tags = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('num'),
+      datumTokenizer: function (datum) {
+        return Bloodhound.tokenizers.whitespace(datum.value);
+      },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
-
-      // create a controller that will return rags in json
-      url: 'assets/tags.json',
+      remote: {
+        url: '/assets/tags.json',
+        transform: function(response) {
+          // Map the remote source JSON array to a JavaScript object array
+          return $.map(response, function(tag) {
+            return {
+              value: tag
+            };
+          });
+        }
+      }
     });
 
     // initialize the bloodhound suggestion engine
@@ -79,12 +94,16 @@ $(document).on("turbolinks:load", function(){
     $('.tagsinput').tagsinput({
       trimValue: true,
       confirmKeys: [13, 44, 32],
+      addOnBlur: true,
       typeaheadjs: {
-        name: 'tags',
-        displayKey: 'name',
-        valueKey: 'name',
-        source: tags.ttAdapter(),
+        display: 'value',
+        source: tags
       }
+    });
+
+    $('.tagsinput').tagsinput('input').blur(function() {
+      $('.tagsinput').tagsinput('add', $(this).val());
+      $(this).val('');
     });
 
     $('.tagsinput').on('beforeItemAdd', function (event) {
