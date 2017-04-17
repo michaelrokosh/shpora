@@ -23,6 +23,8 @@
 //= require fileupload/jquery.fileupload-process
 //= require fileupload/jquery.fileupload-validate
 //= require fileupload/jquery.iframe-transport
+//= require twitter/typeahead.min
+//= require bootstrap-tagsinput.min
 
 //= require uploader
 
@@ -60,5 +62,28 @@ $(document).on("turbolinks:load", function(){
         $("#lock-unlock").toggleClass('fa-unlock fa-lock');
         $('.main').css('margin-top', '81px');
     }
+  });
+
+  $(function() {
+    var tags = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('num'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+
+      // create a controller that will return rags in json
+      url: 'assets/tags.json',
+    });
+
+    // initialize the bloodhound suggestion engine
+    tags.initialize();
+
+    $(".tagsinput").tagsinput({
+      trimValue: true,
+      typeaheadjs: {
+        name: 'citynames',
+        displayKey: 'num',
+        valueKey: 'num',
+        source: tags.ttAdapter(),
+      }
+    });
   });
 })

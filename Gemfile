@@ -38,6 +38,7 @@ gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'newrelic_rpm'
 gem 'sitemap_generator'
+gem 'twitter-typeahead-rails'
 
 group :production do
   gem 'rails_12factor'
