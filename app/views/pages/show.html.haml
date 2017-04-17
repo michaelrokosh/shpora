@@ -3,13 +3,25 @@
   - unless user_signed_in?
     .introduction
       .presentation.mini-images
-        = image_tag('/shpora-step-1.png', class: 'presentation-image editor');
+        /= image_tag('/shpora-step-1.png', class: 'presentation-image editor');
         = image_tag('/iphone.png', class: 'presentation-image iphone');
-        = image_tag('/macbook.png', class: 'presentation-image macbook');
-      shpora.me - незаменимый помощник для студентов и школьников, который позволяет быстро создавать и получать доступ к шпаргалкам или другим заметкам с любых устройств. В любое время. Абсолютно бесплатно.
-      = link_to 'Зарегистрироватся', new_user_registration_path
-      |
-      = link_to 'Войти', new_user_session_path
+        /= image_tag('/macbook.png', class: 'presentation-image macbook');
+      %p
+        shpora.me - незаменимый помощник для студентов и школьников, который позволяет быстро создавать и получать доступ к шпаргалкам или другим заметкам с любых устройств. В любое время. Абсолютно бесплатно.
+        = link_to 'Зарегистрироватся', new_user_registration_path
+        |
+        = link_to 'Войти', new_user_session_path
+      %p
+        #kittywrapper
+        %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+        <!— shpora —>
+        %ins.adsbygoogle{"data-ad-client" => "ca-pub-3834340625723750", "data-ad-format" => "auto", "data-ad-slot" => "7858822824", :style => "display:block"}
+        :javascript
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      %p
+        = render 'layouts/shares'
+      %span.text-danger
+        * данный блок не отображается зарегистрированым пользователям и на мобильных устройствах
   %h1
     = @page.title
     - if current_user == @user 
