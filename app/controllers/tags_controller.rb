@@ -1,5 +1,4 @@
 class TagsController < ApplicationController
-
 	def index
 		@tags = Page.tag_counts_on(:tags)
 		@pages = Page.tagged_with(@tag)

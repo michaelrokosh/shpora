@@ -8,6 +8,10 @@ Shpora::Application.routes.draw do
 
   devise_for :users
 
+  namespace :assets do
+    resources :tags, only: :index
+  end
+  
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
   resources :pages, only: [:new, :index, :create, :update]
