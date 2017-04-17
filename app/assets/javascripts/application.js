@@ -76,14 +76,27 @@ $(document).on("turbolinks:load", function(){
     // initialize the bloodhound suggestion engine
     tags.initialize();
 
-    $(".tagsinput").tagsinput({
+    $('.tagsinput').tagsinput({
       trimValue: true,
+      confirmKeys: [13, 44, 32],
       typeaheadjs: {
-        name: 'citynames',
-        displayKey: 'num',
-        valueKey: 'num',
+        name: 'tags',
+        displayKey: 'name',
+        valueKey: 'name',
         source: tags.ttAdapter(),
       }
+    });
+
+    $('.tagsinput').on('beforeItemAdd', function (event) {
+      var tag = event.item;
+
+      // Do some processing here
+      tag = tag.toLowerCase();
+      tag = tag.replace(/[|&;$%@"<>()#+,]/g, '');
+
+      event.item = tag;
+
+      return event;
     });
   });
 })
