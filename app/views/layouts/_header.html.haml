@@ -5,7 +5,6 @@
   .navbar.nav-brand
     = link_to 'shpora.me', root_path, class: 'brand'
     = link_to '', new_page_path, class: "fa fa-plus add-button", title: "Создать"
-    /- unless controller_name == 'home'
     .btn-group.dropdown-wrapper
       %button.dropdown-body.btn.btn-drop.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
         = current_user.username

@@ -11,7 +11,7 @@ Shpora::Application.routes.draw do
   namespace :assets do
     resources :tags, only: :index
   end
-  
+
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
   resources :pages, only: [:new, :index, :create, :update]
