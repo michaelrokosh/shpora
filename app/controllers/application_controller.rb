@@ -1,14 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_filter :subdomain_view_path
 
+  before_filter :subdomain_view_path
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
-
-  def current_user
-    super || User.first
-  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password])
