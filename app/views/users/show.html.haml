@@ -26,7 +26,8 @@
               = link_to '', delete_favorite_path(current_user.id, page.id), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger fa fa-trash-o icon-large"
               %hr
       - else
-        %h1 Вы еще не добавили ни одной страницы в Избранное. 
+        %h1 
+          = I18n.t 'messages.no_favorites' 
 -else
   .row.user-page
     .user_pages.col-md-6.col-xs-12

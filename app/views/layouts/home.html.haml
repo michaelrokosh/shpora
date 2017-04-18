@@ -31,9 +31,10 @@
                       %h3
                         = link_to page.title, user_page_path(current_user, page)
                 - else
-                  %h2 У вас еще нет страниц.
+                  %h2 
+                    = I18n.t 'messages.you_have_no_pages'
                   %h2
-                    = link_to 'Создать!', new_page_path
+                    = link_to I18n.t('labels.create') + '!', new_page_path
               .torn-page.torn-page-left
             .recent-favorites.col-md-offset-1.col-md-4.col-xs-12
               .block
@@ -45,7 +46,8 @@
                       %h3
                         = link_to page.title, user_page_path(page.user, page)
                 - else
-                  %h2 Вы еще не добавили ни одной страницы в Избранное.
+                  %h2 
+                    = I18n.t 'messages.no_favorites' 
               .torn-page.torn-page-middle
             .recent-pages.col-md-4.col-xs-12
               .block
@@ -91,14 +93,17 @@
                   .uploader-text
                     .desktop
                       %i.fa.fa-cloud-upload.fa-4x.m-b-lg
-                      %p.h3.font-bold Переместите файлы сюда
-                      %small.text-muted Есть много рефератов? Получай вплоть до 50 центов за каждый загруженный на сайт .docx файл с публичным доступом. Или сохрани их бесплатно в приватном режиме. Все документы будут доступны для просмотра/скачивания на личной странице
-                      %p.support поддерживаемые типы файлов: docx
+                      %p.h3.font-bold 
+                        = I18n.t 'messages.move_your_files_here'
+                      %small.text-muted 
+                        = I18n.t 'messages.dropzone_description'
+                      %p.support 
+                        = I18n.t 'messages.supported_filetypes'
                     .mobile
                       %i.fa.fa-camera.fa-4x.m-b-lg
                 #uploader-start.uploader-status._hidden
                   %span.fa.fa-cloud-upload.fa-4x._m-b-lg._m-t-xl
-                  %p.text-muted Загрузка ...
+                  %p.text-muted Загрузка...
                   %p
                     %span.text-danger.font-bold 0%
                     %span.text-muted завершено
@@ -131,18 +136,18 @@
             %hr
           .row.description-row
             .description.first-description.col-md-4.col-xs-12
-              shpora.me - это сервис для создания и поиска шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств.
+              = I18n.t 'messages.description_1_1'
               .shpora-count
                 %h3.number
-                  Шпаргалок на сайте:
+                  = I18n.t 'messages.number_of_pages'
                 %h1.number
                   = Page.count
             .description.col-md-4.col-xs-12
-              Чтобы открыть созданную ранее страницу, не обязательно входить в систему, достаточно ввести в адресной строке браузера адрес, который состоит из имени пользователя и краткого названия, придуманного пользователем. Например:
+              = I18n.t 'messages.description_1_2'
               %h2
                 = link_to 'shpora.me/admin/tf', 'http://shpora.me/admin/tf'
             .description.col-md-4.col-xs-12
-              Делитесь своими шпаргалками и добавляйте в избранные чужие. Сайт оптимизирован под мобильные телефоны с различным разрешением экрана и планшеты. Для удобства и экономии траффика есть ультралегкая версия -
+              = I18n.t 'messages.description_1_3'
               %h2
                 = link_to 'm.shpora.me', 'http://m.shpora.me'
           //%hr .image

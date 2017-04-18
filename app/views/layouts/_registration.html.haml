@@ -14,5 +14,5 @@
     .input-group
       %span.input-group-addon
         %i.fa.fa-key
-      = f.password_field :password, :placeholder => 'Пароль', class: 'form-control'
+      = f.password_field :password, :placeholder => I18n.t('activerecord.attributes.user.password'), class: 'form-control'
   %p= f.submit "Зарегистрироватся", class: 'btn btn-default'

@@ -29,7 +29,8 @@
             %h3
               = link_to page.title, user_page_path(page.user, page)
       - else
-        %h1 Вы еще не добавили ни одной страницы в Избранное. 
+        %h1 
+          = I18n.t 'messages.no_favorites' 
     - else
       Вы также можете открыть профиль пользователя введя его имя(логин) в адресной строке сразу после адреса сайта, например m.shpora.me/mike
       .enter

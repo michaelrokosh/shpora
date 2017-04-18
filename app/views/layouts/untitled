@@ -45,7 +45,8 @@
                       %h3
                         = link_to page.title, user_page_path(page.user, page)
                 - else
-                  %h2 Вы еще не добавили ни одной страницы в Избранное. 
+                  %h2 
+                    = I18n.t 'messages.no_favorites' 
             .recent-pages.col-md-4.col-xs-12
               .block
                 %h1 
@@ -78,18 +79,18 @@
         %hr
         .row
           .description.col-md-4.col-xs-12
-            shpora.me - это сервис для создания и поиска шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств.
+            = I18n.t 'messages.description_1_1'
             .shpora-count 
               %h3.number
-                Шпаргалок на сайте:
+                = I18n.t 'messages.number_of_pages'
               %h1.number  
                 = Page.count
           .description.col-md-4.col-xs-12
-            Чтобы открыть созданную ранее страницу, не обязательно входить в систему, достаточно ввести в адресной строке браузера адрес, который состоит из имени пользователя и краткого названия, придуманного пользователем. Например:
+            = I18n.t 'messages.description_1_2'
             %h2 
               = link_to 'shpora.me/admin/tf', 'http://shpora.me/admin/tf'
           .description.col-md-4.col-xs-12
-            Делитесь своими шпаргалками и добавляйте в избранные чужие. Сайт оптимизирован под мобильные телефоны с различным разрешением экрана и планшеты. Для удобства и экономии траффика есть ультралегкая версия - 
+            = I18n.t 'messages.description_1_3'
             %h2 
               = link_to 'm.shpora.me', 'http://m.shpora.me'
         //%hr .image
