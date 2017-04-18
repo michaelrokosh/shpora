@@ -64,11 +64,6 @@ $(document).on("turbolinks:load", function(){
     }
   });
 
-  $('.bootstrap-tagsinput input').blur(function () {
-    $('.tagsinput').tagsinput('add', $(this).val());
-    $(this).val('');
-  });
-
   $(function() {
     var tags = new Bloodhound({
       datumTokenizer: function (datum) {
@@ -81,7 +76,7 @@ $(document).on("turbolinks:load", function(){
           // Map the remote source JSON array to a JavaScript object array
           return $.map(response, function(tag) {
             return {
-              value: tag
+              value: tag,
             };
           });
         }
@@ -95,9 +90,11 @@ $(document).on("turbolinks:load", function(){
       trimValue: true,
       confirmKeys: [13, 44, 32],
       addOnBlur: true,
-      typeaheadjs: {
+      typeaheadjs: {  
+        name: 'tags',
         displayKey: 'value',
-        source: tags.ttAdapter(),
+        valueKey: 'value',
+        source: tags,
       }
     });
 
@@ -110,8 +107,7 @@ $(document).on("turbolinks:load", function(){
       var tag = event.item;
 
       // Do some processing here
-      tag = tag.toLowerCase();
-      tag = tag.replace(/[|&;$%@"<>()#+,]/g, '');
+      tag = tag.toLowerCase().replace(/[|&;$%@"<>()#+,]/g, '');
 
       event.item = tag;
 
