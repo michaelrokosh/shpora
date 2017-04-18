@@ -75,7 +75,7 @@ $(document).on("turbolinks:load", function(){
         return Bloodhound.tokenizers.whitespace(datum.value);
       },
       queryTokenizer: Bloodhound.tokenizers.whitespace,
-      remote: {
+      prefetch: {
         url: '/assets/tags.json',
         transform: function(response) {
           // Map the remote source JSON array to a JavaScript object array
@@ -96,8 +96,8 @@ $(document).on("turbolinks:load", function(){
       confirmKeys: [13, 44, 32],
       addOnBlur: true,
       typeaheadjs: {
-        display: 'value',
-        source: tags
+        displayKey: 'value',
+        source: tags.ttAdapter(),
       }
     });
 
