@@ -9,11 +9,11 @@
         - @page.errors.full_messages.each do |msg|
           %li= msg
   %p
-    = f.hidden_field :user_id, :value => current_user.id
+    = f.hidden_field :user_id, value: current_user.id
     %br
     = f.text_field :title, class: 'form-control', placeholder: "Заголовок"
 
-  %p
+  %p{ data: {'no-turbolink' => true} }
     = f.text_area :content, class: 'form-control ckeditor', rows: 10
 
   %p

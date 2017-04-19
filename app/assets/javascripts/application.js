@@ -90,7 +90,7 @@ $(document).on("turbolinks:load", function(){
       trimValue: true,
       confirmKeys: [13, 44, 32],
       addOnBlur: true,
-      typeaheadjs: {  
+      typeaheadjs: {
         name: 'tags',
         displayKey: 'value',
         valueKey: 'value',
