@@ -120,7 +120,8 @@ $(document).on("turbolinks:load", function(){
       }
     });
 
-    $('.tagsinput').tagsinput('input').blur(function() {
+    var $tagsinput = $('.tagsinput').tagsinput('input');
+    $tagsinput && $tagsinput .blur(function() {
       $('.tagsinput').tagsinput('add', $(this).val());
       $(this).val('');
     });
