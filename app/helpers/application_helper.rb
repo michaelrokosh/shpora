@@ -13,9 +13,9 @@ module ApplicationHelper
 
 	def page_export(page)
 		if page.file_url
-			link_to '', page.file_url, target: '_blank', class: 'btn fa fa-download'
+			link_to I18n.t('labels.download'), page.file_url, target: '_blank', class: 'btn btn-md btn-default fa fa-download'
 		else
-			link_to 'Export Page', page_path(page, format: :docx)
+			link_to I18n.t('labels.download'), page_path(page, format: :docx), class: 'btn btn-md btn-default fa fa-download'
 		end
 	end
 end

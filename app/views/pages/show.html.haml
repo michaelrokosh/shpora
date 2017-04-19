@@ -11,22 +11,20 @@
       |
       = link_to 'Войти', new_user_session_path
 
-  %h1
-    = @page.title
-    = page_export @page
-    - if current_user == @user
-      = link_to '', edit_user_page_path(@page.user, @page), class: "btn fa fa-edit"
-    - else
+  .page-title-container
+    %h1.page-title
+      - if user_signed_in?
+        - if current_user.favorites.find_by_page_id(@page.id)
+          %i.fa.fa-star.favorite#make-favorite{ data: {page_id: @page.id, user_username: current_user.username} }
+        - else
+          %i.fa.fa-star.unfavorite#make-favorite{ data: {page_id: @page.id, user_username: current_user.username} }
+      %span
+        = @page.title
       = link_to '-' + @user.username, user_path(@user.username)
-  - if current_user != @user && user_signed_in?
-    - if current_user.favorites.find_by_page_id(@page.id)
-      %i.fa.fa-star.favorite#make-favorite{ data: {page_id: @page.id, user_username: current_user.username} }
-        %span
-          = " " + "Добавлено в избранное"
-    - else
-      %i.fa.fa-star.unfavorite#make-favorite{ data: {page_id: @page.id, user_username: current_user.username} }
-        %span
-          = " " + "В избранное!"
+    .control-buttons
+      - if current_user == @user
+        = link_to I18n.t('labels.edit'), edit_user_page_path(@page.user, @page), class: "btn btn-primary btn-md fa fa-pencil"
+      = page_export @page
   - if @page.tag_list
     .tags
       - @page.tag_list.each do |tag|

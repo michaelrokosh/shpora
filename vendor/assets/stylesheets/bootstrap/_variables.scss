@@ -153,25 +153,25 @@ $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
 $btn-default-border:             #ccc !default;
 
-$btn-primary-color:              #fff !default;
-$btn-primary-bg:                 $brand-primary !default;
-$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+$btn-primary-color:              darken($brand-primary,5%) !default;
+$btn-primary-bg:                 #fff !default;
+$btn-primary-border:             darken($brand-primary, 5%) !default;
 
-$btn-success-color:              #fff !default;
-$btn-success-bg:                 $brand-success !default;
-$btn-success-border:             darken($btn-success-bg, 5%) !default;
+$btn-success-color:              darken($brand-success,5%) !default;
+$btn-success-bg:                 #fff !default;
+$btn-success-border:             darken($brand-success, 5%) !default;
 
-$btn-info-color:                 #fff !default;
-$btn-info-bg:                    $brand-info !default;
-$btn-info-border:                darken($btn-info-bg, 5%) !default;
+$btn-info-color:                 darken($brand-info,5%) !default;
+$btn-info-bg:                    #fff !default;
+$btn-info-border:                darken($brand-info, 5%) !default;
 
-$btn-warning-color:              #fff !default;
-$btn-warning-bg:                 $brand-warning !default;
-$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+$btn-warning-color:              darken($brand-warning,5%) !default;
+$btn-warning-bg:                 #fff !default;
+$btn-warning-border:             darken($brand-warning, 5%) !default;
 
-$btn-danger-color:               #fff !default;
-$btn-danger-bg:                  $brand-danger !default;
-$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+$btn-danger-color:               darken($brand-danger, 5%) !default;
+$btn-danger-bg:                  #fff !default;
+$btn-danger-border:              darken($brand-danger, 5%) !default;
 
 $btn-link-disabled-color:        $gray-light !default;
 

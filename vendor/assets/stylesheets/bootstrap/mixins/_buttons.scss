@@ -11,12 +11,12 @@
   &:focus,
   &.focus {
     color: $color;
-    background-color: darken($background, 10%);
+    background-color: #fff;
         border-color: darken($border, 25%);
   }
   &:hover {
     color: $color;
-    background-color: darken($background, 10%);
+    background-color: #fff;
         border-color: darken($border, 12%);
   }
   &:active,

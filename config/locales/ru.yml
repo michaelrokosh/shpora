@@ -65,3 +65,5 @@ ru:
     supported_filetypes: "поддерживаемые типы файлов: docx"
   labels:
     create: "Создать"
+    edit: "Редактировать"
+    download: "Скачать .docx"

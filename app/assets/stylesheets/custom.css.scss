@@ -510,8 +510,7 @@ h6 { font-size: 10px;}
 }
 
 #make-favorite {
-  font-size: 33px;
-  margin-bottom: 10px;
+  font-size: 22px;
   cursor: pointer;
   span {
     color: $lightGrey;
@@ -758,7 +757,21 @@ h6 { font-size: 10px;}
 
 }
 
-
 .presentation-image {
   max-width: 100%;
+}
+
+.title .btn {
+  vertical-align: text-top;
+}
+
+.fa::before {
+  margin-right: 6px;
+}
+
+.page-title-container {
+  .control-buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }

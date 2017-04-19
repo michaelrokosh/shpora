@@ -38,7 +38,7 @@ $(document).on("turbolinks:load", function(){
         type: "POST",
         url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
         success: function() {
-          $button.removeClass('unfavorite').addClass('favorite').html("<span> Добавлено в избранное</span>"); ;
+          $button.removeClass('unfavorite').addClass('favorite');
         }
       })
     } else {
@@ -46,7 +46,7 @@ $(document).on("turbolinks:load", function(){
         type: "DELETE",
         url: '/' + $button.attr('data-user-username') + '/favorites/' + $button.attr('data-page-id'),
         success: function() {
-          $button.removeClass('favorite').addClass('unfavorite').html("<span> В избранное!</span>");
+          $button.removeClass('favorite').addClass('unfavorite');
         }
       })
     }
