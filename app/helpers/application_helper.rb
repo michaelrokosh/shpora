@@ -10,4 +10,12 @@ module ApplicationHelper
 			sanitize content
 		end
 	end
+
+	def page_export(page)
+		if page.file_url
+			link_to '', page.file_url, target: '_blank', class: 'btn fa fa-download'
+		else
+			link_to 'Export Page', page_path(page, format: :docx)
+		end
+	end
 end

@@ -9,8 +9,16 @@ class PagesController < ApplicationController
   end
 
   def show
-    @user = User.find_by(username: params[:user_id])
-    @page = @user.pages.find_by(url: params[:id])
+    @page = Page.find_by(url: params[:id])
+    @user = @page.user
+
+    respond_to do |format|
+      format.docx do
+        file = Htmltoword::Document.create @page.content, @page.title
+        send_data file, disposition: 'attachment'
+      end
+      format.html {}
+    end
   end
 
   def create

@@ -24,6 +24,8 @@ gem 'yomu'
 
 gem 'haml'
 
+gem 'htmltoword'
+
 group :doc do
   gem 'sdoc', require: false
 end

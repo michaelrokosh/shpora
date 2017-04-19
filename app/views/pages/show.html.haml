@@ -13,8 +13,7 @@
 
   %h1
     = @page.title
-    = link_to  @page.file_url, target: '_blank', class: 'btn' do
-      %i.fa.fa-download
+    = page_export @page
     - if current_user == @user
       = link_to '', edit_user_page_path(@page.user, @page), class: "btn fa fa-edit"
     - else
