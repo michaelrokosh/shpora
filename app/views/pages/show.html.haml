@@ -1,5 +1,5 @@
+= content_for(:title, 'Шпаргалка ' + @page.title + ' | shpora.me')
 .title
-  = content_for(:title, 'Шпаргалка ' + @page.title + ' | shpora.me')
   - unless user_signed_in?
     .introduction
       .presentation.mini-images
@@ -10,7 +10,7 @@
       = link_to 'Зарегистрироватся', new_user_registration_path
       |
       = link_to 'Войти', new_user_session_path
-      
+
   %h1
     = @page.title
     = link_to  @page.file_url, target: '_blank', class: 'btn' do
