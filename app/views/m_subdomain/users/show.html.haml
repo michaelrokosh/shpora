@@ -14,7 +14,7 @@
       - else
         %h1 У вас еще нет страниц.
         %h1
-          = link_to 'Создать!', new_page_path
+          = link_to 'Создать!', new_page_path, data: { turbolinks: false }
     .user_favorites
       %h1 Избранное
       - if @user.favorites.any?

@@ -1,4 +1,5 @@
 = content_for(:title, "Страница пользователя #{@user.username} | shpora.me")
+
 -if current_user?(@user)
   .row.user-page
     .user_pages.col-md-6.col-xs-12
@@ -14,7 +15,7 @@
       - else
         %h1 У вас еще нет страниц.
         %h1
-          = link_to 'Создать!', new_page_path
+          = link_to 'Создать!', new_page_path, data: { turbolinks: false }
     .user_favorites.col-md-6.col-xs-12
       %h1 Избранное
       - if @user.favorites.any?

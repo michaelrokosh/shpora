@@ -34,7 +34,7 @@
                   %h2
                     = t('messages.you_have_no_pages')
                   %h2
-                    = link_to t('labels.create') + '!', new_page_path
+                    = link_to t('labels.create') + '!', new_page_path, data: { turbolinks: false }
               .torn-page.torn-page-left
             .recent-favorites.col-md-offset-1.col-md-4.col-xs-12
               .block

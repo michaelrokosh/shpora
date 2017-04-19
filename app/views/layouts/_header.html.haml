@@ -1,7 +1,7 @@
 .navbar.nav-brand
   = link_to 'shpora.me', root_path, class: 'brand'
   - if user_signed_in?
-    = link_to '', new_page_path, class: "fa fa-plus add-button", title: t('labels.create')
+    = link_to '', new_page_path, class: "fa fa-plus add-button", title: t('labels.create'), data: { turbolinks: false }
     .btn-group.dropdown-wrapper
       %button.dropdown-body.btn.btn-drop.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
         = current_user.username
