@@ -221,8 +221,10 @@ h2 {
 
 .nav-brand {
   border: none;
+  /*
   margin-left: -1px;
   margin-right: -1px;
+  */
   top: -1px !important;
   color: #fff;
   text-align: center;
@@ -591,6 +593,7 @@ h6 { font-size: 10px;}
 }
 
 .share-buttons {
+  margin-bottom: 10px;
   #vk_like {
     margin: 0 auto;
     width: 70px !important;
@@ -734,7 +737,7 @@ h6 { font-size: 10px;}
   margin-bottom: 70px;
 }
 
-@media(max-width: 500px) {
+@media(max-width: 800px) {
   .introduction {
     display: none;
   }
@@ -774,4 +777,20 @@ h6 { font-size: 10px;}
     margin-top: 20px;
     margin-bottom: 20px;
   }
+}
+
+#kittywrapper {
+  margin: 0 auto;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+}
+
+.popover {
+  font-size: 14px;
 }

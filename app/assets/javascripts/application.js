@@ -25,6 +25,8 @@
 //= require fileupload/jquery.iframe-transport
 //= require twitter/typeahead.min
 //= require bootstrap-tagsinput.min
+//= require bootstrap/tooltip
+//= require bootstrap/popover
 
 //= require uploader
 
@@ -63,6 +65,26 @@ $(document).on("turbolinks:load", function(){
         $('.main').css('margin-top', '81px');
     }
   });
+
+  setTimeout(function() {
+    $(function() {
+      if($('.adsbygoogle').height() !== 0) {
+        $('#kittywrapper').html('<img src="/thankfulkitty.png" alt="Спасибо за то, что не блокируете рекламу!">').find('img').fadeIn(500);
+        $('#kittywrapper').popover({
+          content: 'Спасибо, что не блокируете рекламу!',
+          trigger: "hover",
+          placement: 'top'
+        });
+      } else {
+        $('#kittywrapper').html('<img src="/sadkitty.png" alt="Пожалуйста, отключите adblock...">').find('img').fadeIn(500);
+        $('#kittywrapper').popover({
+          content: 'Пожалуйста, отключите adblock...',
+          trigger: "hover",
+          placement: 'top'
+        });
+      }
+    });
+  }, 1000);
 
   $(function() {
     var tags = new Bloodhound({
