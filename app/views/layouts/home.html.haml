@@ -31,10 +31,10 @@
                       %h3
                         = link_to page.title, user_page_path(current_user, page)
                 - else
-                  %h2 
-                    = I18n.t 'messages.you_have_no_pages'
                   %h2
-                    = link_to I18n.t('labels.create') + '!', new_page_path
+                    = t('messages.you_have_no_pages')
+                  %h2
+                    = link_to t('labels.create') + '!', new_page_path
               .torn-page.torn-page-left
             .recent-favorites.col-md-offset-1.col-md-4.col-xs-12
               .block
@@ -46,8 +46,8 @@
                       %h3
                         = link_to page.title, user_page_path(page.user, page)
                 - else
-                  %h2 
-                    = I18n.t 'messages.no_favorites' 
+                  %h2
+                    = t('messages.no_favorites')
               .torn-page.torn-page-middle
             .recent-pages.col-md-4.col-xs-12
               .block
@@ -93,12 +93,12 @@
                   .uploader-text
                     .desktop
                       %i.fa.fa-cloud-upload.fa-4x.m-b-lg
-                      %p.h3.font-bold 
-                        = I18n.t 'messages.move_your_files_here'
-                      %small.text-muted 
-                        = I18n.t 'messages.dropzone_description'
-                      %p.support 
-                        = I18n.t 'messages.supported_filetypes'
+                      %p.h3.font-bold
+                        = t('messages.move_your_files_here')
+                      %small.text-muted
+                        = t('messages.dropzone_description')
+                      %p.support
+                        = t('messages.supported_filetypes')
                     .mobile
                       %i.fa.fa-camera.fa-4x.m-b-lg
                 #uploader-start.uploader-status._hidden
@@ -136,21 +136,20 @@
             %hr
           .row.description-row
             .description.first-description.col-md-4.col-xs-12
-              = I18n.t 'messages.description_1_1'
+              = t('messages.description_1_1')
               .shpora-count
                 %h3.number
-                  = I18n.t 'messages.number_of_pages'
+                  = t('messages.number_of_pages')
                 %h1.number
                   = Page.count
             .description.col-md-4.col-xs-12
-              = I18n.t 'messages.description_1_2'
+              = t('messages.description_1_2')
               %h2
                 = link_to 'shpora.me/admin/tf', 'http://shpora.me/admin/tf'
             .description.col-md-4.col-xs-12
-              = I18n.t 'messages.description_1_3'
+              = t('messages.description_1_3')
               %h2
                 = link_to 'm.shpora.me', 'http://m.shpora.me'
-          //%hr .image
           .presentation.dotted-border
             = render 'layouts/tag_cloud'
             //= image_tag('http://img34.imageshack.us/img34/429/c4nf.png')

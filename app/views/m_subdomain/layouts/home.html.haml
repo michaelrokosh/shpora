@@ -4,21 +4,21 @@
     %title Shpora.me - твоя электронная шпаргалка
     = stylesheet_link_tag "mobile-app", media: "all"
     = javascript_include_tag "mobile-app"
-    = csrf_meta_tags 
+    = csrf_meta_tags
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
   %body
-    = render 'm_subdomain/layouts/header'   
+    = render 'm_subdomain/layouts/header'
     - if user_signed_in?
-      %h1 
+      %h1
         Мои
         %a{href: user_path(current_user)} страницы
-      -if current_user.pages.any?  
+      -if current_user.pages.any?
         - @recent_user_pages.each do |page|
           .one-page
             %h3
               = link_to page.title, user_page_path(current_user, page)
-      - else 
-        %h1 У вас еще нет страниц. 
+      - else
+        %h1 У вас еще нет страниц.
         %h1
           = link_to 'Создать!', new_page_path
       %h1
@@ -29,8 +29,8 @@
             %h3
               = link_to page.title, user_page_path(page.user, page)
       - else
-        %h1 
-          = I18n.t 'messages.no_favorites' 
+        %h1
+          = t('messages.no_favorites')
     - else
       Вы также можете открыть профиль пользователя введя его имя(логин) в адресной строке сразу после адреса сайта, например m.shpora.me/mike
       .enter
