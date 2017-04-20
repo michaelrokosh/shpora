@@ -69,3 +69,11 @@ ru:
     delete: "Удалить"
     download: "Скачать файл"
     try_without_signing_up: "Попробовать без регистрации"
+  landing:
+    authentication:
+      login: 'Вход'
+      signup: 'Регистрация'
+      socials: 'Или через соцсети'
+  socials:
+    facebook: 'Facebook'
+    google: 'Google Plus'
