@@ -14,6 +14,11 @@
     %meta{name: "turbolinks-cache-control", content: "no-cache"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    :javascript
+      !function(){function c(){var a=b.createElement("script");
+      a.src='https://resend.io/widget.js',a.async=!0,a.onload=function(){__init('RAMzF0M1JQaTUxUStVWkE9PQ==')},
+      b.getElementsByTagName("head")[0].appendChild(a)}var a=window,b=document;
+      a.attachEvent?a.attachEvent("onload",c):a.addEventListener("load",c,!1)}();
   %body
     = render 'layouts/header'
     .wrapper.col-xs-12.col-sm-12.col-md-12
