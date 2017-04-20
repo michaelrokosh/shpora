@@ -67,13 +67,24 @@
         - else
           .row.first-row
             .auth.col-md-4.col-xs-12
-              %h1 Вход
+              %h1= t('landing.authentication.login')
               = render 'layouts/auth'
               .torn-page.torn-page-left
             .registration.col-md-offset-1.col-md-4.col-xs-12
-              %h1 Регистрация
+              %h1= t('landing.authentication.signup')
               = render 'layouts/test_sign_up'
               = render 'layouts/registration'
+              .hidden
+                ._m-b-lg= t('landing.authentication.socials')
+                .row
+                  .col-sm-6
+                    %a{href: '/auth/facebook', class: 'btn btn-primary btn-block'}
+                      %i.fa.fa-facebook._m-r
+                      %span= t('socials.facebook')
+                  .col-sm-6
+                    %a{href: '/auth/google_oauth2', class: 'btn btn-danger btn-block'}
+                      %i.fa.fa-google._m-r
+                      %span= t('socials.google')
               .torn-page.torn-page-middle
             .recent-pages.col-md-4.col-xs-12
               %h1

@@ -68,3 +68,13 @@ ru:
     edit: "Редактировать"
     delete: "Удалить"
     download: "Скачать .docx"
+
+  landing:
+    authentication:
+      login: 'Вход'
+      signup: 'Регистрация'
+      socials: 'Или через соцсети'
+
+  socials:
+    facebook: 'Фейсбук'
+    google: 'Гугл'
