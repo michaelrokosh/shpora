@@ -1,24 +1,31 @@
 Shpora::Application.routes.draw do
 
-  root "home#index"
+  root 'home#index'
+
   get '/recent', to: 'pages#show', as: :recent_pages
   post ':user_id/favorites/:page_id', to: 'favorites#create', as: :new_favorite
   delete ':user_id/favorites/:page_id', to: 'favorites#destroy', as: :delete_favorite
   get ':user_id/favorites', to: 'favorites#index', as: :favorites
-  #get '/tag/:tag_name', to: 'tags#show', as: :tag
-  devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :tags, :only => [:index, :show]
-  resources :pages, :only => [:new, :index, :create, :update]
-  resources :users, :only => [:show], path: '' do
+
+  devise_for :users
+
+  namespace :assets do
+    resources :tags, only: :index
+  end
+
+  resources :uploads, only: :create
+  resources :tags, only: [:index, :show]
+  resources :pages, only: [:new, :index, :create, :update]
+  resources :users, only: [:show], path: '' do
     collection do
       get 'search'
     end
-    resources :pages, path: '', :only => [:show, :destroy, :edit]
+    resources :pages, path: '', only: [:show, :destroy, :edit]
   end
-  
 
-  #get ':username', to: 'users#show', as: :user
-  #get ':username/:page_id', to: 'pages#show', as: :full_page
-  
-   
+
+  get '/auth/:provider/callback', to: 'authentications#create'
+  get '/auth/failure', to: redirect('/')
+
+  resources :authentications, only: [:create, :destroy]
 end

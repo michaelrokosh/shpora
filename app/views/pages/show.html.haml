@@ -1,46 +1,46 @@
+= content_for(:title, 'Шпаргалка ' + @page.title + ' | shpora.me')
 .title
-  = content_for(:title, 'Шпаргалка ' + @page.title + ' | shpora.me')
   - unless user_signed_in?
     .introduction
       .presentation.mini-images
         /= image_tag('/shpora-step-1.png', class: 'presentation-image editor');
         = image_tag('/iphone.png', class: 'presentation-image iphone');
-        /= image_tag('/macbook.png', class: 'presentation-image macbook');
-      %p
-        shpora.me - незаменимый помощник для студентов и школьников, который позволяет быстро создавать и получать доступ к шпаргалкам или другим заметкам с любых устройств. В любое время. Абсолютно бесплатно.
-        = link_to 'Зарегистрироватся', new_user_registration_path
-        |
-        = link_to 'Войти', new_user_session_path
+      shpora.me - незаменимый помощник для студентов и школьников, который позволяет быстро создавать и получать доступ к шпаргалкам или другим заметкам с любых устройств. В любое время. Абсолютно бесплатно.
+      = link_to 'Зарегистрироватся', new_user_registration_path
+      |
+      = link_to 'Войти', new_user_session_path
       %p
         #kittywrapper
-        %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-        <!— shpora —>
-        %ins.adsbygoogle{"data-ad-client" => "ca-pub-3834340625723750", "data-ad-format" => "auto", "data-ad-slot" => "7858822824", :style => "display:block"}
-        :javascript
-          (adsbygoogle = window.adsbygoogle || []).push({});
+        #bn_3b7bf114d0
+        %script{:src => "//recreativ.ru/rcode.3b7bf114d0.js", :type => "text/javascript"}
       %p
         = render 'layouts/shares'
       %span.text-danger
         * данный блок не отображается зарегистрированым пользователям и на мобильных устройствах
-  %h1
-    = @page.title
-    - if current_user == @user 
-      = link_to '', edit_user_page_path(@page.user, @page), class: "btn fa fa-edit"
-    - else
+  .page-title-container
+    %h1.page-title
+      - if user_signed_in?
+        - if current_user.favorites.find_by_page_id(@page.id)
+          %i.fa.fa-star.favorite#make-favorite{ data: {page_id: @page.id, user_username: current_user.username} }
+        - else
+          %i.fa.fa-star.unfavorite#make-favorite{ data: {page_id: @page.id, user_username: current_user.username} }
+      %span
+        = @page.title
       = link_to '-' + @user.username, user_path(@user.username)
-  - if current_user != @user && user_signed_in?
-    - if current_user.favorites.find_by_page_id(@page.id)
-      %i.fa.fa-star.favorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} } 
-        %span 
-          = " " + "Добавлено в избранное"
-    - else
-      %i.fa.fa-star.unfavorite#make-favorite{ data: {:page_id => @page.id, :user_username => current_user.username} }
-        %span 
-          = " " + "В избранное!"
+    .control-buttons
+      = page_export @page
+      - if current_user == @user
+        = link_to I18n.t('labels.edit'), edit_user_page_path(@page.user, @page), class: "btn btn-primary btn-md fa fa-pencil", data: { turbolinks: false }
   - if @page.tag_list
     .tags
       - @page.tag_list.each do |tag|
         %h2
           = link_to "##{ tag }", tag_path(tag)
 .content
-  = raw @page.content
+  = show_page_content @page.content
+%br
+%script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+<!— shpora —>
+%ins.adsbygoogle{"data-ad-client" => "ca-pub-3834340625723750", "data-ad-format" => "auto", "data-ad-slot" => "7858822824", :style => "display:block"}
+:javascript
+  (adsbygoogle = window.adsbygoogle || []).push({});

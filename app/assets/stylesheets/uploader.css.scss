@@ -1,0 +1,86 @@
+.hidden_fields {
+  display: none;
+}
+
+#upload-preview {
+  display: block;
+  width: 100%;
+  height: 330px;
+  text-align: center;
+  position: relative;
+}
+
+.upload-cover {
+  height: inherit;
+  background-size: cover;
+
+  &:before {
+    font-family: FontAwesome;
+    font-size: 7em;
+    color: white;
+  }
+}
+
+#uploader-zone {
+  border: 1px dashed $medium-gray;
+  text-align: center;
+  font-size: 1.4em;
+  color: #777;
+  cursor: pointer;
+  min-height: 100%;
+  padding: 40px 50px;
+  &.in {
+    border: 1px dashed darken(#e5e5e5, 6%);
+  }
+
+  &.hover {
+    background: darken(#f9f9fb, 2%);
+  }
+
+  &.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+  }
+}
+
+.uploader-text {
+  & > .desktop {
+    display: block;
+  }
+  & > .mobile {
+    display: none !important;
+
+    i {
+      line-height: 110px;
+      vertical-align: middle;
+      display: block;
+    }
+  }
+  .support {
+    margin-top: 30px;
+    font-size: 0.75em;
+  }
+}
+
+.uploader-status {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  padding: 90px 50px;
+
+  .fa.fa-cloud-upload {
+    color: $brand-warning;
+  }
+  .fa.fa-check {
+    color: $brand-success;
+  }
+  .fa.fa-times {
+    color: $brand-danger;
+  }
+}

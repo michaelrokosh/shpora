@@ -5,10 +5,10 @@
 %nav
   - if user_signed_in?
     %ul
-      %li= link_to 'Новая страница', new_page_path(@page)
+      %li= link_to 'Новая страница', new_page_path, data: { turbolinks: false }
       %li= link_to 'Профиль ' + current_user.username, user_path(current_user)
       %li= link_to 'Выход', destroy_user_session_path, method: :delete
   - else
     %ul
-      %li= link_to 'Зарегистрироваться', new_user_registration_path   
-      %li= link_to 'Войти', new_user_session_path 
+      %li= link_to 'Зарегистрироваться', new_user_registration_path
+      %li= link_to 'Войти', new_user_session_path

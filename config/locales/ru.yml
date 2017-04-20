@@ -2,12 +2,18 @@ ru:
   will_paginate:
     previous_label: "Назад"
     next_label: "Вперед"
+    page_gap: "..."
   errors:
     messages:
       not_saved: "Ошибка"
   activerecord:
     errors:
       models:
+        page:
+          attributes:
+            url:
+              blank: обязательное к заполнению
+              invalid: Ошибка
         user:
           attributes:
             email:
@@ -20,13 +26,15 @@ ru:
     models:
       user: "Пользователь"
       page: "Шпаргалка"
+      favorite: "Избранное"
+      tag: "Тег"
     attributes:
       user:
         email: "Email"
         username: "Имя пользователя"
         password: "Пароль"
         attributes: "Атрибуты"
-        sign_in_count: "Sign in counts"
+        sign_in_count: "Число входов"
         current_sign_in_at: "Current sign in at"
         last_sign_in_at: "Last sign in at"
         current_sign_in_ip: "Current sign in IP"
@@ -42,7 +50,32 @@ ru:
     pagination:
       next: "Вперед"
       last: "Назад"
-
-
-
-  
+    header:
+      sign_out: "Выход"
+      profile: "Профиль"
+  messages:
+    no_favorites: "Вы еще не добавили ни одной страницы в Избранное."
+    description_1_1: "shpora.me - это сервис для создания и поиска шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств."
+    description_1_2: "Чтобы открыть созданную ранее страницу, не обязательно входить в систему, достаточно ввести в адресной строке браузера адрес, который состоит из имени пользователя и краткого названия, придуманного пользователем. Например:"
+    description_1_3: "Делитесь своими шпаргалками и добавляйте в избранные чужие. Сайт оптимизирован под мобильные телефоны с различным разрешением экрана и планшеты. Для удобства и экономии траффика есть ультралегкая версия -"
+    number_of_pages: "Шпаргалок на сайте:"
+    you_have_no_pages: "У вас еще нет страниц."
+    move_your_files_here: "Переместите файлы сюда"
+    dropzone_description: "Есть много рефератов? Получайте в скором будущем вплоть до 50 центов за каждый загруженный на сайт .docx файл с публичным доступом. Или сохраняйте их бесплатно в приватном режиме. Все документы будут доступны для просмотра/скачивания на личной странице"
+    supported_filetypes: "поддерживаемые типы файлов: doc, docx, pdf"
+    content_processing: "Идет обработка содержания страницы..."
+    refresh_page_later: "Обновите страницу через некоторое время."
+  labels:
+    create: "Создать"
+    edit: "Редактировать"
+    delete: "Удалить"
+    download: "Скачать файл"
+    try_without_signing_up: "Попробовать без регистрации"
+  landing:
+    authentication:
+      login: 'Вход'
+      signup: 'Регистрация'
+      socials: 'Или через соцсети'
+  socials:
+    facebook: 'Facebook'
+    google: 'Google Plus'
