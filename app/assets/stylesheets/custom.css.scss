@@ -277,7 +277,7 @@ a {
 }
 .brand {
   color: #fff;
-  &:hover {
+  &:hover, &:focus {
     text-decoration: none;
     color: #F2F2F2;
   }
