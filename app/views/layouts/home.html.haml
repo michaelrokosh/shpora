@@ -74,10 +74,19 @@
               %h1
                 5-ка
                 %a{href: pages_path} последних
-              - @recent_pages.each do |page|
-                .one-page
-                  %h3
-                    = link_to page.title, user_page_path(page.user, page)
+              .row
+                .col-sm-4
+                  %a{href: '/auth/facebook', class: 'btn btn-facebook btn-lg'}
+                    %i.fa.fa-facebook.m-r-sm
+                    %span Facebook
+                .col-sm-4
+                  %a{href: '/auth/google_oauth2', class: 'btn btn-google btn-lg'}
+                    %i.fa.fa-google.m-r-sm
+                    %span Google
+              -# - @recent_pages.each do |page|
+              -#   .one-page
+              -#     %h3
+              -#       = link_to page.title, user_page_path(page.user, page)
               .torn-page.torn-page-right
 
         = render 'application/uploader'
