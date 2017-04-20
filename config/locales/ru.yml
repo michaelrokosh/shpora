@@ -66,4 +66,5 @@ ru:
   labels:
     create: "Создать"
     edit: "Редактировать"
+    delete: "Удалить"
     download: "Скачать .docx"
