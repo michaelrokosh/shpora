@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   private
 
   def default_user
-    current_user || User.last
+    current_user || User.find_by(username: 'anonymous') || User.last
   end
 
   def upload_form
