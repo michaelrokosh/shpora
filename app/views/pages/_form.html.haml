@@ -9,7 +9,7 @@
         - @page.errors.full_messages.each do |msg|
           %li= msg
   %p
-    = f.hidden_field :user_id, :value => current_user.id
+    = f.hidden_field :user_id, value: current_user.id
     %br
     = f.text_field :title, class: 'form-control', placeholder: "Заголовок"
 
@@ -26,6 +26,6 @@
   %p
     = f.label :tags
     %br
-    = f.text_field :tag_list, class: 'form-control'
+    = f.text_field :tag_list, class: 'tagsinput'
     %br
     = f.submit "Готово", class: 'btn btn-default'

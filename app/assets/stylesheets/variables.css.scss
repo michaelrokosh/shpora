@@ -1,0 +1,74 @@
+$color-navbar-plus: #4597CE;
+$color-slate: #687D91;
+$color-smoke: #f3f4f5;
+$color-platinum: #e6e9ed;
+$color-cyan: #62b7e6;
+
+// Brand
+$brand-info: #57b8f9;
+
+// Colors
+$color-red: RGBA(255,0,0,0.6);
+
+//$blue: #477dca;
+$blue: #4597CE;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
+
+// Buttons
+$brand-color: $brand-info;
+
+$color-gray--shadow: #e1e1e1;
+
+$color-card-header: $color-slate;
+$color-card-header-icon: lighten($color-card-header, 15%);
+$color-card-action: $brand-info;
+$color-card-content-muted: $color-card-header-icon;
+
+$brand-active-color: #00147D;
+$sidebar-active-link: $brand-active-color;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 2px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Font Colors
+$base-font-color: $dark-gray;
+$action-color: $brand-info;
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
+
+// Table
+$table-border-color: $color-smoke;
+$table-bg-hover: lighten($color-smoke, 2%);
+
+
+
+$sidebar-width: 240px;
+$header-height: 54px;
+$header-box-height: 55px;
+$panel-background: #eceeef;

@@ -1,48 +1,53 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+ruby '2.3.2'
 
-# Use postgresql as the database for Active Record
+gem 'rails', '4.2.2'
+
 gem 'pg'
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 
+# services
+gem 'airbrake'
+gem 'redis-rails'
+gem 'sidekiq'
+gem 'sendgrid'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+# file uploads
+gem 'aws-sdk', '~> 2'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'yomu'
+
 gem 'haml'
-#gem 'acts-as-taggable-on'
-#gem 'thumbs_up'
-#gem "cancan" # roles
+
+gem 'htmltoword'
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
+#auth
 gem 'devise'
-gem "therubyracer"
-gem "less-rails"
-gem 'font-awesome-rails'
+gem 'devise-async'
+gem 'koala'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
+gem 'turbolinks', '~> 5.0.0'
+gem 'font-awesome-sass'
+gem 'google-webfonts'
+gem 'haml-rails'
 gem 'ckeditor_rails'
 gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'newrelic_rpm'
 gem 'sitemap_generator'
+gem 'twitter-typeahead-rails'
 
 group :production do
   gem 'rails_12factor'
@@ -53,14 +58,3 @@ group :development do
   gem 'binding_of_caller'
   gem 'quiet_assets'
 end
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

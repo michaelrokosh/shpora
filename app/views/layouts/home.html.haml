@@ -2,10 +2,7 @@
 %html
   %head
     %title Shpora.me - твоя электронная шпаргалка
-    = stylesheet_link_tag "application", media: "all"
-    = javascript_include_tag "application"
     %link{href: "http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic", rel: "stylesheet", type: "text/css"}/
-    
     %script{src: "//vk.com/js/api/openapi.js?105", type: "text/javascript"}
     :javascript
       VK.init({apiId: 4014548, onlyWidgets: true});
@@ -14,6 +11,14 @@
     %meta{content: "shpora.me - это сервис для создания шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств.", name: "description"}/
     %meta{content: "Шпаргалка, электронная шпаргалка, шпора, шпаргалки бесплатно, онлайн шпаргалка, мобильная шпаргалка", name: "keywords"}/
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
+    %meta{name: "turbolinks-cache-control", content: "no-cache"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    :javascript
+      !function(){function c(){var a=b.createElement("script");
+      a.src='https://resend.io/widget.js',a.async=!0,a.onload=function(){__init('RAMzF0M1JQaTUxUStVWkE9PQ==')},
+      b.getElementsByTagName("head")[0].appendChild(a)}var a=window,b=document;
+      a.attachEvent?a.attachEvent("onload",c):a.addEventListener("load",c,!1)}();
   %body
     = render 'layouts/header'
     .wrapper.col-xs-12.col-sm-12.col-md-12
@@ -22,18 +27,19 @@
           .row.first-row
             .recent-user-pages.col-md-4.col-xs-12
               .block
-                %h1 
+                %h1
                   Мои
                   %a{href: user_path(current_user)} страницы
-                -if current_user.pages.any?  
+                - if current_user.pages.any?
                   - @recent_user_pages.each do |page|
                     .one-page
                       %h3
                         = link_to page.title, user_page_path(current_user, page)
-                - else 
-                  %h2 У вас еще нет страниц. 
+                - else
                   %h2
-                    = link_to 'Создать!', new_page_path
+                    = t('messages.you_have_no_pages')
+                  %h2
+                    = link_to t('labels.create') + '!', new_page_path, data: { turbolinks: false }
               .torn-page.torn-page-left
             .recent-favorites.col-md-offset-1.col-md-4.col-xs-12
               .block
@@ -45,12 +51,13 @@
                       %h3
                         = link_to page.title, user_page_path(page.user, page)
                 - else
-                  %h2 Вы еще не добавили ни одной страницы в Избранное. 
+                  %h2
+                    = t('messages.no_favorites')
               .torn-page.torn-page-middle
             .recent-pages.col-md-4.col-xs-12
               .block
-                %h1 
-                  5-ка 
+                %h1
+                  5-ка
                   %a{href: pages_path} последних
                 - @recent_pages.each do |page|
                   .one-page
@@ -58,33 +65,43 @@
                       = link_to page.title, user_page_path(page.user, page)
               .torn-page.torn-page-right
         - else
-          .row.first-row 
+          .row.first-row
             .auth.col-md-4.col-xs-12
-              %h1 Вход
+              %h1= t('landing.authentication.login')
               = render 'layouts/auth'
               .torn-page.torn-page-left
-            .registration.col-md-offset-1.col-md-4.col-xs-12              
-              %h1 Регистрация
-              = render 'layouts/test_sign_up'          
+            .registration.col-md-offset-1.col-md-4.col-xs-12
+              %h1= t('landing.authentication.signup')
+              = render 'layouts/test_sign_up'
               = render 'layouts/registration'
+              .hidden
+                ._m-b-lg= t('landing.authentication.socials')
+                .row
+                  .col-sm-6
+                    %a{href: '/auth/facebook', class: 'btn btn-primary btn-block'}
+                      %i.fa.fa-facebook._m-r
+                      %span= t('socials.facebook')
+                  .col-sm-6
+                    %a{href: '/auth/google_oauth2', class: 'btn btn-danger btn-block'}
+                      %i.fa.fa-google._m-r
+                      %span= t('socials.google')
               .torn-page.torn-page-middle
             .recent-pages.col-md-4.col-xs-12
-              %h1 
-                5-ка 
+              %h1
+                5-ка
                 %a{href: pages_path} последних
               - @recent_pages.each do |page|
                 .one-page
                   %h3
                     = link_to page.title, user_page_path(page.user, page)
               .torn-page.torn-page-right
-        /
-          %hr
-          = render 'layouts/shares'
-          %hr
+        = render 'application/uploader'
         .presentation.images
           = image_tag('/shpora-step-1.png', class: 'presentation-image editor');
           = image_tag('/iphone.png', class: 'presentation-image iphone');
           = image_tag('/macbook.png', class: 'presentation-image macbook');
+        = render 'layouts/shares'
+        #kittywrapper
         %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
         <!— shpora —>
         %ins.adsbygoogle{"data-ad-client" => "ca-pub-3834340625723750", "data-ad-format" => "auto", "data-ad-slot" => "7858822824", :style => "display:block"}
@@ -102,21 +119,20 @@
             %hr
           .row.description-row
             .description.first-description.col-md-4.col-xs-12
-              shpora.me - это сервис для создания и поиска шпаргалок и других заметок с произвольным содержанием, доступных для любых мобильных и стационарных устройств. 
-              .shpora-count 
+              = t('messages.description_1_1')
+              .shpora-count
                 %h3.number
-                  Шпаргалок на сайте:
-                %h1.number  
+                  = t('messages.number_of_pages')
+                %h1.number
                   = Page.count
             .description.col-md-4.col-xs-12
-              Чтобы открыть созданную ранее страницу, не обязательно входить в систему, достаточно ввести в адресной строке браузера адрес, который состоит из имени пользователя и краткого названия, придуманного пользователем. Например:
-              %h2 
+              = t('messages.description_1_2')
+              %h2
                 = link_to 'shpora.me/admin/tf', 'http://shpora.me/admin/tf'
             .description.col-md-4.col-xs-12
-              Делитесь своими шпаргалками и добавляйте в избранные чужие. Сайт оптимизирован под мобильные телефоны с различным разрешением экрана и планшеты. Для удобства и экономии траффика есть ультралегкая версия - 
-              %h2 
+              = t('messages.description_1_3')
+              %h2
                 = link_to 'm.shpora.me', 'http://m.shpora.me'
-          //%hr .image
           .presentation.dotted-border
             = render 'layouts/tag_cloud'
             //= image_tag('http://img34.imageshack.us/img34/429/c4nf.png')

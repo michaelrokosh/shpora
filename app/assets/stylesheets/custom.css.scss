@@ -1,13 +1,15 @@
 $lightGrey: #999;
 $headerColor: #7693CA;
 
+._hidden { display: none; }
+
 a {
   font-family: serif;
 }
 
 header {
   position: absolute;
-  width: 100%;  
+  width: 100%;
   top: 0px;
   opacity: 0.95;
   h1 {
@@ -28,7 +30,7 @@ body {
   background-size: inherit;
   font-family: serif;
   color: #333333;
-  padding: 0px;
+  padding: 0px !important;
   margin: 0px;
   word-wrap: break-word;
   -webkit-text-size-adjust: none; /* Resolve problem with font size on landscape orientation */
@@ -56,7 +58,7 @@ body {
   }
 }
 
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
   .col-md-offset-1 {
     margin-left: 1.333333333333332%;
     margin-right: 1.333333333333332%;
@@ -77,7 +79,7 @@ body {
   }
 }
 
-@media (min-width: 1650px) { 
+@media (min-width: 1650px) {
   .wrapper {
     width: 50%;
     left: 25%;
@@ -219,8 +221,10 @@ h2 {
 
 .nav-brand {
   border: none;
+  /*
   margin-left: -1px;
   margin-right: -1px;
+  */
   top: -1px !important;
   color: #fff;
   text-align: center;
@@ -234,8 +238,8 @@ h2 {
   text-shadow: 1px 1px 1px rgba(255,255,255,.5),-1px -1px 1px rgba(0,0,0,.2);
 
   border-bottom: 10px solid transparent;
-  
-  background-image: 
+
+  background-image:
     linear-gradient($headerColor, $headerColor),
     linear-gradient(to bottom right, transparent 50.5%, $headerColor 50.5%),
     linear-gradient(to bottom left, transparent 50.5%, $headerColor 50.5%),
@@ -273,7 +277,7 @@ a {
 }
 .brand {
   color: #fff;
-  &:hover {
+  &:hover, &:focus {
     text-decoration: none;
     color: #F2F2F2;
   }
@@ -329,7 +333,7 @@ a {
 }
 
 .home-page {
-  
+
 }
 
 @media (max-width: 400px) {
@@ -445,7 +449,7 @@ a {
 }
 
 .first-row {
-  padding: 0 !important; 
+  padding: 0 !important;
 }
 
 .bottom {
@@ -508,8 +512,7 @@ h6 { font-size: 10px;}
 }
 
 #make-favorite {
-  font-size: 33px;
-  margin-bottom: 10px;
+  font-size: 22px;
   cursor: pointer;
   span {
     color: $lightGrey;
@@ -580,7 +583,7 @@ h6 { font-size: 10px;}
 .button-link {
   background:none!important;
   width: 100%;
-  border:none; 
+  border:none;
   padding:0!important;
   color: #428bca;
   &:hover {
@@ -590,6 +593,7 @@ h6 { font-size: 10px;}
 }
 
 .share-buttons {
+  margin-bottom: 10px;
   #vk_like {
     margin: 0 auto;
     width: 70px !important;
@@ -624,13 +628,13 @@ h6 { font-size: 10px;}
 
 }
 
-.modal { 
+.modal {
   top: 54px;
   right: 0;
   bottom: inherit;
   left: 0;
   z-index: -1;
-  width: 15%; 
+  width: 15%;
 }
 
 .modal-dialog {
@@ -729,11 +733,11 @@ h6 { font-size: 10px;}
 }
 
 .presentation.images {
-  margin-top: -100px;
+  margin-top: 100px;
   margin-bottom: 70px;
 }
 
-@media(max-width: 500px) {
+@media(max-width: 800px) {
   .introduction {
     display: none;
   }
@@ -756,7 +760,38 @@ h6 { font-size: 10px;}
 
 }
 
-
 .presentation-image {
   max-width: 100%;
+}
+
+.title .btn {
+  vertical-align: text-top;
+  margin-right: 6px;
+}
+
+.fa::before {
+  margin-right: 6px;
+}
+
+.page-title-container {
+  .control-buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+#kittywrapper {
+  margin: 0 auto;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+}
+
+.popover {
+  font-size: 14px;
 }

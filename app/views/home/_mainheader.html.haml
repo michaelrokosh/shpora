@@ -9,10 +9,10 @@
   %nav.navigation
     - if user_signed_in?
       %ul
-        %li= link_to '', new_page_path(@page), class: "fa fa-plus", :title => "Новая страница"
-        %li= link_to current_user.username, user_path(current_user), :title => "Профиль"
-        %li= link_to '', destroy_user_session_path, :method => :delete, class: "fa fa-sign-out", :title => "Выход"
+        %li= link_to '', new_page_path, class: "fa fa-plus", title: "Новая страница", data: { turbolinks: false }
+        %li= link_to current_user.username, user_path(current_user), title: "Профиль"
+        %li= link_to '', destroy_user_session_path, method: :delete, class: "fa fa-sign-out", title: "Выход"
     - else
       %ul
         %li= link_to 'login', new_user_session_path
-        %li= link_to 'register', new_user_registration_path   
+        %li= link_to 'register', new_user_registration_path
