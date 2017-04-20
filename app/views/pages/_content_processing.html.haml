@@ -1,5 +1,7 @@
 .content_processing
   %i.fa.fa-spinner.fa-spin.fa-5x
-  .title Content is in process!
+  .title
+  	= I18n.t 'messages.content_processing'
   %br
-  %small.text-muted refresh the page later
+  %small.text-muted
+  	= I18n.t 'messages.refresh_page_later'
