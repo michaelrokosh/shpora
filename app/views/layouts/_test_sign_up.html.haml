@@ -1,4 +1,5 @@
 = form_tag user_session_path do
   = hidden_field_tag 'user[username]', 'test'
   = hidden_field_tag 'user[password]', '1111'
-  %button.btn.btn-default.button-link Попробовать без регистрации
+  %button.btn.btn-default.button-sm 
+    = I18n.t 'labels.try_without_signing_up'
