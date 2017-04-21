@@ -28,7 +28,8 @@
         = @page.title
       = link_to '-' + @user.username, user_path(@user.username)
     .control-buttons
-      = page_export @page
+      - unless page.content.blank?
+        = page_export @page
       - if current_user == @user
         = link_to I18n.t('labels.edit'), edit_user_page_path(@page.user, @page), class: "btn btn-primary btn-md fa fa-pencil", data: { turbolinks: false }
   - if @page.tag_list
