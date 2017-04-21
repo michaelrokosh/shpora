@@ -22,7 +22,7 @@ Shpora::Application.routes.draw do
     collection do
       get 'search'
     end
-    resources :pages, path: '', only: [:show, :destroy, :edit]
+    resources :pages, only: [:show, :destroy, :edit]
   end
 
 
