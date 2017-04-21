@@ -8,8 +8,8 @@
           .one-page
             %h2
               = link_to page.title, user_page_path(@user, page)
-            = link_to I18n.t('labels.edit'), edit_page_path(page)
-            = link_to I18n.t('labels.delete'), user_page_path(@user, page), method: :delete, data: { confirm: 'Вы уверены?' }
+            = link_to t('labels.edit'), edit_user_page_path(@user, page)
+            = link_to t('labels.delete'), user_page_path(@user, page), method: :delete, data: { confirm: 'Вы уверены?' }
             %hr
       - else
         %h1 У вас еще нет страниц.
@@ -23,7 +23,7 @@
             .one-page
               %h2
                 = link_to page.title, user_page_path(page.user, page)
-              = link_to I18n.t('labels.delete'), delete_favorite_path(current_user.id, page.id), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger fa fa-trash-o icon-large"
+              = link_to t('labels.delete'), delete_favorite_path(current_user.id, page.id), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger fa fa-trash-o icon-large"
               %hr
       - else
         %h1
