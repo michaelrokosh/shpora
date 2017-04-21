@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by(url: params[:id])
-    @user = @page.user
+    @user = User.find_by(username: params[:user_id])
 
     respond_to do |format|
       format.docx do

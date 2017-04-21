@@ -12,6 +12,7 @@ module ApplicationHelper
 	end
 
 	def page_export(page)
+		return '' if page.content.blank?
 		if page.file_url
 			link_to I18n.t('labels.download'), page.file_url, target: '_blank', class: 'btn btn-md btn-default fa fa-download'
 		else

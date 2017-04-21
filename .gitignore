@@ -14,7 +14,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+<<<<<<< HEAD
+.env
+=======
 
 .env
 .env.sample
 .env.development
+>>>>>>> 0312a7a4fe5e3c880efa8ba001eaabf5142f408b
