@@ -8,6 +8,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'thin'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # services

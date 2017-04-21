@@ -1,2 +1,2 @@
-web: bundle exec rails server -p $PORT
-worker: bundle exec sidekiq -e production -C config/sidekiq.yml
+web: bundle exec thin start -p $PORT
+worker: bundle exec sidekiq -q devise -q default -e production -c 5
