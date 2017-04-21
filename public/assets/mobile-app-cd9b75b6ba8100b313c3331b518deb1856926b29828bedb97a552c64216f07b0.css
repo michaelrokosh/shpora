@@ -1,0 +1,165 @@
+/* line 1, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+body {
+  width: 90%;
+  margin: 0 auto;
+  word-wrap: break-word;
+  -webkit-text-size-adjust: none;
+  /* Resolve problem with font size on landscape orientation */
+}
+
+/* line 9, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+header h2 {
+  margin-bottom: 5px;
+}
+/* line 12, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+header h4 {
+  margin: 0;
+}
+
+/* line 17, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+/* line 25, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.title h1 {
+  margin: 5px 0px 5px 0px;
+}
+
+/* line 31, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.tags h4 {
+  margin: 0;
+  display: inline;
+  margin-right: 5px;
+}
+
+/* line 38, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+nav {
+  margin-bottom: 5px;
+}
+/* line 40, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+nav ul {
+  list-style: none;
+  padding-left: 0px;
+  margin-top: 5px;
+}
+/* line 44, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+/* line 47, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+nav ul li:last-of-type {
+  margin: 0;
+}
+/* line 50, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+nav ul li a {
+  color: #628bca;
+}
+/* line 52, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+nav ul li a:hover {
+  text-decoration: none;
+}
+
+/* line 60, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.content img {
+  max-width: 100%;
+}
+/* line 64, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.content table {
+  width: 100% !important;
+}
+/* line 67, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.content p {
+  margin: 1em 0em 1em 0em !important;
+}
+
+/* line 72, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+form .field {
+  width: 90%;
+  height: 30px;
+  font-size: 20px;
+}
+/* line 77, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+form button {
+  height: 30px;
+  font-size: 20px;
+}
+
+/* line 83, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+footer {
+  margin-top: 5px;
+}
+/* line 85, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+footer .counter {
+  float: right;
+}
+
+/* line 90, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.favorite {
+  color: green;
+}
+
+/* line 93, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.unfavorite {
+  color: grey;
+}
+
+/* line 96, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+#make-favorite {
+  margin: 0px 0px 5px 0px;
+}
+
+/* line 100, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.css1 {
+  font-size: 0.6em;
+}
+
+/* line 101, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.css2 {
+  font-size: 1.0em;
+}
+
+/* line 102, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.css3 {
+  font-size: 1.4em;
+}
+
+/* line 103, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+.css4 {
+  font-size: 1.8em;
+}
+
+/* line 105, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+h1 {
+  font-size: 24px;
+}
+
+/* line 106, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+h2 {
+  font-size: 22px;
+}
+
+/* line 107, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+h3 {
+  font-size: 18px;
+}
+
+/* line 108, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+h4 {
+  font-size: 16px;
+}
+
+/* line 109, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+h5 {
+  font-size: 12px;
+}
+
+/* line 110, /Users/mike/Documents/projects/shpora/app/assets/stylesheets/mobile.css.scss */
+h6 {
+  font-size: 10px;
+}
+/*
+
+ */
