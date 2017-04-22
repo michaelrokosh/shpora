@@ -11,7 +11,7 @@ class AuthenticationsController < ApplicationController
         authentication = current_user.apply_omniauth(auth)
         redirect_to_next_page(current_user)
       else
-        @user = User.find_for_oauth(request.env["omniauth.auth"], session[:invite], current_user)
+        @user = User.find_for_oauth(request.env["omniauth.auth"], current_user)
         if @user.persisted? && (authentication = @user.apply_omniauth(auth))
           sign_in @user, event: :authentication
           Onboard::User.perform(@user)

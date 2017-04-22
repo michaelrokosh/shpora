@@ -78,11 +78,11 @@
                 ._m-b-lg= t('landing.authentication.socials')
                 .row
                   .col-sm-6
-                    %a{href: '/auth/facebook', class: 'btn btn-primary btn-block'}
+                    %a{href: '/users/auth/facebook/callback', class: 'btn btn-primary btn-block'}
                       %i.fa.fa-facebook._m-r
                       %span= t('socials.facebook')
                   .col-sm-6
-                    %a{href: '/auth/google_oauth2', class: 'btn btn-danger btn-block'}
+                    %a{href: 'users/auth/google_oauth2/callback', class: 'btn btn-danger btn-block'}
                       %i.fa.fa-google._m-r
                       %span= t('socials.google')
               .torn-page.torn-page-middle

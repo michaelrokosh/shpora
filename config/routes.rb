@@ -7,7 +7,7 @@ Shpora::Application.routes.draw do
   delete ':user_id/favorites/:page_id', to: 'favorites#destroy', as: :delete_favorite
   get ':user_id/favorites', to: 'favorites#index', as: :favorites
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
 
   namespace :assets do
     resources :tags, only: :index
@@ -15,19 +15,13 @@ Shpora::Application.routes.draw do
 
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
-  resources :pages, only: [:new, :index, :create, :update] do
-    get :download, on: :member
-  end
-  resources :users, only: [:show] do
+  resources :pages, only: [:new, :index, :create, :update]
+  resources :users, only: [:show], path: '' do
     collection do
       get 'search'
     end
-    resources :pages, only: [:show, :destroy, :edit]
+    resources :pages, path: '', only: [:show, :destroy, :edit] do
+      get :download, on: :member
+    end
   end
-
-
-  get '/auth/:provider/callback', to: 'authentications#create'
-  get '/auth/failure', to: redirect('/')
-
-  resources :authentications, only: [:create, :destroy]
 end
