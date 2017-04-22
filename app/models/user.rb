@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :omniauthable
+         :recoverable, :rememberable, :trackable, :omniauthable,
+         omniauth_providers: [:facebook]
 
   before_save { self.email = email.downcase }
 
@@ -23,7 +24,8 @@ class User < ActiveRecord::Base
       user.username = auth.info.name
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      user.save
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
     end
   end
 
