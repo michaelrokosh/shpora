@@ -12,6 +12,8 @@ class Page < ActiveRecord::Base
 
   after_create :set_content, unless: :file_url_blank?
 
+  default_scope { order(created_at: :asc) }
+
   def validate_tag
     tag_list.each do |tag|
       errors.add(:tag, "должнен быть в пределе 3-15 символов") if tag.length > 15 || tag.length < 3
