@@ -1,11 +1,8 @@
 class RobotsController < ApplicationController
   def robots
     subdomain = request.subdomain
-    extradot = subdomain ? '.' : ''
-    Rails.logger.debug "WTF #{extradot}#{subdomain}"
-    robots = File.read(RAILS_ROOT + "/config/robots#{extradot}#{subdomain}.txt")
-    respond_to do |format|
-      format.txt { render text: robots, layout: false }
-    end
+    extradot = subdomain.blank? ? '' : '.'
+    robots = File.read(Rails.root + "public/config/robots#{extradot}#{subdomain}.txt")
+    render text: robots, layout: false, content_type: "text/plain"
   end
 end
