@@ -18,6 +18,13 @@ class User < ActiveRecord::Base
 
 
   def self.from_omniauth(auth)
+    user = User.find_by(email: auth.info.email)
+    if user and user.confirmed?
+      user.provider = auth.provider
+      user.uid = auth.uid
+      return user
+    end
+    
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
