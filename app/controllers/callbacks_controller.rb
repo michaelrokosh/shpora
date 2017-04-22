@@ -18,8 +18,6 @@ class CallbacksController < Devise::OmniauthCallbacksController
     provides_callback_for provider
   end
 
-  private
-
   def failure
     redirect_to root_path
   end
