@@ -1,26 +1,26 @@
 class CallbacksController < Devise::OmniauthCallbacksController
-  def facebook
-    social_auth
+  def self.provides_callback_for(provider)
+    class_eval %Q{
+      def #{provider}
+        @user = User.from_omniauth(request.env["omniauth.auth"])
+
+        if @user.persisted?
+          sign_in_and_redirect @user, event: :authentication
+        else
+          session["devise.#{provider}_data"] = env["omniauth.auth"]
+          redirect_to new_user_registration_url
+        end
+      end
+    }
   end
 
-  def google_oauth2
-    social_auth
+  [:google_oauth2, :facebook, :vkontakte].each do |provider|
+    provides_callback_for provider
   end
 
   private
 
   def failure
     redirect_to root_path
-  end
-
-  def social_auth
-    @user = User.from_omniauth(request.env["omniauth.auth"])
-
-    if @user.persisted?
-      sign_in_and_redirect @user
-    else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
-    end
   end
 end

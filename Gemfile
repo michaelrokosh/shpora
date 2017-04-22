@@ -37,6 +37,7 @@ gem 'devise-async'
 gem 'koala'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 gem 'omniauth-google-oauth2'
 
 gem 'turbolinks', '~> 5.0.0'
