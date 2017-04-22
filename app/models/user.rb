@@ -1,13 +1,10 @@
 class User < ActiveRecord::Base
-  include SocialAuthentication
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   before_save { self.email = email.downcase }
 
   has_many :favorites
-  has_many :authentications
   has_many :pages
   has_many :favorite_pages, through: :favorites, source: :page
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\Z/
