@@ -74,17 +74,17 @@
               %h1= t('landing.authentication.signup')
               = render 'layouts/test_sign_up'
               = render 'layouts/registration'
-              .hidden
-                ._m-b-lg= t('landing.authentication.socials')
-                .row
-                  .col-sm-6
-                    %a{href: user_facebook_omniauth_authorize_path, class: 'btn btn-primary btn-block'}
-                      %i.fa.fa-facebook._m-r
-                      %span= t('socials.facebook')
-                  .col-sm-6
-                    %a{href: 'users/auth/google_oauth2/callback', class: 'btn btn-danger btn-block'}
-                      %i.fa.fa-google._m-r
-                      %span= t('socials.google')
+              ._m-b-lg= t('landing.authentication.socials')
+              .row
+                .col-sm-12
+                  %a{href: 'users/auth/facebook', class: 'btn btn-primary btn-block'}
+                    %i.fa.fa-facebook._m-r
+                    %span= t('socials.facebook')
+              .row._m-t
+                .col-sm-12
+                  %a{href: 'users/auth/google_oauth2', class: 'btn btn-danger btn-block'}
+                    %i.fa.fa-google._m-r
+                    %span= t('socials.google')
               .torn-page.torn-page-middle
             .recent-pages.col-md-4.col-xs-12
               %h1
