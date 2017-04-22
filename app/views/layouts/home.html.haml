@@ -78,7 +78,7 @@
                 ._m-b-lg= t('landing.authentication.socials')
                 .row
                   .col-sm-6
-                    %a{href: '/users/auth/facebook/callback', class: 'btn btn-primary btn-block'}
+                    %a{href: user_facebook_omniauth_authorize_path, class: 'btn btn-primary btn-block'}
                       %i.fa.fa-facebook._m-r
                       %span= t('socials.facebook')
                   .col-sm-6
