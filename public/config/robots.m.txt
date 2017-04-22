@@ -2,6 +2,5 @@
 #
 # To ban all spiders from the entire site uncomment the next two lines:
 User-agent: *
-Disallow: /users
-Disallow: /user
+Disallow: /
 Sitemap: http://shpora.me/sitemap.xml.gz

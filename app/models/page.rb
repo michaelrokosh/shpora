@@ -12,7 +12,7 @@ class Page < ActiveRecord::Base
 
   after_create :set_content, unless: :file_url_blank?
 
-  default_scope { order(created_at: :asc) }
+  default_scope { order(created_at: :desc) }
 
   def validate_tag
     tag_list.each do |tag|
