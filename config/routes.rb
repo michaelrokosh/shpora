@@ -6,6 +6,7 @@ Shpora::Application.routes.draw do
   post ':user_id/favorites/:page_id', to: 'favorites#create', as: :new_favorite
   delete ':user_id/favorites/:page_id', to: 'favorites#destroy', as: :delete_favorite
   get ':user_id/favorites', to: 'favorites#index', as: :favorites
+  get '/robots.txt', to: 'robots#robots'
 
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
 
