@@ -15,13 +15,13 @@ Shpora::Application.routes.draw do
 
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
-  resources :pages, only: [:new, :index, :create, :update] do
-    get :download, on: :member
-  end
+  resources :pages, only: [:new, :index, :create, :update]
   resources :users, only: [:show], path: '' do
     collection do
       get 'search'
     end
-    resources :pages, path: '', only: [:show, :destroy, :edit]
+    resources :pages, path: '', only: [:show, :destroy, :edit] do
+      get :download, on: :member
+    end
   end
 end

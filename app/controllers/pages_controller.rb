@@ -14,9 +14,14 @@ class PagesController < ApplicationController
   end
 
   def download
-    @page = Page.find_by(url: params[:id])
-    file = Htmltoword::Document.create @page.content, @page.title
-    send_data file, disposition: 'attachment'
+    user = User.find_by(username: params[:user_id])
+    @page = Page.find_by(url: params[:id], user_id: user.id)
+    respond_to do |format|
+      format.docx{
+        file = Htmltoword::Document.create @page.content
+        send_data file, disposition: 'attachment'
+      }
+    end
   end
 
   def create
