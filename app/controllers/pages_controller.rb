@@ -18,8 +18,8 @@ class PagesController < ApplicationController
     @page = Page.find_by(url: params[:id], user_id: user.id)
     respond_to do |format|
       format.docx{
-        file = Htmltoword::Document.create @page.content, @page.title
-        send_data file, disposition: 'attachment'
+        file = Htmltoword::Document.create @page.content
+        send_data file, disposition: 'attachment', filename: "#{@page.title}.docx"
       }
     end
   end
