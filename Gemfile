@@ -52,10 +52,6 @@ gem 'newrelic_rpm'
 gem 'sitemap_generator'
 gem 'twitter-typeahead-rails'
 
-# Until the new API calls are generally available, you must manually specify my fork
-# of the Heroku API gem:
-gem 'platform-api', git: 'https://github.com/jalada/platform-api', branch: 'master'
-
 group :production do
   gem 'rails_12factor'
   gem 'letsencrypt-rails-heroku'
