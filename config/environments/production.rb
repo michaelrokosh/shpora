@@ -11,6 +11,9 @@ Shpora::Application.configure do
   config.action_controller.perform_caching = true
   config.serve_static_assets = false
 
+  config.middleware.use Letsencrypt::middleware
+
+  config.force_ssl = true
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
