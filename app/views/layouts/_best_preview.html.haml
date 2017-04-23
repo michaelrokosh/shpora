@@ -1,7 +1,8 @@
 - if pages.any?
   .best-preview
-    - pages.in_groups_of(3, false).each do |grouped|
-      .row._m-t-lg
+    - pages.in_groups_of(3, false).each_with_index do |grouped, row_index|
+      - row_index = row_index + 1
+      .row._m-t-lg{ class: "group-#{row_index}" }
         - grouped.each_with_index do |page, index|
           - index = index + 1
           .sheet.col-md-4.col-xs-12{ class: "#{'col-md-offset-1' if index == 2}" }

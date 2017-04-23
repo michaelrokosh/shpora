@@ -752,6 +752,24 @@ h2.background-text {
   border: 2px dotted #C3C3C3;
 }
 
+.group-1 {
+  .torn-page {
+    background-position: 40%;
+  }
+  &.top {
+    background-position: 20%;
+  }
+}
+
+.group-2 {
+  .torn-page {
+    background-position: 70%;
+    &.top {
+      background-position: 35%;
+    }
+  }
+}
+
 .torn-page {
   min-height: 35px;
   bottom: -34px;
