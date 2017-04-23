@@ -313,10 +313,12 @@ a {
 }
 
 .starter-template {
-  min-height: 500px;
+  min-height: 76vh;
   width: 100%;
   margin: 0 auto;
   background-color: #fff;
+  position: relative;
+  margin-bottom: 80px;
   div {
     h1 { font-size: 24px !important;}
     h2 { font-size: 22px !important;}
@@ -332,6 +334,7 @@ a {
   background-color: #fff;
   margin-top: -60px;
   font-size: 18px;
+  position: relative;
 }
 
 .home-page {
@@ -441,11 +444,13 @@ a {
 .bottom {
   position: relative;
   margin-top: 13px;
+  min-height: 24px;
 }
 
 .hr-wrapper {
   position: absolute;
   top: 0;
+  left: 0;
   height: 25px;
   width: 100%;
 }
@@ -585,6 +590,10 @@ h2.background-text {
   font-size: 18px;
   top: -60px;
   padding: 60px 20px;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
   h2 {
     margin: 0;
     text-align: center;
