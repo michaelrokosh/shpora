@@ -25,7 +25,7 @@
       .home-page.center
         - if user_signed_in?
           .row.first-row
-            .recent-user-pages.col-md-4.col-xs-12
+            .top.sheet.recent-user-pages.col-md-4.col-xs-12
               .block
                 %h1
                   Мои
@@ -41,7 +41,7 @@
                   %h2
                     = link_to t('labels.create') + '!', new_page_path, data: { turbolinks: false }
               .torn-page.torn-page-left
-            .recent-favorites.col-md-offset-1.col-md-4.col-xs-12
+            .top.sheet.recent-favorites.col-md-offset-1.col-md-4.col-xs-12
               .block
                 %h1
                   %a{href: favorites_path(current_user)} Избранное
@@ -54,7 +54,7 @@
                   %h2
                     = t('messages.no_favorites')
               .torn-page.torn-page-middle
-            .recent-pages.col-md-4.col-xs-12
+            .top.sheet.recent-pages.col-md-4.col-xs-12
               .block
                 %h1
                   5-ка
@@ -66,18 +66,18 @@
               .torn-page.torn-page-right
         - else
           .row.first-row
-            .auth.col-md-4.col-xs-12
+            .top.sheet.with-form.auth.col-md-4.col-xs-12
               %h1= t('landing.authentication.login')
               = render 'layouts/auth'
               = render 'layouts/social_auth'
               .torn-page.torn-page-left
-            .registration.col-md-offset-1.col-md-4.col-xs-12
+            .top.sheet.with-form.registration.col-md-offset-1.col-md-4.col-xs-12
               %h1= t('landing.authentication.signup')
               = render 'layouts/test_sign_up'
               = render 'layouts/registration'
               = render 'layouts/social_auth'
               .torn-page.torn-page-middle
-            .recent-pages.col-md-4.col-xs-12
+            .top.sheet.recent-pages.col-md-4.col-xs-12
               %h1
                 5-ка
                 %a{href: pages_path} последних
@@ -96,11 +96,13 @@
           (adsbygoogle = window.adsbygoogle || []).push({});
         / #bn_3b7bf114d0
         / %script{:src => "//recreativ.ru/rcode.3b7bf114d0.js", :type => "text/javascript"}
+
         .presentation.images
           = image_tag('/shpora-step-1.png', class: 'presentation-image editor');
           = image_tag('/iphone.png', class: 'presentation-image iphone');
           = image_tag('/macbook.png', class: 'presentation-image macbook');
         = render 'layouts/shares'
+        = render 'layouts/best_preview'
         .bottom
           .hr-wrapper
             %hr
