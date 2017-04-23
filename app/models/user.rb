@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable,
-         omniauth_providers: [:facebook]
+         omniauth_providers: [:facebook, :vkontakte, :google_oauth2]
 
   before_save { self.email = email.downcase }
 
