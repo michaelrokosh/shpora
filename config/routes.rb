@@ -9,6 +9,7 @@ Shpora::Application.routes.draw do
   get '/robots.txt', to: 'robots#robots'
 
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
+  get "callbacks/vkontakte"
 
   namespace :assets do
     resources :tags, only: :index
