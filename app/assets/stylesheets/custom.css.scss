@@ -372,6 +372,7 @@ a {
 
 .dotted-border {
   border-top: 2px dotted #C3C3C3;
+  border-bottom: 2px dotted #C3C3C3;
 }
 
 .top.sheet {
@@ -485,7 +486,6 @@ a {
   margin-top: 0px;
   height: 100%;
   color: $lightGrey;
-  border-top: 2px dotted #C3C3C3;
 
   a {
   line-height: 30px;
