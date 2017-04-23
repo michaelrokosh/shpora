@@ -1,69 +1,17 @@
-.best-preview
-  .row
-    .sheet.col-md-4.col-xs-12
-      .torn-page.torn-page-left.top
-      .block
-        %i.fa.fa-thumbs-up.thumbs-up-left
-        %h2
-          %a
-            Best 1
-        %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal
-        %p.text-left
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, ipsum eget dapibus posuere, arcu libero sagittis nibh, ac sagittis urna ex eget dui. Vestibulum vitae diam id augue finibus lobortis nec nec tortor. Pellentesque rutrum elit porttitor, dignissim nunc a, aliquam nulla. Donec nec elit facilisis nisl finibus dictum aliquam pretium mi...
-      .torn-page.torn-page-left
-    .sheet.col-md-offset-1.col-md-4.col-xs-12
-      .torn-page.torn-page-middle.top
-      .block
-        %i.fa.fa-thumbs-up.thumbs-up-left
-        %h2
-          %a
-            Best 2
-        %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal
-        %p.text-left
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, ipsum eget dapibus posuere, arcu libero sagittis nibh, ac sagittis urna ex eget dui. Vestibulum vitae diam id augue finibus lobortis nec nec tortor. Pellentesque rutrum elit porttitor, dignissim nunc a, aliquam nulla. Donec nec elit facilisis nisl finibus dictum aliquam pretium mi...
-      .torn-page.torn-page-middle
-    .sheet.col-md-4.col-xs-12
-      .torn-page.torn-page-right.top
-      .block
-        %i.fa.fa-thumbs-up.thumbs-up-left
-        %h2
-          %a
-            Best 3
-        %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal
-        %p.text-left
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, ipsum eget dapibus posuere, arcu libero sagittis nibh, ac sagittis urna ex eget dui. Vestibulum vitae diam id augue finibus lobortis nec nec tortor. Pellentesque rutrum elit porttitor, dignissim nunc a, aliquam nulla. Donec nec elit facilisis nisl finibus dictum aliquam pretium mi...
-      .torn-page.torn-page-right
-  .row
-    .sheet.col-md-4.col-xs-12
-      .torn-page.torn-page-left.top
-      .block
-        %i.fa.fa-thumbs-up.thumbs-up-left
-        %h2
-          %a
-            Best 4
-        %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal
-        %p.text-left
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, ipsum eget dapibus posuere, arcu libero sagittis nibh, ac sagittis urna ex eget dui. Vestibulum vitae diam id augue finibus lobortis nec nec tortor. Pellentesque rutrum elit porttitor, dignissim nunc a, aliquam nulla. Donec nec elit facilisis nisl finibus dictum aliquam pretium mi...
-      .torn-page.torn-page-left
-    .sheet.col-md-offset-1.col-md-4.col-xs-12
-      .torn-page.torn-page-middle.top
-      .block
-        %i.fa.fa-thumbs-up.thumbs-up-left
-        %h2
-          %a
-            Best 5
-        %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal
-        %p.text-left
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, ipsum eget dapibus posuere, arcu libero sagittis nibh, ac sagittis urna ex eget dui. Vestibulum vitae diam id augue finibus lobortis nec nec tortor. Pellentesque rutrum elit porttitor, dignissim nunc a, aliquam nulla. Donec nec elit facilisis nisl finibus dictum aliquam pretium mi...
-      .torn-page.torn-page-middle
-    .sheet.col-md-4.col-xs-12
-      .torn-page.torn-page-right.top
-      .block
-        %i.fa.fa-thumbs-up.thumbs-up-left
-        %h2
-          %a
-            Best 6
-        %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal
-        %p.text-left
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, ipsum eget dapibus posuere, arcu libero sagittis nibh, ac sagittis urna ex eget dui. Vestibulum vitae diam id augue finibus lobortis nec nec tortor. Pellentesque rutrum elit porttitor, dignissim nunc a, aliquam nulla. Donec nec elit facilisis nisl finibus dictum aliquam pretium mi...
-      .torn-page.torn-page-right
+- if pages.any?
+  .best-preview
+    - pages.in_groups_of(3, false).each do |grouped|
+      .row._m-t-lg
+        - grouped.each_with_index do |page, index|
+          - index = index + 1
+          .sheet.col-md-4.col-xs-12{ class: "#{'col-md-offset-1' if index == 2}" }
+            .torn-page.top{ class: torn_position(index) }
+            .block
+              %i.fa.fa-thumbs-up.thumbs-up-left.text-success
+              %h2
+                %a{ href: page_path(page.url) }
+                  = page.title
+              %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal.text-success
+              %p.text-left
+                = sanitize(truncate_html(page.content, lenght: 400))
+            .torn-page{ class: torn_position(index) }

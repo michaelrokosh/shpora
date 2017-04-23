@@ -295,6 +295,7 @@ GEM
     thor (0.19.3)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    truncate_html (0.9.3)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -352,6 +353,7 @@ DEPENDENCIES
   sidekiq
   sitemap_generator
   thin
+  truncate_html
   turbolinks (~> 5.0.0)
   twitter-typeahead-rails
   uglifier

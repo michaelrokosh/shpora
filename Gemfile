@@ -23,8 +23,8 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'yomu'
 
+gem 'truncate_html'
 gem 'haml'
-
 gem 'htmltoword'
 
 group :doc do

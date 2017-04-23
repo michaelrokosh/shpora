@@ -1,4 +1,9 @@
 module ApplicationHelper
+	def torn_position(index)
+		{ '1' => 'torn-page-left',
+			'2' => 'torn-page-middle',
+			'3' => 'torn-page-right'}[index.to_s]
+	end
 	def on_the_edit_page?
 		controller_name == 'pages' && action_name == 'new' || action_name == 'edit'
 	end

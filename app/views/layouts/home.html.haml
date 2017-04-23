@@ -101,7 +101,7 @@
           = image_tag('/iphone.png', class: 'presentation-image iphone');
           = image_tag('/macbook.png', class: 'presentation-image macbook');
         = render 'layouts/shares'
-        = render 'layouts/best_preview'
+        = render 'layouts/best_preview', pages: best_pages
         .bottom
           .hr-wrapper
             %hr
@@ -111,7 +111,7 @@
             %hr
             %hr
             %hr
-            %hr 
+            %hr
           .row.description-row
             .description.first-description.col-md-4.col-xs-12
               = t('messages.description_1_1')
