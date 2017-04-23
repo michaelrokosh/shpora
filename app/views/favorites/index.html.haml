@@ -1,5 +1,6 @@
 = content_for(:title, "Избранное | shpora.me")
 %h1 Избранное
+%hr
 - if @user.favorites.any?
   .user_pages
     - @user.favorite_pages.each do |page|

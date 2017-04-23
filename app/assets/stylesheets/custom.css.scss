@@ -318,7 +318,11 @@ a {
   margin: 0 auto;
   background-color: #fff;
   position: relative;
-  margin-bottom: 80px;
+
+  &.shpora-layout {
+    margin-bottom: 80px;
+  }
+
   div {
     h1 { font-size: 24px !important;}
     h2 { font-size: 22px !important;}
@@ -335,6 +339,11 @@ a {
   margin-top: -60px;
   font-size: 18px;
   position: relative;
+
+  hr {
+    margin-right: -40px;
+    margin-left: -40px;
+  }
 }
 
 .home-page {
@@ -362,7 +371,6 @@ a {
 }
 
 .dotted-border {
-  border-bottom: 2px dotted #C3C3C3;
   border-top: 2px dotted #C3C3C3;
 }
 
@@ -477,6 +485,8 @@ a {
   margin-top: 0px;
   height: 100%;
   color: $lightGrey;
+  border-top: 2px dotted #C3C3C3;
+
   a {
   line-height: 30px;
     &:hover {
@@ -498,11 +508,17 @@ a {
   color: red;
 }
 
-.user_pages {
+.user_pages, .user_favorites {
   .one-page {
     a {
       margin-right: 10px;
       display: inline;
+    }
+  }
+  &.col-md-6 {
+    hr {
+      margin-right: -63px;
+      margin-left: -63px;
     }
   }
 }

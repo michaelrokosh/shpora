@@ -16,7 +16,19 @@
   %body
     = render 'layouts/header'
     .wrapper.col-xs-12.col-sm-12.col-md-12
-      .starter-template
+      .starter-template.shpora-layout
         .main
           = yield
+        .torn-page.torn-page-right
+      = render 'layouts/best_preview', pages: best_pages
+      .bottom
+        .hr-wrapper
+          %hr
+          %hr
+          %hr
+          %hr
+          %hr
+          %hr
+          %hr
+          %hr
       = render 'layouts/footer'

@@ -7,7 +7,7 @@
           .sheet.col-md-4.col-xs-12{ class: "#{'col-md-offset-1' if index == 2}" }
             .torn-page.top{ class: torn_position(index) }
             .block
-              %i.fa.fa-thumbs-up.thumbs-up-left.text-success
+              %i.fa.fa-thumbs-up.thumbs-up-left
               %h2.center
                 %a{ href: user_page_path(page.user, page) }
                   = page.title

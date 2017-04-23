@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout :resolve_layout
   def new
     @page = Page.new
     @user = User.find_by(username: params[:id])
@@ -59,5 +60,14 @@ class PagesController < ApplicationController
     params.require(:page)
           .permit(:content, :title, :url, :tag_list, :file_url)
           .merge(user_id: current_user.id)
+  end
+
+  def resolve_layout
+    case action_name
+    when "show"
+      "shpora"
+    else
+      "application"
+    end
   end
 end

@@ -1,5 +1,6 @@
 = content_for(:title, 'Последние добавленные шпаргалки | shpora.me')
 %h1 Последние добавленные 
+%hr
 - @pages.each do |page|
   %h2
     = link_to page.title, user_page_path(page.user, page)
