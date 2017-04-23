@@ -11,7 +11,7 @@ Shpora::Application.configure do
   config.action_controller.perform_caching = true
   config.serve_static_assets = false
 
-  config.middleware.use Letsencrypt::middleware
+  config.middleware.insert_before ActionDispatch::SSL, Letsencrypt::Middleware
 
   config.force_ssl = true
 
