@@ -75,7 +75,6 @@ ru:
     authentication:
       login: 'Вход'
       signup: 'Регистрация'
-      socials: 'Или'
   socials:
     facebook: 'Facebook'
     google: 'Google Plus'
