@@ -20,7 +20,8 @@
         .main
           = yield
         .torn-page.torn-page-right
-      .bottom 
+      = render 'layouts/best_preview', pages: best_pages
+      .bottom
         .hr-wrapper
           %hr
           %hr
@@ -29,5 +30,5 @@
           %hr
           %hr
           %hr
-          %hr 
+          %hr
       = render 'layouts/footer'
