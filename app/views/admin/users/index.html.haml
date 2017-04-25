@@ -1,0 +1,15 @@
+= content_for(:title, 'Последние добавленные шпаргалки | shpora.me')
+%h1 Users
+%hr
+- @users.each do |user|
+  .row
+    .col-sm-2
+      %strong= user.username
+    .col-sm-4
+      = user.email
+    .col-sm-4
+      = user.created_at.to_s(:long)
+    .col-sm-2
+      = link_to 'Relogin', relogin_admin_user_path(user), class: 'btn btn-info'
+  %hr
+= will_paginate @users

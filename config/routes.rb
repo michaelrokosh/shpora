@@ -14,6 +14,12 @@ Shpora::Application.routes.draw do
     resources :tags, only: :index
   end
 
+  namespace :admin do
+    resources :users, only: [:index, :show] do
+      get :relogin, action: :relogin, on: :member
+    end
+  end
+
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
   resources :pages, only: [:new, :index, :create, :update]
