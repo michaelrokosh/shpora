@@ -23,8 +23,8 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'yomu'
 
+gem 'truncate_html'
 gem 'haml'
-
 gem 'htmltoword'
 
 group :doc do
@@ -36,7 +36,9 @@ gem 'devise'
 gem 'devise-async'
 gem 'koala'
 gem 'omniauth'
+gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 gem 'omniauth-google-oauth2'
 
 gem 'turbolinks', '~> 5.0.0'
@@ -52,6 +54,7 @@ gem 'twitter-typeahead-rails'
 
 group :production do
   gem 'rails_12factor'
+  gem 'letsencrypt-rails-heroku'
 end
 
 group :development do

@@ -11,8 +11,13 @@
       = link_to 'Войти', new_user_session_path
       %p
         #kittywrapper
-        #bn_3b7bf114d0
-        %script{:src => "//recreativ.ru/rcode.3b7bf114d0.js", :type => "text/javascript"}
+        %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+        <!— shpora —>
+        %ins.adsbygoogle{"data-ad-client" => "ca-pub-3834340625723750", "data-ad-format" => "auto", "data-ad-slot" => "7858822824", :style => "display:block"}
+        :javascript
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        / #bn_3b7bf114d0
+        / %script{:src => "//recreativ.ru/rcode.3b7bf114d0.js", :type => "text/javascript"}
       %p
         = render 'layouts/shares'
       %span.text-danger
@@ -32,6 +37,7 @@
         = page_export @page
       - if current_user == @user
         = link_to I18n.t('labels.edit'), edit_user_page_path(@page.user, @page), class: "btn btn-primary btn-md fa fa-pencil", data: { turbolinks: false }
+        = link_to I18n.t('labels.delete'), user_page_path(@user, @page), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger fa fa-trash-o icon-large"
   - if @page.tag_list
     .tags
       - @page.tag_list.each do |tag|
@@ -40,8 +46,3 @@
 .content
   = show_page_content @page.content
 %br
-%script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-<!— shpora —>
-%ins.adsbygoogle{"data-ad-client" => "ca-pub-3834340625723750", "data-ad-format" => "auto", "data-ad-slot" => "7858822824", :style => "display:block"}
-:javascript
-  (adsbygoogle = window.adsbygoogle || []).push({});

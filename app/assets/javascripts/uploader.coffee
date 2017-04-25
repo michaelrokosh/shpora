@@ -66,7 +66,7 @@ initUploadForm = ->
         alert(message)
 
     start: (e, data) ->
-      $('.uploader-text').remove()
+      $('.uploader-text').addClass('_hidden')
       $('#uploader-start').removeClass('_hidden')
 
     progress: (e, data) ->
@@ -91,6 +91,15 @@ initUploadForm = ->
       $('#uploader-start').addClass('_hidden')
       $('#uploader-done').removeClass('_hidden')
       $('#upload-preview').addClass('success-upload')
+
+      self = this;
+      setTimeout(-> 
+        $('#uploader-start').removeClass('_hidden')
+        $('#uploader-done').addClass('_hidden')
+        $('#upload-preview').removeClass('success-upload')
+        $('.uploader-status').addClass('_hidden')
+        $('.uploader-text').removeClass('_hidden')
+      , 1000);
 
     fail: (e, data) ->
       $('.uploader-status').addClass('_hidden')

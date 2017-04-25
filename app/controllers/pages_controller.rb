@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  layout :resolve_layout
   def new
     @page = Page.new
     @user = User.find_by(username: params[:id])
@@ -14,9 +15,14 @@ class PagesController < ApplicationController
   end
 
   def download
-    @page = Page.find_by(url: params[:id])
-    file = Htmltoword::Document.create @page.content, @page.title
-    send_data file, disposition: 'attachment'
+    user = User.find_by(username: params[:user_id])
+    @page = Page.find_by(url: params[:id], user_id: user.id)
+    respond_to do |format|
+      format.docx{
+        file = Htmltoword::Document.create @page.content
+        send_data file, disposition: 'attachment', filename: "#{@page.title}.docx"
+      }
+    end
   end
 
   def create
@@ -54,5 +60,14 @@ class PagesController < ApplicationController
     params.require(:page)
           .permit(:content, :title, :url, :tag_list, :file_url)
           .merge(user_id: current_user.id)
+  end
+
+  def resolve_layout
+    case action_name
+    when "show"
+      "shpora"
+    else
+      "application"
+    end
   end
 end

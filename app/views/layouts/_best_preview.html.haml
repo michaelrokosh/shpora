@@ -1,0 +1,18 @@
+- if pages.any?
+  .best-preview
+    - pages.in_groups_of(3, false).each_with_index do |grouped, row_index|
+      - row_index = row_index + 1
+      .row._m-t-lg{ class: "group-#{row_index}" }
+        - grouped.each_with_index do |page, index|
+          - index = index + 1
+          .sheet.col-md-4.col-xs-12{ class: "#{'col-md-offset-1' if index == 2}" }
+            .torn-page.top{ class: torn_position(index) }
+            .block
+              %i.fa.fa-thumbs-up.thumbs-up-left
+              %h2.center
+                %a{ href: user_page_path(page.user, page) }
+                  = page.title
+              %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal
+              .text-left
+                = sanitize(truncate_html(page.content))
+            .torn-page{ class: torn_position(index) }

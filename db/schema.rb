@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 20170422083604) do
     t.string   "social_url"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

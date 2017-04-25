@@ -4,6 +4,7 @@
   .row.user-page
     .user_pages.col-md-6.col-xs-12
       %h1 Мои страницы
+      %hr
       - if @user.pages.any?
         - @user.pages.each do |page|
           .one-page
@@ -19,6 +20,7 @@
           = link_to 'Создать!', new_page_path, data: { turbolinks: false }
     .user_favorites.col-md-6.col-xs-12
       %h1 Избранное
+      %hr
       - if @user.favorites.any?
         .user_pages
           - @user.favorite_pages.each do |page|

@@ -6,6 +6,7 @@ Shpora::Application.routes.draw do
   post ':user_id/favorites/:page_id', to: 'favorites#create', as: :new_favorite
   delete ':user_id/favorites/:page_id', to: 'favorites#destroy', as: :delete_favorite
   get ':user_id/favorites', to: 'favorites#index', as: :favorites
+  get '/robots.txt', to: 'robots#robots'
 
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
 
@@ -15,13 +16,13 @@ Shpora::Application.routes.draw do
 
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
-  resources :pages, only: [:new, :index, :create, :update] do
-    get :download, on: :member
-  end
+  resources :pages, only: [:new, :index, :create, :update]
   resources :users, only: [:show], path: '' do
     collection do
       get 'search'
     end
-    resources :pages, path: '', only: [:show, :destroy, :edit]
+    resources :pages, path: '', only: [:show, :destroy, :edit] do
+      get :download, on: :member
+    end
   end
 end

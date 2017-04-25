@@ -11,6 +11,9 @@ Shpora::Application.configure do
   config.action_controller.perform_caching = true
   config.serve_static_assets = false
 
+  # Uncomment these lines to force SSL. Then run heroku run rake letsencrypt:renew --app shpora
+  # config.middleware.insert_before ActionDispatch::SSL, Letsencrypt::Middleware
+  # config.force_ssl = true
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
