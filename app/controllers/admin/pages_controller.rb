@@ -2,7 +2,8 @@ class Admin::PagesController < Admin::BaseController
   before_action :find_page, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pages = Page.paginate(page: params[:page], per_page: 40)
+    @q = Page.ransack(params[:q])
+    @pages =@q.result.paginate(page: params[:page], per_page: 40)
   end
 
   def show

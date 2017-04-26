@@ -3,7 +3,8 @@
 %h1 Pages
 
 = render 'admin/tabs'
-
+%hr
+= render 'pages/search', url: search_admin_pages_path
 %hr
 - @pages.each do |page|
   .row

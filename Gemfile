@@ -26,6 +26,7 @@ gem 'yomu'
 gem 'truncate_html'
 gem 'haml'
 gem 'htmltoword'
+gem 'ransack'
 
 group :doc do
   gem 'sdoc', require: false

@@ -1,6 +1,9 @@
 class Admin::UsersController < Admin::BaseController
   def index
-    @users = User.order('created_at DESC').paginate(page: params[:page], per_page: 40)
+    @q = User.ransack(params[:q])
+    @users = @q.result
+               .order('created_at DESC')
+               .paginate(page: params[:page], per_page: 40)
   end
 
   def show
