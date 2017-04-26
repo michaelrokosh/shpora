@@ -71,6 +71,7 @@ ru:
     delete: "Удалить"
     download: "Скачать файл"
     try_without_signing_up: "Попробовать без регистрации"
+    search: "Поиск..."
   landing:
     authentication:
       login: 'Вход'

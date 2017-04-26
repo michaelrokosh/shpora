@@ -9,10 +9,9 @@
             .torn-page.top{ class: torn_position(index) }
             .block
               %i.fa.fa-thumbs-up.thumbs-up-left
-              %h2.center
+              %h2.text-left
                 %a{ href: user_page_path(page.user, page) }
                   = page.title
-              %i.fa.fa-thumbs-up.thumbs-up-right.fa-flip-horizontal
               .text-left
                 = sanitize(truncate_html(page.content))
             .torn-page{ class: torn_position(index) }
