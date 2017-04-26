@@ -1,0 +1,20 @@
+= content_for(:title, 'Pages | shpora.me')
+
+%h1 Pages
+
+= render 'admin/tabs'
+
+%hr
+- @pages.each do |page|
+  .row
+    .col-sm-4
+      %strong= link_to page.title, admin_page_path(page)
+    .col-sm-4
+      %strong._m-r-lg= link_to page.user.username, admin_user_path(page.user)
+      %small= page.user.email
+    .col-sm-4
+      .pull-right
+        = link_to '', edit_admin_page_path(page), class: 'btn btn-warning fa fa-pencil', data: { turbolinks: false }
+        = link_to '', admin_page_path(page), method: :delete, class: 'btn btn-danger fa fa-trash'
+  %hr
+= will_paginate @pages

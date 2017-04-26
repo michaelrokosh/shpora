@@ -1,6 +1,6 @@
 = content_for(:title, "Страница пользователя #{@user.username} | shpora.me")
 
--if current_user?(@user)
+- if current_user?(@user)
   .row.user-page
     .user_pages.col-md-6.col-xs-12
       %h1 Мои страницы
@@ -32,7 +32,7 @@
       - else
         %h1
           = t('messages.no_favorites')
--else
+- else
   .row.user-page
     .user_pages.col-md-6.col-xs-12
       %h1.lobster

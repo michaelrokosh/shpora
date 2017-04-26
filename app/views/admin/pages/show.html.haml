@@ -1,0 +1,14 @@
+= content_for(:title,  @page.title + ' | shpora.me')
+
+= render 'admin/tabs'
+.page-title-container
+  %h1.page-title
+    %span
+      = @page.title
+  .control-buttons
+    - unless @page.content.blank?
+      = page_export @page
+    = link_to I18n.t('labels.edit'), edit_admin_page_path(@page), class: "btn btn-primary btn-md fa fa-pencil", data: { turbolinks: false }
+    = link_to I18n.t('labels.delete'), admin_page_path(@page), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger fa fa-trash-o icon-large"
+.content
+  = show_page_content @page.content

@@ -1,0 +1,5 @@
+%ul.nav.nav-tabs
+  %li.nav-item{ class: "#{'active' if controller_name == 'users'}" }
+    %a.nav-link{ href: admin_users_path } Users
+  %li.nav-item{ class: "#{'active' if controller_name == 'pages'}" }
+    %a.nav-link{ href: admin_pages_path } Pages

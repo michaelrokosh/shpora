@@ -15,7 +15,8 @@ Shpora::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :users, only: [:index, :show] do
+    resources :pages, except: [:new, :create]
+    resources :users, only: [:index, :show, :destroy] do
       get :relogin, action: :relogin, on: :member
     end
   end

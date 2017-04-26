@@ -1,0 +1,18 @@
+= content_for(:title,  @user.username + ' | shpora.me')
+
+= render 'admin/tabs'
+
+.row.user-page
+  .user_pages.col-xs-12
+    %h1
+      = @user.username
+      %small= @user.email
+    %hr
+    - if @user.pages.any?
+      - @user.pages.each do |page|
+        .one-page
+          %h2
+            = link_to page.title, admin_page_path(page)
+          = link_to I18n.t('labels.edit'), edit_admin_page_path(page), class: "btn btn-default fa fa-edit icon-large", data: { turbolinks: false }
+          = link_to I18n.t('labels.delete'), admin_page_path(page), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger fa fa-trash-o icon-large"
+          %hr
