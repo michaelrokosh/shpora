@@ -9,7 +9,9 @@ class UploadsController < ApplicationController
   def page_params
     params.require(:page)
           .permit(:file_url)
-          .merge(user_id: default_user.id, title: params[:filename].split('.')[0])
+          .merge( user_id: default_user.id,
+                  title: params[:filename].split('.')[0],
+                  filesize: params[:filesize])
   end
 
   def default_user

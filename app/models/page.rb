@@ -1,16 +1,20 @@
 class Page < ActiveRecord::Base
   acts_as_taggable
 
+  enum source: { uploader: 1, form: 2 }
+
   has_many :favorites
   has_many :favoriters, through: :favorites
   belongs_to :user
 
   validates :title, presence: true
   validate :validate_tag
+  validate :file_uniqueness
 
   after_save :set_url, if: :url_blannk?
 
   after_create :set_content, unless: :file_url_blank?
+  after_create :set_source
 
   default_scope { order(created_at: :desc) }
 
@@ -38,7 +42,17 @@ class Page < ActiveRecord::Base
     file_url.blank?
   end
 
+  def set_source
+    self.source = file_url ? 'uploader' : 'form'
+  end
+
   def set_content
     SetPageContent.delay.call(page: self, file_url: file_url)
+  end
+
+  def file_uniqueness
+    if Page.exists?(title: title, filesize: filesize)
+      errors.add(:file, " #{title} already exists!")
+    end
   end
 end
