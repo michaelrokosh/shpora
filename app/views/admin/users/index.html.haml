@@ -10,12 +10,14 @@
 %hr
 - @users.each do |user|
   .row
-    .col-sm-2
-      %strong= link_to user.username, admin_user_path(user)
     .col-sm-4
+      %strong= link_to user.username, admin_user_path(user)
+      %br
       = user.email
     .col-sm-4
       = user.created_at.to_s(:long)
+    .col-sm-2
+      = user.provider
     .col-sm-2
       - if current_user != user
         = link_to 'Relogin', relogin_admin_user_path(user), class: 'btn btn-info'
