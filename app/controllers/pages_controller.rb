@@ -1,17 +1,19 @@
 class PagesController < ApplicationController
   layout :resolve_layout
-  def new
-    @page = Page.new
-    @user = User.find_by(username: params[:id])
-  end
 
   def index
-    @pages = Page.order('created_at DESC').paginate(page: params[:page], per_page: 10)
+    @q = Page.ransack(params[:q])
+    @pages = @q.result.order('created_at DESC').paginate(page: params[:page], per_page: 10)
   end
 
   def show
     @page = Page.find_by(url: params[:id])
     @user = User.find_by(username: params[:user_id])
+  end
+
+  def new
+    @page = Page.new
+    @user = User.find_by(username: params[:id])
   end
 
   def download

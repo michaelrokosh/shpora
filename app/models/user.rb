@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
 
   has_many :favorites
-  has_many :pages
+  has_many :pages, dependent: :destroy
   has_many :favorite_pages, through: :favorites, source: :page
   VALID_USERNAME_REGEX = /\A[a-zA-Z0-9]+\Z/
   validates :username, presence: true,

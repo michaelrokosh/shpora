@@ -1,6 +1,6 @@
 = content_for(:title, "Страница пользователя #{@user.username} | shpora.me")
 
--if current_user?(@user)
+- if current_user?(@user)
   .row.user-page
     .user_pages.col-md-6.col-xs-12
       %h1 Мои страницы
@@ -10,7 +10,7 @@
           .one-page
             %h2
               = link_to page.title, user_page_path(@user, page)
-            = link_to I18n.t('labels.edit'), edit_user_page_path(page.user, page), class: "btn btn-default fa fa-edit icon-large"
+            = link_to I18n.t('labels.edit'), edit_user_page_path(page.user, page), class: "btn btn-default fa fa-edit icon-large", data: { turbolinks: false }
             = link_to I18n.t('labels.delete'), user_page_path(@user, page), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger fa fa-trash-o icon-large"
             %hr
       - else
@@ -32,7 +32,7 @@
       - else
         %h1
           = t('messages.no_favorites')
--else
+- else
   .row.user-page
     .user_pages.col-md-6.col-xs-12
       %h1.lobster

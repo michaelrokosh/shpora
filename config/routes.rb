@@ -10,19 +10,24 @@ Shpora::Application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
 
+  concern :searchable do
+    get :search, action: :index, on: :collection
+  end
+
   namespace :assets do
     resources :tags, only: :index
   end
 
   namespace :admin do
-    resources :users, only: [:index, :show] do
+    resources :pages, except: [:new, :create], concerns: [:searchable]
+    resources :users, only: [:index, :show, :destroy], concerns: [:searchable] do
       get :relogin, action: :relogin, on: :member
     end
   end
 
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
-  resources :pages, only: [:new, :index, :create, :update]
+  resources :pages, only: [:new, :index, :create, :update], concerns: [:searchable]
   resources :users, only: [:show], path: '' do
     collection do
       get 'search'

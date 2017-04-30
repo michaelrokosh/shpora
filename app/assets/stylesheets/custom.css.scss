@@ -339,11 +339,6 @@ a {
   margin-top: -60px;
   font-size: 18px;
   position: relative;
-
-  hr {
-    margin-right: -40px;
-    margin-left: -40px;
-  }
 }
 
 .home-page {
@@ -391,7 +386,7 @@ a {
     margin-top: 10px;
   }
 
-  h2 { margin-left: 30px; margin-right: 30px; }
+  h2 { margin-left: 0; margin-right: 0; }
 
   &.top {
     top: -110px;
@@ -421,8 +416,8 @@ a {
   }
   .thumbs-up-left, .thumbs-up-right {
     position: absolute;
-    top: 40px;
-    color: #b3e2ab;
+    top: 3px;
+    color: #d8d5cd;
     font-size: 22px;
   }
   .thumbs-up-left {
@@ -513,12 +508,6 @@ a {
     a {
       margin-right: 10px;
       display: inline;
-    }
-  }
-  &.col-md-6 {
-    hr {
-      margin-right: -63px;
-      margin-left: -63px;
     }
   }
 }
@@ -863,4 +852,32 @@ h2.background-text {
 
 .best-preview {
   margin-bottom: 80px;
+}
+
+.search-form {
+  position: relative;
+
+  & > input {
+    background: transparent;
+    border-radius: 0;
+    height: 50px;
+    font-size: 22px;
+    border: 1px solid #999;
+  }
+
+  .search-btn {
+    position: absolute;
+    background: transparent;
+    border: 0;
+    opacity: 0.5;
+    top: 0;
+    line-height: 50px;
+    right: 12px;
+    font-size: 16px;
+  }
+}
+
+input[type="text"], textarea, .btn, input[type="submit"] {
+  outline: none !important;
+  box-shadow:none !important;
 }

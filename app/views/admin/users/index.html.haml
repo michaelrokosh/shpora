@@ -1,15 +1,27 @@
-= content_for(:title, 'Последние добавленные шпаргалки | shpora.me')
+= content_for(:title, 'Users | shpora.me')
+
 %h1 Users
+
+= render 'admin/tabs'
+%hr
+= search_form_for User.search(params[:q]), url: search_admin_users_path, class: 'search-form', method: :get do |f|
+  = f.search_field :username_or_email_cont, placeholder: I18n.t('labels.search'), class: 'form-control'
+  ._m-t-md= f.submit I18n.t('labels.search'), class: 'btn btn-info'
 %hr
 - @users.each do |user|
   .row
-    .col-sm-2
-      %strong= user.username
     .col-sm-4
+      %strong= link_to user.username, admin_user_path(user)
+      %br
       = user.email
     .col-sm-4
       = user.created_at.to_s(:long)
     .col-sm-2
-      = link_to 'Relogin', relogin_admin_user_path(user), class: 'btn btn-info'
+      = user.provider
+    .col-sm-2
+      - if current_user != user
+        = link_to 'Relogin', relogin_admin_user_path(user), class: 'btn btn-info'
+        = link_to admin_user_path(user), method: :delete, class: 'btn btn-danger _center' do
+          %i.fa.fa-trash
   %hr
 = will_paginate @users

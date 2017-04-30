@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425140529) do
+ActiveRecord::Schema.define(version: 20170427201842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20170425140529) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "file_url"
+    t.decimal  "filesize"
+    t.integer  "source"
   end
 
   create_table "taggings", force: :cascade do |t|

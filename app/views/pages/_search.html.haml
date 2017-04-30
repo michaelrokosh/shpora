@@ -1,0 +1,3 @@
+= search_form_for Page.search(params[:q]), url: url, class: 'search-form', method: :get do |f|
+  = f.search_field :title_or_content_cont, placeholder: I18n.t('labels.search'), class: 'form-control'
+  = f.submit '↵', class: 'search-btn'
