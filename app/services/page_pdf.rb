@@ -9,11 +9,11 @@ class PagePdf
 
   def to_pdf
     kit = PDFKit.new(page.content, page_size: 'Legal')
-    kit.to_file("#{page.title}.pdf")
+    kit.to_file("#{page.title.first(10)}.pdf")
   end
 
   def filename
-    "#{page.title}.pdf"
+    "#{page.title.first(10)}.pdf"
   end
 
   private
