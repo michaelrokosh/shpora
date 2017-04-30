@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       format.pdf {
-        send_to_pdf
+        # send_to_pdf
       }
       format.html {}
     end
