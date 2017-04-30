@@ -32,8 +32,6 @@ Shpora::Application.routes.draw do
     collection do
       get 'search'
     end
-    resources :pages, path: '', only: [:show, :destroy, :edit] do
-      get :download, on: :member
-    end
+    resources :pages, path: '', only: [:show, :destroy, :edit]
   end
 end

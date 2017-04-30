@@ -1,3 +1,5 @@
+require 'pdfkit'
+
 class PagesController < ApplicationController
   layout :resolve_layout
 
@@ -9,22 +11,18 @@ class PagesController < ApplicationController
   def show
     @page = Page.find_by(url: params[:id])
     @user = User.find_by(username: params[:user_id])
+
+    respond_to do |format|
+      format.pdf {
+        send_to_pdf
+      }
+      format.html {}
+    end
   end
 
   def new
     @page = Page.new
     @user = User.find_by(username: params[:id])
-  end
-
-  def download
-    user = User.find_by(username: params[:user_id])
-    @page = Page.find_by(url: params[:id], user_id: user.id)
-    respond_to do |format|
-      format.docx{
-        file = Htmltoword::Document.create @page.content
-        send_data file, disposition: 'attachment', filename: "#{@page.title}.docx"
-      }
-    end
   end
 
   def create
@@ -57,6 +55,17 @@ class PagesController < ApplicationController
   end
 
   private
+
+  def page_pdf
+    PagePdf.new(@page)
+  end
+
+  def send_to_pdf
+    send_file page_pdf.to_pdf,
+      filename: page_pdf.filename,
+      type: "application/pdf",
+      disposition: "attachment"
+  end
 
   def page_params
     params.require(:page)
