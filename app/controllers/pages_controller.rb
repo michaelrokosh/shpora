@@ -1,4 +1,4 @@
-require 'pdfkit'
+# require 'pdfkit'
 
 class PagesController < ApplicationController
   layout :resolve_layout
@@ -56,16 +56,16 @@ class PagesController < ApplicationController
 
   private
 
-  def page_pdf
-    PagePdf.new(@page)
-  end
-
-  def send_to_pdf
-    send_file page_pdf.to_pdf,
-      filename: page_pdf.filename,
-      type: "application/pdf",
-      disposition: "attachment"
-  end
+  # def page_pdf
+  #   PagePdf.new(@page)
+  # end
+  #
+  # def send_to_pdf
+  #   send_file page_pdf.to_pdf,
+  #     filename: page_pdf.filename,
+  #     type: "application/pdf",
+  #     disposition: "attachment"
+  # end
 
   def page_params
     params.require(:page)
