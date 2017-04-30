@@ -8,7 +8,7 @@ class PagePdf
   end
 
   def to_pdf
-    kit = PDFKit.new(page.content, page_size: 'A4')
+    kit = PDFKit.new(page.content, page_size: 'Legal')
     kit.to_file("#{page.title}.pdf")
   end
 
