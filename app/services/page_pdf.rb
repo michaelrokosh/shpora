@@ -8,9 +8,7 @@ class PagePdf
   end
 
   def to_pdf
-    kit = PDFKit.new(<<-HTML)
-      page.content
-    HTML
+    kit = PDFKit.new(page.content, page_size: 'A4')
     kit.to_file("#{page.title}.pdf")
   end
 
