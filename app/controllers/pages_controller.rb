@@ -11,13 +11,6 @@ class PagesController < ApplicationController
   def show
     @page = Page.find_by(url: params[:id])
     @user = User.find_by(username: params[:user_id])
-
-    respond_to do |format|
-      format.pdf {
-        # send_to_pdf
-      }
-      format.html {}
-    end
   end
 
   def new

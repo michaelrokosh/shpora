@@ -23,7 +23,6 @@
 //= require fileupload/jquery.fileupload-process
 //= require fileupload/jquery.fileupload-validate
 //= require fileupload/jquery.iframe-transport
-//= require s3_direct_upload
 //= require twitter/typeahead.min
 //= require bootstrap-tagsinput.min
 //= require bootstrap/tooltip
