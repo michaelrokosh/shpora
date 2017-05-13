@@ -2,10 +2,8 @@
   = hidden_field_tag :aws_url, upload_form.url
   = hidden_field_tag :aws_data, upload_form.fields.to_json
 
-  = s3_uploader_form callback_url: uploads_path, callback_param: "page[file_url]", id: "s3-uploader", remote: true do
-    .input-field.hidden_fields
-      = file_field_tag :file, multiple: true, data: { url: upload_form.url }
-
+  .input-field.hidden_fields
+    = file_field_tag :upload_files, name: 'upload_files[]', data: { username: default_user.username }
   #upload-preview
     .upload-cover
       #uploader-zone
@@ -23,6 +21,9 @@
       #uploader-start.uploader-status._hidden
         %span.fa.fa-cloud-upload.fa-4x._m-b-lg._m-t-xl
         %p.text-muted Загрузка...
+        %p
+          %span.text-danger.font-bold 0%
+          %span.text-muted завершено
       #uploader-done._hidden.uploader-status
         %i.fa.fa-check.fa-5x._m-t-xl
         %p.lead.text-success Загрузка завершена

@@ -9,7 +9,7 @@ class Page < ActiveRecord::Base
 
   validates :title, presence: true
   validate :validate_tag
-  validate :file_uniqueness
+  # validate :file_uniqueness
 
   after_save :set_url, if: :url_blannk?
 

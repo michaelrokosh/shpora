@@ -15,16 +15,19 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'airbrake'
 gem 'redis-rails'
 gem 'sidekiq'
+gem 'sendgrid'
 
 # file uploads
 gem 'aws-sdk', '~> 2'
+gem 'carrierwave'
 gem 'fog-aws'
-gem 's3_direct_upload'
-
 gem 'yomu'
+
 gem 'truncate_html'
 gem 'haml'
-gem 'htmltoword'
+# gem 'pdfkit'
+# gem 'render_anywhere'
+# gem 'wkhtmltopdf-binary'
 gem 'ransack'
 
 group :doc do
