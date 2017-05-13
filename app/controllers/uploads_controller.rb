@@ -19,6 +19,6 @@ class UploadsController < ApplicationController
   end
 
   def rand_amount
-    rand(0.1..0.11)
+    rand(0.01..0.11).round(2)
   end
 end

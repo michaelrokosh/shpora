@@ -9,7 +9,6 @@ class Page < ActiveRecord::Base
 
   validates :title, presence: true
   validate :validate_tag
-  # validate :file_uniqueness
 
   after_save :set_url, if: :url_blannk?
 
@@ -35,7 +34,7 @@ class Page < ActiveRecord::Base
   end
 
   def update_total_amount
-    total_amount = user.total_amount.to_i + amount
+    total_amount = user.pages.sum(:amount)
     user.update(total_amount: total_amount)
   end
 
@@ -53,11 +52,5 @@ class Page < ActiveRecord::Base
 
   def set_content
     SetPageContent.delay.call(page: self, file_url: file_url)
-  end
-
-  def file_uniqueness
-    if Page.exists?(title: title, filesize: filesize)
-      errors.add(:file, " #{title} already exists!")
-    end
   end
 end

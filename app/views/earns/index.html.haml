@@ -5,6 +5,14 @@
     %h1 Мой Зароботок
     %hr
     - if @upload_files.any?
+      .row.visible-md-up
+        .col-sm-6
+          Шпоргалка
+        .col-sm-3
+          %i.fa.fa-money
+        .col-sm-3
+          Дата загрузки
+      %hr
       - @upload_files.each do |file|
         .row
           .col-sm-6
@@ -12,12 +20,23 @@
           .col-sm-3
             = number_to_currency file.amount.to_f.round(2)
           .col-sm-3
-            = file.created_at.to_s(:long)
+            = l file.created_at, format: "%e/%b/%Y"
       %hr
       .row
         .col-sm-6
-          .pull-right Total:
+          .pull-right Суммарно:
         .col-sm-3
           = number_to_currency current_user.total_amount.to_f.round(2)
+      %hr
+
+      .earns-cta
+        %p
+          После того как у вас суммарно наберется
+          %strong 5$
+          %span вы можете связаться с нами
+          %strong shpora@gmail.com
+          %span и мы удобным для вас способом перечислим вам ваши заработанные деньги.
+        %p._text-muted
+          Перед начислением денег, админом будут проверены все файлы на уникальность.
     - else
       %p Заработок не найден
