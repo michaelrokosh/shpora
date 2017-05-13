@@ -3,7 +3,7 @@
   = hidden_field_tag :aws_data, upload_form.fields.to_json
 
   .input-field.hidden_fields
-    = file_field_tag :upload_files, multiple: true, name: 'upload_files[]', data: { username: default_user.username }
+    = file_field_tag :upload_files, name: 'upload_files[]', data: { username: default_user.username }
   #upload-preview
     .upload-cover
       #uploader-zone
