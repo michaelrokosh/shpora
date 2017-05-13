@@ -1,0 +1,23 @@
+= content_for(:title, "Заработок #{current_user.username} | shpora.me")
+
+.row.user-page
+  .user_pages.col-xs-12
+    %h1 Мой Зароботок
+    %hr
+    - if @upload_files.any?
+      - @upload_files.each do |file|
+        .row
+          .col-sm-6
+            = link_to file.title, user_page_path(current_user, file)
+          .col-sm-3
+            = number_to_currency file.amount.to_f.round(2)
+          .col-sm-3
+            = file.created_at.to_s(:long)
+      %hr
+      .row
+        .col-sm-6
+          .pull-right Total:
+        .col-sm-3
+          = number_to_currency current_user.total_amount.to_f.round(2)
+    - else
+      %p Заработок не найден

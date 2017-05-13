@@ -14,7 +14,7 @@ class Page < ActiveRecord::Base
   after_save :set_url, if: :url_blannk?
 
   after_create :set_content, unless: :file_url_blank?
-  after_create :set_source
+  after_create :update_total_amount, unless: :amount_nil?
 
   default_scope { order(created_at: :desc) }
 
@@ -30,6 +30,15 @@ class Page < ActiveRecord::Base
 
   private
 
+  def amount_nil?
+    amount.nil?
+  end
+
+  def update_total_amount
+    total_amount = user.total_amount.to_i + amount
+    user.update(total_amount: total_amount)
+  end
+
   def url_blannk?
     url.blank?
   end
@@ -40,10 +49,6 @@ class Page < ActiveRecord::Base
 
   def file_url_blank?
     file_url.blank?
-  end
-
-  def set_source
-    self.source = file_url ? 'uploader' : 'form'
   end
 
   def set_content

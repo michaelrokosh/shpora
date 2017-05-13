@@ -25,6 +25,7 @@ Shpora::Application.routes.draw do
     end
   end
 
+  resources :earns, only: :index
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
   resources :pages, only: [:new, :index, :create, :update], concerns: [:searchable]

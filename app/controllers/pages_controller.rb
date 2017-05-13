@@ -61,7 +61,7 @@ class PagesController < ApplicationController
   def page_params
     params.require(:page)
           .permit(:content, :title, :url, :tag_list, :file_url)
-          .merge(user_id: current_user.id)
+          .merge(user_id: current_user.id, source: 2)
   end
 
   def resolve_layout
