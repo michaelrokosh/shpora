@@ -13,6 +13,8 @@ class Page < ActiveRecord::Base
 
   after_save :set_url, if: :url_blannk?
 
+  before_save :strip_url
+
   after_create :set_content, unless: :file_url_blank?
   after_create :set_source
 
@@ -30,12 +32,17 @@ class Page < ActiveRecord::Base
 
   private
 
+  def strip_url
+    self.url = url.gsub(/\s+/, "")&.strip
+  end
+
   def url_blannk?
     url.blank?
   end
 
   def set_url
-    self.update(url: "#{title}-#{id}")
+    parsed_title = title&.gsub(/\s+/, "")&.strip
+    self.update(url: "#{parsed_title}-#{id}")
   end
 
   def file_url_blank?
