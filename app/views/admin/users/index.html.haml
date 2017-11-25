@@ -8,12 +8,11 @@
   = f.search_field :username_or_email_cont, placeholder: I18n.t('labels.search'), class: 'form-control'
   ._m-t-md= f.submit I18n.t('labels.search'), class: 'btn btn-info'
 %hr
+.alert.alert-danger
+  Pls.! Coordinate before start doing that!
+  %p
+    = link_to 'Send news about money earning to all users', news_admin_users_path, class: 'btn btn-danger'
 %table.table.table-hover.table-stripped
-  %thead
-    %th
-    %th Join at
-    %th Reg Type
-    %th
   %tbody
     - @users.each do |user|
       %tr
@@ -23,10 +22,13 @@
           = user.email
         %td= user.created_at.to_s(:long)
         %td= user.provider
-        %td
+        %td.small
           - if current_user != user
-            = link_to 'Relogin', relogin_admin_user_path(user), class: 'btn btn-info'
-            = link_to admin_user_path(user), method: :delete, class: '' do
+            = link_to relogin_admin_user_path(user), title: 'Relogin' do
+              %i.fa.fa-user-secret
+            = link_to earn_money_news_admin_user_path(user) do
+              %i.fa.fa-paper-plane
+            = link_to admin_user_path(user), method: :delete do
               %i.fa.fa-trash
   %hr
 = will_paginate @users
