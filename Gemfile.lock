@@ -364,7 +364,7 @@ DEPENDENCIES
   yomu
 
 RUBY VERSION
-   ruby 2.3.2p217
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.14.6

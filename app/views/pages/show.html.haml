@@ -1,4 +1,4 @@
-= content_for(:title, 'Шпаргалка ' + @page.title + ' | shpora.me')
+= content_for(:title, 'Шпаргалка ' + @page&.title + ' | shpora.me')
 .title
   - unless user_signed_in?
     .introduction

@@ -12,6 +12,8 @@ class Page < ActiveRecord::Base
 
   after_save :set_url, if: :url_blannk?
 
+  before_save :strip_url
+
   after_create :set_content, unless: :file_url_blank?
   after_create :update_total_amount, unless: :amount_nil?
 
@@ -38,12 +40,17 @@ class Page < ActiveRecord::Base
     user.update(total_amount: total_amount)
   end
 
+  def strip_url
+    self.url = url&.gsub(/\s+/, "")&.strip
+  end
+
   def url_blannk?
     url.blank?
   end
 
   def set_url
-    self.update(url: "#{title}-#{id}")
+    parsed_title = title&.gsub(/\s+/, "")&.strip || 'Unnamed'
+    self.update(url: "#{parsed_title}-#{id}")
   end
 
   def file_url_blank?
