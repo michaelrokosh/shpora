@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :async,
          :recoverable, :rememberable, :trackable, :omniauthable,
          omniauth_providers: [:facebook, :vkontakte, :google_oauth2]
 

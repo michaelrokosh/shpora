@@ -8,20 +8,25 @@
   = f.search_field :username_or_email_cont, placeholder: I18n.t('labels.search'), class: 'form-control'
   ._m-t-md= f.submit I18n.t('labels.search'), class: 'btn btn-info'
 %hr
-- @users.each do |user|
-  .row
-    .col-sm-4
-      %strong= link_to user.username, admin_user_path(user)
-      %br
-      = user.email
-    .col-sm-4
-      = user.created_at.to_s(:long)
-    .col-sm-2
-      = user.provider
-    .col-sm-2
-      - if current_user != user
-        = link_to 'Relogin', relogin_admin_user_path(user), class: 'btn btn-info'
-        = link_to admin_user_path(user), method: :delete, class: 'btn btn-danger _center' do
-          %i.fa.fa-trash
+%table.table.table-hover.table-stripped
+  %thead
+    %th
+    %th Join at
+    %th Reg Type
+    %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td
+          %strong= link_to user.username, admin_user_path(user)
+          %br
+          = user.email
+        %td= user.created_at.to_s(:long)
+        %td= user.provider
+        %td
+          - if current_user != user
+            = link_to 'Relogin', relogin_admin_user_path(user), class: 'btn btn-info'
+            = link_to admin_user_path(user), method: :delete, class: '' do
+              %i.fa.fa-trash
   %hr
 = will_paginate @users

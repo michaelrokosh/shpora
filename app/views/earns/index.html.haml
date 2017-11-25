@@ -20,7 +20,7 @@
           .col-sm-3
             = number_to_currency file.amount.to_f.round(2)
           .col-sm-3
-            = l file.created_at, format: "%e/%b/%Y"
+            = l file.created_at, format: '%d/%m/%Y'
       %hr
       .row
         .col-sm-6
@@ -36,7 +36,10 @@
           %span вы можете связаться с нами
           %strong shpora@gmail.com
           %span и мы удобным для вас способом перечислим вам ваши заработанные деньги.
-        %p._text-muted
-          Перед начислением денег, админом будут проверены все файлы на уникальность.
+        %h4
+          Перед начислением денег, админом будут проверены все файлы на
+          %strong.h3
+            уникальность
+          !!
     - else
       %p Заработок не найден
