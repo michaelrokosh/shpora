@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by(url: params[:id])
-    @user = @page.user
+    @user = @page&.user
   end
 
   def new
