@@ -39,8 +39,8 @@ Shpora::Application.configure do
     address: 'smtp.gmail.com',
     port: '587',
     enable_starttls_auto: true,
-    user_name: ENV['GMAIL_USERNAME'],
-    password: ENV['GMAIL_PASSWORD'],
+    user_name: ENV['GMAIL_USERNAME_SHPORA'],
+    password: ENV['GMAIL_PASSWORD_SHPORA'],
     authentication: :plain,
     domain: 'shpora.me'
   }
