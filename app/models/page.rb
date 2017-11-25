@@ -33,7 +33,7 @@ class Page < ActiveRecord::Base
   private
 
   def strip_url
-    self.url = url.gsub(/\s+/, "")&.strip
+    self.url = url&.gsub(/\s+/, "")&.strip
   end
 
   def url_blannk?
@@ -41,7 +41,7 @@ class Page < ActiveRecord::Base
   end
 
   def set_url
-    parsed_title = title&.gsub(/\s+/, "")&.strip
+    parsed_title = title&.gsub(/\s+/, "")&.strip || 'Unnamed'
     self.update(url: "#{parsed_title}-#{id}")
   end
 
