@@ -31,6 +31,8 @@ Shpora::Application.configure do
   config.action_mailer.default_url_options = { host: 'shpora.me' }
   config.log_formatter = ::Logger::Formatter.new
 
+  config.action_mailer.default_options = { from: 'no-reply@shpora.me' }
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
