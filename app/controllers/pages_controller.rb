@@ -10,17 +10,15 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by(url: params[:id])
-    @user = User.find_by(username: params[:user_id])
+    @user = @page.user
   end
 
   def new
     @page = Page.new
-    @user = User.find_by(username: params[:id])
   end
 
   def create
     @page = Page.new(page_params)
-    @user = User.find_by(username: params[:id])
     if @page.save
       redirect_to user_page_path(current_user, @page)
     else
