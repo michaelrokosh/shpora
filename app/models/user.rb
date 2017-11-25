@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :async,
          :recoverable, :rememberable, :trackable, :omniauthable,
          omniauth_providers: [:facebook, :vkontakte, :google_oauth2]
 
@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
   end
 
   def to_param
+    username
+  end
+
+  def to_s
     username
   end
 end

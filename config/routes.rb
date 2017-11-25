@@ -22,9 +22,17 @@ Shpora::Application.routes.draw do
     resources :pages, except: [:new, :create], concerns: [:searchable]
     resources :users, only: [:index, :show, :destroy], concerns: [:searchable] do
       get :relogin, action: :relogin, on: :member
+      get :earn_money_news, action: :earn_money_news, on: :member
+      collection do
+        get :news
+      end
+      member do
+        get :relogin, :earn_money_news
+      end
     end
   end
 
+  resources :earns, only: :index
   resources :uploads, only: :create
   resources :tags, only: [:index, :show]
   resources :pages, only: [:new, :index, :create, :update], concerns: [:searchable]

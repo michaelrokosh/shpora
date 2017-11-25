@@ -9,14 +9,13 @@ class Page < ActiveRecord::Base
 
   validates :title, presence: true
   validate :validate_tag
-  # validate :file_uniqueness
 
   after_save :set_url, if: :url_blannk?
 
   before_save :strip_url
 
   after_create :set_content, unless: :file_url_blank?
-  after_create :set_source
+  after_create :update_total_amount, unless: :amount_nil?
 
   default_scope { order(created_at: :desc) }
 
@@ -31,6 +30,15 @@ class Page < ActiveRecord::Base
   end
 
   private
+
+  def amount_nil?
+    amount.nil?
+  end
+
+  def update_total_amount
+    total_amount = user.pages.sum(:amount)
+    user.update(total_amount: total_amount)
+  end
 
   def strip_url
     self.url = url&.gsub(/\s+/, "")&.strip
@@ -49,17 +57,7 @@ class Page < ActiveRecord::Base
     file_url.blank?
   end
 
-  def set_source
-    self.source = file_url ? 'uploader' : 'form'
-  end
-
   def set_content
     SetPageContent.delay.call(page: self, file_url: file_url)
-  end
-
-  def file_uniqueness
-    if Page.exists?(title: title, filesize: filesize)
-      errors.add(:file, " #{title} already exists!")
-    end
   end
 end

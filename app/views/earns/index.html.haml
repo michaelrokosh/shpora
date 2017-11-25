@@ -1,0 +1,45 @@
+= content_for(:title, "Заработок #{current_user.username} | shpora.me")
+
+.row.user-page
+  .user_pages.col-xs-12
+    %h1 Мой Зароботок
+    %hr
+    - if @upload_files.any?
+      .row.visible-md-up
+        .col-sm-6
+          Шпоргалка
+        .col-sm-3
+          %i.fa.fa-money
+        .col-sm-3
+          Дата загрузки
+      %hr
+      - @upload_files.each do |file|
+        .row
+          .col-sm-6
+            = link_to file.title, user_page_path(current_user, file)
+          .col-sm-3
+            = number_to_currency file.amount.to_f.round(2)
+          .col-sm-3
+            = l file.created_at, format: '%d/%m/%Y'
+      %hr
+      .row
+        .col-sm-6
+          .pull-right Суммарно:
+        .col-sm-3
+          = number_to_currency current_user.total_amount.to_f.round(2)
+      %hr
+
+      .earns-cta
+        %p
+          После того как у вас суммарно наберется
+          %strong 5$
+          %span вы можете связаться с нами
+          %strong shpora@gmail.com
+          %span и мы удобным для вас способом перечислим вам ваши заработанные деньги.
+        %h4
+          Перед начислением денег, админом будут проверены все файлы на
+          %strong.h3
+            уникальность
+          !!
+    - else
+      %p Денег пока нет.

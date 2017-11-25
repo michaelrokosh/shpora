@@ -10,6 +10,17 @@ class Admin::UsersController < Admin::BaseController
     @user = User.find_by(username: params[:id])
   end
 
+  def earn_money_news
+    user = User.find_by(username: params[:id])
+    UserMailer.earn_money(user.id).deliver_later
+    redirect_to admin_users_path, notice: "Email has been sent to #{user.username}"
+  end
+
+  def news
+    User.find_each { |user| UserMailer.earn_money(user.id).deliver_later }
+    redirect_to admin_users_path, notice: "Emails gone."
+  end
+
   def relogin
     user = User.find_by(username: params[:id])
     sign_out current_user
