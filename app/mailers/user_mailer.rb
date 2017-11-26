@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
     mail(
       to: @user.email,
       from: 'no-reply@shpora.me',
-      subject: 'Awesome news! Earn money with us!'
+      subject: 'Потрясающие новости! Заработайте деньги у нас.'
     )
   end
 end

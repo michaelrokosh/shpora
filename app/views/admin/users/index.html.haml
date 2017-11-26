@@ -10,9 +10,8 @@
 %hr
 .alert.alert-danger
   Pls.! Coordinate before start doing that!
-  - if false
-    %p
-      = link_to 'Send news about money earning to all users', news_admin_users_path, class: 'btn btn-danger'
+  %p
+    = link_to 'Send news about money earning to all users', news_admin_users_path, class: 'btn btn-danger'
 %table.table.table-hover.table-stripped
   %tbody
     - @users.each do |user|
