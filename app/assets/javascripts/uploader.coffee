@@ -93,7 +93,7 @@ initUploadForm = ->
       $('#upload-preview').addClass('success-upload')
 
       self = this;
-      setTimeout(-> 
+      setTimeout(->
         $('#uploader-start').removeClass('_hidden')
         $('#uploader-done').addClass('_hidden')
         $('#upload-preview').removeClass('success-upload')

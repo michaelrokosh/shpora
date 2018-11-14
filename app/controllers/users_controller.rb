@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:id])
+
+    respond_to do |f|
+      f.html
+    end
   end
 
   def search

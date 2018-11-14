@@ -9,8 +9,9 @@ class Page < ActiveRecord::Base
 
   validates :title, presence: true
   validate :validate_tag
+  validates :content, uniqueness: true
 
-  after_save :set_url, if: :url_blannk?
+  after_save :set_url, if: :url_blank?
 
   before_save :strip_url
 
@@ -44,7 +45,7 @@ class Page < ActiveRecord::Base
     self.url = url&.gsub(/\s+/, "")&.strip
   end
 
-  def url_blannk?
+  def url_blank?
     url.blank?
   end
 
