@@ -17,7 +17,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def news
-    User.find_each { |user| UserMailer.earn_money(user.id).deliver_later }
+    User.last(400).each { |user| UserMailer.earn_money(user.id).deliver_later }
     redirect_to admin_users_path, notice: "Emails gone."
   end
 
