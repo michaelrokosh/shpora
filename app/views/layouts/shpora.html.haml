@@ -6,6 +6,7 @@
     = csrf_meta_tags
     %link{href: "http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic", rel: "stylesheet", type: "text/css"}/
     %meta{content: "width=device-width, initial-scale=1, maximum-scale=1", name: "viewport", "user-scalable" => "no"}/
+    = render 'layouts/head_tag_manager'
     %title
       = yield(:title)
     %script
@@ -14,6 +15,7 @@
       b.getElementsByTagName("head")[0].appendChild(a)}var a=window,b=document;
       a.attachEvent?a.attachEvent("onload",c):a.addEventListener("load",c,!1)}();
   %body
+    = render 'layouts/body_tag_manager'
     = render 'layouts/header'
     .wrapper.col-xs-12.col-sm-12.col-md-12
       .starter-template.shpora-layout
