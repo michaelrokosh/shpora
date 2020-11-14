@@ -1,15 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.11.3'
 
-gem 'pg'
+gem 'pg', '0.21'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'thin'
-gem 'dotenv-rails', groups: [:development, :test]
 
 # services
 gem 'airbrake'
@@ -48,7 +47,7 @@ gem 'turbolinks', '~> 5.0.0'
 gem 'font-awesome-sass'
 gem 'google-webfonts'
 gem 'haml-rails'
-gem 'ckeditor_rails'
+gem 'ckeditor_rails', '4.5.10'
 gem 'will_paginate'
 gem 'acts-as-taggable-on'
 gem 'newrelic_rpm'
@@ -59,6 +58,8 @@ group :production do
   gem 'rails_12factor'
   gem 'letsencrypt-rails-heroku'
 end
+
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'better_errors'
