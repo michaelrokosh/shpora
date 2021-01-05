@@ -40,7 +40,6 @@ gem 'koala'
 gem 'omniauth'
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-facebook'
-gem 'omniauth-vkontakte'
 gem 'omniauth-google-oauth2'
 
 gem 'turbolinks', '~> 5.0.0'
