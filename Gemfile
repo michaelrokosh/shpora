@@ -10,6 +10,8 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'thin'
 
+gem 'simple_captcha2', require: 'simple_captcha'
+
 # services
 gem 'airbrake'
 gem 'redis-rails'

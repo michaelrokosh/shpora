@@ -82,3 +82,10 @@ ru:
     facebook: 'Facebook'
     google: 'Google Plus'
     vkontakte: 'VK'
+  simple_captcha:
+    placeholder: "Код"
+    label: ""
+    refresh_button_text: "Обновить"
+    message:
+      default: "Секретный код не соответствует изображению"
+      user: "Секретное изображение и код были разными"

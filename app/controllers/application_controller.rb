@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include SimpleCaptcha::ControllerHelpers
+
   protect_from_forgery with: :exception
 
   before_filter :subdomain_view_path

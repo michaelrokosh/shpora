@@ -8,7 +8,7 @@ Shpora::Application.routes.draw do
   get ':user_id/favorites', to: 'favorites#index', as: :favorites
   get '/robots.txt', to: 'robots#robots'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'callbacks', registrations: 'users/registrations' }
 
   concern :searchable do
     get :search, action: :index, on: :collection

@@ -7,6 +7,21 @@ a {
   font-family: serif;
 }
 
+.alert {
+  text-align: left !important;
+  position: relative;
+  padding: 5px 3px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+
+  &.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+}
+
 header {
   position: absolute;
   width: 100%;

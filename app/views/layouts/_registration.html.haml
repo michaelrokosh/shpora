@@ -15,4 +15,9 @@
       %span.input-group-addon
         %i.fa.fa-key
       = f.password_field :password, placeholder: t('activerecord.attributes.user.password'), class: 'form-control'
+  %p
+    - flash.each do |_, value|
+      .alert.alert-error
+        %small= value
+    = show_simple_captcha
   %p= f.submit 'Зарегистрироватся', class: 'btn btn-default'
