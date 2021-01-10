@@ -89,3 +89,7 @@ ru:
     message:
       default: "Секретный код не соответствует изображению"
       user: "Секретное изображение и код были разными"
+  devise:
+    sessions:
+        signed_in: 'Signed in successfully.'
+        signed_out: ''
