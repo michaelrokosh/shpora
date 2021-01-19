@@ -26,6 +26,6 @@
   %p
     = f.label :tags
     %br
-    = f.text_field :tag_list, class: 'form-control tagsinput'
+    = f.text_field :tag_list, data: { role: 'tagsinput' }
     %br
     = f.submit "Готово", class: 'btn btn-default'
