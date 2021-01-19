@@ -8,7 +8,6 @@ Bundler.require(:default, Rails.env)
 
 module Shpora
   class Application < Rails::Application
-
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ru
     config.encoding = "utf-8"
