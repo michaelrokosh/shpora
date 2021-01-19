@@ -1,5 +1,5 @@
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "http://shpora.me"
+SitemapGenerator::Sitemap.default_host = "https://shpora.me"
 
 SitemapGenerator::Sitemap.create do
   Page.find_each do |page|
