@@ -248,7 +248,7 @@ GEM
       i18n
     rate_throttle_client (0.1.2)
     rbtree3 (0.6.0)
-    rdoc (6.2.0)
+    rdoc (6.3.2)
     redis (4.2.2)
     redis-actionpack (5.1.0)
       actionpack (>= 4.0, < 7)
